@@ -786,7 +786,7 @@ body {
   background: #222;
 }
 .header {
-  background: #fff;
+  background: #6995eb;
 }
 .header-inner {
   position: relative;
@@ -886,7 +886,7 @@ body {
 }
 .menu .menu-item a {
   display: block;
-  font-size: 13px;
+  font-size: 15px;
   text-transform: capitalize;
   line-height: 1.5;
   border-bottom: 1px solid transparent;
@@ -1055,7 +1055,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cdffdf;
+  background: #308f3c;
 }
 .sidebar-nav {
   margin: 0;
@@ -1138,7 +1138,7 @@ body {
 }
 .footer {
   font-size: 14px;
-  color: #999;
+  color: #ff2a2a;
 }
 .footer img {
   border: none;

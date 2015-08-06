@@ -256,41 +256,23 @@
 
       
         
-          <span itemprop="articleBody"><blockquote>
-<p>ConsoleZ是一款Windows下非常好用的控制台。作为Console2的fork版本，对Windows Vista/7/8支持的更好。作为CMD的长期用户，今天也可以感受一下带颜色Console的幸福感！下面记录了其配置过程。</p>
-</blockquote>
-<h2 id="下载地址">下载地址</h2><p>作者原版<a href="https://github.com/cbucher/console/wiki/Downloads" target="_blank" rel="external">GitHub下载</a></p>
-<h2 id="排版错乱">排版错乱</h2><p>首次使用时，会出现界面错乱情况。<br>解决办法：菜单-view–Console Window，弹出CMD窗口，将属性-字体修改为<strong>新宋体</strong>。</p>
-<h2 id="集成Git_bash">集成Git bash</h2><p>在Windows下，使用Git bash，由于支持Linux命令，使用起来非常方便。把Git bash集成到ConsoleZ中，体验更好。<br>操作：菜单-Edit-Console-Shell，添加git的shell目录，如<code>H:\Git\bin\sh.exe --login -i</code>，重新启动后，就会看到熟悉的Git bash了。</p>
-<p>遇到Git bash中文显示乱码解决办法：Git目录下 在文件/etc/git-completion.bash末尾添加<code>alias ls=&#39;ls --show-control-chars --color=auto&#39;</code>即可解决。</p>
-<h2 id="设置鼠标右键">设置鼠标右键</h2><p>设置鼠标右键快捷方式，可以快速的在相应目录下打开Console，避免了繁琐的<em>cd</em>命令进入目录。共有两种快捷方式，第一种在空白处打开Console，位置在当前目录。第二种文件夹右键，位置在该文件夹下。</p>
-<h3 id="空白处右键设置">空白处右键设置</h3><p>打开注册表编辑器（运行 - regedit），定位到HKEY_CLASSES_ROOT\Directory\Background\shell，右键-新建-项Console，其数据值（右键显示的名称）任意填写，例如：<code>在此处打开Console</code>，在Console下新建项command，数据值为Console.exe的路径，例如：<code>C:\ConsoleZ\Console.exe</code> 这时在任意空白处右键，就会看到<code>在此处打开Console</code>，点击便会在当前目录下打开Console。</p>
-<h3 id="文件夹右键设置">文件夹右键设置</h3><p>注册表编辑器，定位HKEY_CLASSES_ROOT\Directory\shell，新建项目Console，值设置为Console Here，在Console下新建项目Command，值设置为<code>&quot;C:\Windows\SysWOW64\wscript&quot; &quot;C:\ConsoleZ\ConsoleZ.vbs&quot; &quot;%v&quot;</code>，其中ConsoleZ.vbs内容如下：</p>
-<pre><code><span class="keyword">Set</span> fso = <span class="built_in">CreateObject</span>(<span class="string">"Scripting.FileSystemObject"</span>)
-<span class="keyword">Set</span> shell = <span class="built_in">CreateObject</span>(<span class="string">"WScript.Shell"</span>)
+          <span itemprop="articleBody">
+            
+            
+ConsoleZ是一款Windows下非常好用的控制台。作为Console2的fork版本，对Windows Vista/7/8支持的更好。作为CMD的长期用户，今天也可以感受一下带颜色Console的幸福感！下面记录了其配置过程。
 
-<span class="keyword">Const</span> TemporaryFolder = <span class="number">2</span>
-linkfile = fso.BuildPath(fso.GetSpecialFolder(TemporaryFolder), <span class="string">"Console.exe.lnk"</span>)
-gitdir = fso.GetParentFolderName(WScript.ScriptFullName)
-
-<span class="comment">'Dynamically create a shortcut with the current directory as the working directory.</span>
-<span class="keyword">Set</span> link = shell.CreateShortcut(linkfile)
-link.TargetPath = fso.BuildPath(gitdir, <span class="string">"Console.exe"</span>)
-<span class="keyword">If</span> WScript.Arguments.Length &gt; <span class="number">0</span> <span class="keyword">Then</span> link.WorkingDirectory = WScript.Arguments(<span class="number">0</span>)
-link.Save
-
-<span class="keyword">Set</span> app = <span class="built_in">CreateObject</span>(<span class="string">"Shell.Application"</span>)
-app.ShellExecute linkfile
-</code></pre><p>!注意自己的目录</p>
-<h2 id="样式设置">样式设置</h2><h3 id="字体">字体</h3><p>菜单-Edit-Settings(快捷键CTRL+S)打开设置窗口。Appearance-Font，可以设定字体样式和大小。这里根据网友的建议和自己的调整，设置为name：Consolas，size：10<br><img src="http://7xjwd1.com1.z0.glb.clouddn.com/ConsoleZ-1.png" alt=""></p>
-<h3 id="背景透明度">背景透明度</h3><p>背景颜色设定，在设置窗口中Tabs-Backgroud-Solid，配色方案为红45绿52蓝54。<br>透明度设定，在Styles-Window transparency中，选择Alpha样式。其中Active window设定20，Inactive window设定为50.<br><img src="http://7xjwd1.com1.z0.glb.clouddn.com/ConsoleZ-2.png" alt=""></p>
-<h3 id="快捷键">快捷键</h3><p>在设置窗口中Mouse是鼠标快捷键，平常最常用的就是复制粘贴，可以更改为自己习惯的方式，但是千万别设置为右键，因为右键的功能是显示菜单功能，否则会冲突，只能更改配置文件。</p>
-<h3 id="工具栏隐藏">工具栏隐藏</h3><p>对于使用快捷键来说，ConsoleZ上面的菜单栏、工具栏、搜索栏与整体风格显得格格不入。可以选择不显示这些。操作：菜单-view，建议留下状态栏，其他取消。下次访问菜单，可以右键。<br>整体效果图<br><img src="http://7xjwd1.com1.z0.glb.clouddn.com/ConsoleZ-3.jpg" alt=""></p>
-<h2 id="Alias设置">Alias设置</h2><p>有一些常用的命令并且很长，每次补全很繁琐。可以把自己的命令起个别名。比如把notepad++.exe简为n、MarkdownPad2.exe简为m。在Git目录下 在文件/etc/git-completion.bash末尾添加即可。如：</p>
-<pre><code><span class="built_in">alias</span> m=<span class="string">'MarkdownPad2.exe'</span>
-<span class="built_in">alias</span> n=<span class="string">'notepad++.exe'</span>
-</code></pre><h2 id="个人修改版下载">个人修改版下载</h2><p>个人版<a href="https://github.com/Fenguopeng/ConsoleZ-per/" target="_blank" rel="external">Github下载</a><br>说明：修改ConsoleZ.reg文件,路径修复为自己本地实际路径，运行reg文件即可添加注册表。</p>
-</span>
+下载地址作者原版GitHub下载
+排版错乱首次使用时，会出现界面错乱情况。解决办法：菜单-view–Console Window，弹出CMD窗口，将属性-字体修改为新宋体。
+集成Git bash在Windows下，使用Git bash，由于支持Linux命令，使用起来非常方便。把Git bash集成到ConsoleZ中，体验更好。操作：菜单-Edit-Console-Shell，添加git的shell目录，如H:\Git\bin\sh.exe --login -i，重新启动后，就会看到熟悉的Git bash了。
+遇到Git bash中文显示乱码解决办法：Git目录下 在文件/etc/git-completion.bash末尾添加alias ls=&#39;ls --show-control-chars --color=auto&#39;即可解决。
+设置
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/06/ConsoleZ-Setings/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -358,84 +340,16 @@ app.ShellExecute linkfile
 
       
         
-          <span itemprop="articleBody"></span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
+          <span itemprop="articleBody">
             
-              <a class="post-title-link" href="/2015/08/05/hello-world/" itemprop="url">
-                Hello World
-              </a>
             
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-05T08:39:11+08:00" content="2015-08-05">
-            2015-08-05
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/05/hello-world/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/05/hello-world/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-</span>
+            
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/05/利用Hexo在VPS部署博客过程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -488,7 +402,7 @@ app.ShellExecute linkfile
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -530,6 +444,10 @@ app.ShellExecute linkfile
             
               <span class="links-of-author-item">
               <a href="http://msf.neargle.com" target="_blank">MSF@ZUT</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.mtfly.net" target="_blank">Mtfly</a>
               </span>
             
           
