@@ -782,7 +782,7 @@ body {
   width: 700px;
 }
 .headband {
-  height: 3px;
+  height: 30px;
   background: #222;
 }
 .header {
@@ -935,7 +935,7 @@ body {
   vertical-align: top;
   height: 2px;
   width: 100%;
-  background: #fff;
+  background: #87daff;
   margin-top: 3px;
 }
 .sidebar-toggle-line:first-child {
@@ -972,7 +972,7 @@ body {
 .sidebar-inner {
   position: relative;
   padding: 20px 10px;
-  color: #999;
+  color: #f5f5f5;
   text-align: center;
 }
 .site-author-image {
@@ -990,7 +990,7 @@ body {
 .site-description {
   margin-top: 5px;
   font-size: 14px;
-  color: #555;
+  color: #bbb;
 }
 .site-state {
   overflow: hidden;
@@ -1055,7 +1055,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff2ff;
+  background: #d7a134;
 }
 .sidebar-nav {
   margin: 0;
@@ -1601,7 +1601,7 @@ body {
   height: 13px;
   padding: 5px;
   background: #222;
-  color: #fff;
+  color: #87daff;
   cursor: pointer;
   -webkit-transform: translateZ(0);
 }
@@ -1920,7 +1920,7 @@ ul li {
   display: none;
 }
 .header {
-  background: rgba(47,160,128,0.09);
+  background: #87daff;
 }
 .header-inner {
   margin-bottom: 80px;
@@ -2041,7 +2041,7 @@ ul li {
   }
 }
 .menu .menu-item a:hover {
-  background: #e1e1e1;
+  background: #06a6fe;
 }
 .menu a::before {
   display: none;
@@ -2175,7 +2175,7 @@ ul li {
 .footer {
   margin-top: 80px;
   padding: 10px 0;
-  background: rgba(47,160,128,0.09);
+  background: #87daff;
   color: #666;
 }
 .footer-inner {
