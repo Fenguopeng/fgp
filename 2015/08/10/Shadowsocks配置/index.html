@@ -44,7 +44,7 @@
 <meta property="og:site_name" content="F.G.P Notes">
 <meta property="og:description" content="Shadowsocks一个可穿透防火墙的快速代理。本文以CentOS 7作为服务器，Windows+Chrome为客户端组合，进行完整的叙述SS的配置使用。">
 <meta property="og:image" content="http://7xjwd1.com1.z0.glb.clouddn.com/Shadowsocks-1.png">
-<meta property="og:updated_time" content="2015-08-12T02:27:37.787Z">
+<meta property="og:updated_time" content="2015-08-12T09:28:41.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadowsocks配置">
 <meta name="twitter:description" content="Shadowsocks一个可穿透防火墙的快速代理。本文以CentOS 7作为服务器，Windows+Chrome为客户端组合，进行完整的叙述SS的配置使用。">
@@ -257,7 +257,7 @@
 <p>一个可穿透防火墙的快速代理。本文以CentOS7作为服务器，Windows+Chrome为客户端组合，进行完整的叙述SS的配置使用。</p>
 </blockquote>
 <h2 id="服务端">服务端</h2><p>敬请参考Github开源项目的说明，作者叙述的非常详细，参考官方的说明，对学习是一件好事。传送门 <a href="https://github.com/shadowsocks/shadowsocks" target="_blank" rel="external">Github项目</a> <a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="external">中文使用说明</a></p>
-<h3 id="安装">安装</h3><p>CentOS:<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> python-setuptools &amp;&amp; easy_install pip</span><br><span class="line">pip <span class="keyword">install</span> shadowsocks</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装">安装</h3><p>CentOS:<br><code>yum install python-setuptools &amp;&amp; easy_install pip</code><br><code>pip install shadowsocks</code></p>
 <p><a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="external">其他系统</a></p>
 <h3 id="配置文件">配置文件</h3><p>新建配置文件<code>/etc/shadowsocks.json</code>,例如：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	"<span class="attribute">server</span>":<span class="value"><span class="string">"my_server_ip"</span></span>,</span><br><span class="line">	"<span class="attribute">server_port</span>":<span class="value"><span class="number">8388</span></span>,</span><br><span class="line">	"<span class="attribute">local_address</span>": <span class="value"><span class="string">"127.0.0.1"</span></span>,</span><br><span class="line">	"<span class="attribute">local_port</span>":<span class="value"><span class="number">1080</span></span>,</span><br><span class="line">	"<span class="attribute">password</span>":<span class="value"><span class="string">"mypassword"</span></span>,</span><br><span class="line">	"<span class="attribute">timeout</span>":<span class="value"><span class="number">300</span></span>,</span><br><span class="line">	"<span class="attribute">method</span>":<span class="value"><span class="string">"aes-256-cfb"</span></span>,</span><br><span class="line">	"<span class="attribute">fast_open</span>": <span class="value"><span class="literal">false</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
 <p>参数说明：</p>
@@ -304,8 +304,7 @@
 </tbody>
 </table>
 <p> <strong>建议</strong>：不要使用默认的8388端口，可以更改为其他未被占用的端口。   </p>
-<h3 id="运行">运行</h3><p>前台运行\重启\停止：<br><figure class="highlight"><figcaption><span>-c</span><a href="/etc/sshadowsocks.json">start\resatrt\stop```</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#21518;&#21488;&#36816;&#34892;&#37325;&#21551;\&#20572;&#27490;&#65306;&#10;```ssserver -c /etc/sshadowsocks.json start\restart\stop</span><br></pre></td></tr></table></figure></p>
-<p>其中-c选项指定配置文件，同样可以使用-h选项查看帮助</p>
+<h3 id="运行">运行</h3><p>前台运行\重启\停止：<br><code>ssserver -c /etc/sshadowsocks.json start\resatrt\stop</code><br>后台运行重启\停止：<br><code>ssserver -c /etc/sshadowsocks.json start\restart\stop</code><br>其中-c选项指定配置文件，同样可以使用-h选项查看帮助</p>
 <h3 id="添加开机启动">添加开机启动</h3><p>当服务器重启后，需要手动开启服务。为了方便，我们添加开机启动。当然，本方法是在CentOS 7下利用systemctl的特性进行设定的。同样本方法也可以在CentOS 7 中添加自定义的其他服务。<br><strong>新建文件</strong> /lib/systemd/system/shadowsocks.service，内容如下：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">[Unit]</span>  </span><br><span class="line"><span class="setting">Description=<span class="value">shadowsocks  </span></span></span><br><span class="line"><span class="setting">After=<span class="value">network.target</span></span></span><br><span class="line"><span class="title">   </span><br><span class="line">[Service]</span>  </span><br><span class="line"><span class="setting">Type=<span class="value">forking  </span></span></span><br><span class="line"><span class="setting">PIDFile=<span class="value">/run/shadowsocks.pid</span></span></span><br><span class="line"><span class="setting">PermissionsStartOnly=<span class="value"><span class="keyword">true</span></span></span></span><br><span class="line"><span class="setting">ExecStart=<span class="value">/usr/bin/ssserver --pid-file /run/shadowsocks.pid -c /etc/shadowsocks.json -d start</span></span></span><br><span class="line"><span class="setting">Restart=<span class="value"><span class="keyword">on</span>-abort</span></span></span><br><span class="line"><span class="title">   </span><br><span class="line">[Install]</span>  </span><br><span class="line"><span class="setting">WantedBy=<span class="value">multi-user.target</span></span></span><br></pre></td></tr></table></figure></p>
 <p><strong>添加启动项</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> shadowsocks.service</span><br></pre></td></tr></table></figure></p>
 <p><strong>查看启动状态</strong><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="keyword">is</span>-enabled shadowsocks.service</span><br></pre></td></tr></table></figure></p>
@@ -330,6 +329,8 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/12/Linux文件操作命令/" rel="prev">Linux文件操作命令</a>
             
           </div>
 
@@ -401,21 +402,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
