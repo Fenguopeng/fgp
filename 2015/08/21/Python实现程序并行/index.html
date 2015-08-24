@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="Python,并行,线程,进程," />
 
 
 
@@ -37,16 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="天道酬勤">
+<meta name="description" content="Python程序可以分为单进程、单线程、多进程、多线程程序。我们接触更多的是单进程多线程程序，即一个主进程中只有一个线程。当我们需要进行频繁的相似操作时，比如爬取分析1000个网页时，串行执行往往速度不尽人意。我们就要考虑把程序改造为多线程或者多进程多线程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用Hexo在VPS部署博客过程">
-<meta property="og:url" content="http://yoursite.com/2015/08/05/利用Hexo在VPS部署博客过程/index.html">
+<meta property="og:title" content="Python实现程序并行">
+<meta property="og:url" content="http://yoursite.com/2015/08/21/Python实现程序并行/index.html">
 <meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="天道酬勤">
-<meta property="og:updated_time" content="2015-08-05T13:16:29.625Z">
+<meta property="og:description" content="Python程序可以分为单进程、单线程、多进程、多线程程序。我们接触更多的是单进程多线程程序，即一个主进程中只有一个线程。当我们需要进行频繁的相似操作时，比如爬取分析1000个网页时，串行执行往往速度不尽人意。我们就要考虑把程序改造为多线程或者多进程多线程。">
+<meta property="og:updated_time" content="2015-08-21T13:57:39.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用Hexo在VPS部署博客过程">
-<meta name="twitter:description" content="天道酬勤">
+<meta name="twitter:title" content="Python实现程序并行">
+<meta name="twitter:description" content="Python程序可以分为单进程、单线程、多进程、多线程程序。我们接触更多的是单进程多线程程序，即一个主进程中只有一个线程。当我们需要进行频繁的相似操作时，比如爬取分析1000个网页时，串行执行往往速度不尽人意。我们就要考虑把程序改造为多线程或者多进程多线程。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title> 利用Hexo在VPS部署博客过程 | F.G.P Notes </title>
+  <title> Python实现程序并行 | F.G.P Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -202,7 +202,7 @@
           
           
             
-              利用Hexo在VPS部署博客过程
+              Python实现程序并行
             
           
         </h1>
@@ -211,19 +211,34 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-05T21:16:29+08:00" content="2015-08-05">
-            2015-08-05
+          <time itemprop="dateCreated" datetime="2015-08-21T09:34:29+08:00" content="2015-08-21">
+            2015-08-21
           </time>
         </span>
 
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Python/" itemprop="url" rel="index">
+                  <span itemprop="name">Python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
         
 
         
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/08/05/利用Hexo在VPS部署博客过程/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/05/利用Hexo在VPS部署博客过程/" itemprop="commentsCount"></span>
+              <a href="/2015/08/21/Python实现程序并行/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/21/Python实现程序并行/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -237,22 +252,37 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><h1 id="进程vs线程">进程vs线程</h1><h1 id="线程池">线程池</h1><h1 id="thread">thread</h1><p><a href="https://docs.python.org/2/library/thread.html#module-thread" target="_blank" rel="external">thread</a>官方文档描述非常简单，主要介绍其是多线程中低级的模块，提供了同步中的锁机制，建议使用threading模块，并介绍其包括的函数。通过thread和threading的使用对比，本人也强烈建议使用threading模块。<br>简要介绍thread模块的使用，其中最简单也是最常用的方法之一是thread.start_new_thread(<em>function</em>,<em>args[,kwargs]</em>),开启一个线程以args作为参数（必须为tuple类型）执行函数function，其中kwargs</p>
+<h1 id="threading">threading</h1></span>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/并行/" rel="tag">#并行</a>
+          
+            <a href="/tags/线程/" rel="tag">#线程</a>
+          
+            <a href="/tags/进程/" rel="tag">#进程</a>
+          
+        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/06/ConsoleZ-Setings/" rel="prev">ConsoleZ Setings</a>
+              <a href="/2015/08/23/urllib与urlib2的区别/" rel="prev">urllib与urllib2的学习</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/12/Linux文件操作命令/" rel="next">Linux文件操作命令</a>
             
           </div>
         </div>
@@ -277,8 +307,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/08/05/利用Hexo在VPS部署博客过程/"
-                   data-title="利用Hexo在VPS部署博客过程" data-url="http://yoursite.com/2015/08/05/利用Hexo在VPS部署博客过程/">
+              <div class="ds-thread" data-thread-key="2015/08/21/Python实现程序并行/"
+                   data-title="Python实现程序并行" data-url="http://yoursite.com/2015/08/21/Python实现程序并行/">
               </div>
             
           </div>
@@ -377,7 +407,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进程vs线程"><span class="nav-number">1.</span> <span class="nav-text">进程vs线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程池"><span class="nav-number">2.</span> <span class="nav-text">线程池</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#thread"><span class="nav-number">3.</span> <span class="nav-text">thread</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#threading"><span class="nav-number">4.</span> <span class="nav-text">threading</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
