@@ -43,7 +43,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/08/23/urllib与urlib2的区别/index.html">
 <meta property="og:site_name" content="F.G.P Notes">
 <meta property="og:description" content="学习python写爬虫，刚开始离不开urllib、urllib2两个和处理URL的相关的模块。每次写程序都要import这两个库，时间长了，总是在想，这两个库有什么区别？urllib2是urllib的升级版么？带着疑问，开始查看手册、查找资料。">
-<meta property="og:updated_time" content="2015-08-24T02:45:30.194Z">
+<meta property="og:updated_time" content="2015-08-24T03:15:37.351Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="urllib与urllib2的学习">
 <meta name="twitter:description" content="学习python写爬虫，刚开始离不开urllib、urllib2两个和处理URL的相关的模块。每次写程序都要import这两个库，时间长了，总是在想，这两个库有什么区别？urllib2是urllib的升级版么？带着疑问，开始查看手册、查找资料。">
@@ -404,7 +404,7 @@ Content-Language: zh-CN
 <p>运行结果如下：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">request.<span class="function"><span class="title">get_method</span><span class="params">()</span></span>:POST</span><br><span class="line">request.<span class="function"><span class="title">get_header</span><span class="params">(<span class="string">"Refer"</span>)</span></span>:www.<span class="number">123456</span><span class="class">.com</span></span><br><span class="line">request.<span class="function"><span class="title">has_data</span><span class="params">()</span></span>:True</span><br><span class="line">request.<span class="function"><span class="title">get_data</span><span class="params">()</span></span>:username=peter</span><br><span class="line">request.<span class="function"><span class="title">get_full_url</span><span class="params">()</span></span>:http:<span class="comment">//www.zut.edu.cn</span></span><br><span class="line">request.<span class="function"><span class="title">get_type</span><span class="params">()</span></span>:http</span><br><span class="line">request.<span class="function"><span class="title">get_host</span><span class="params">()</span></span>:www<span class="class">.zut</span><span class="class">.edu</span><span class="class">.cn</span></span><br><span class="line">page.<span class="function"><span class="title">getcode</span><span class="params">()</span></span>:<span class="number">200</span></span><br></pre></td></tr></table></figure></p>
 <p>上面例子中，测试了常用的request对象的方法。包括POST方法、自定义请求header等，其中POST数据需要使用urllib.urlencode()函数进行格式化，因为在urllib2中没有这样的方法。此外对headers中的默认值进行说明。在Python2.7.9中，Accept-Encoding默认为identity，User-Agent默认为Python-urllib/2.7。在大多数情况下，我们需要修改默认值。</p>
 <h3 id="build_opener">build_opener</h3><p>函数原型：<br>urllib2.build_opener([<em>handler</em>,…])<br>返回<strong>OpenerDirector</strong>实例，<em>handler</em>可以是HTTPHandler， HTTPDefaultErrorHandler，HTTPCookieProcessor等等。<br>引入OpenerDirector的好处是可以更加灵活的操纵HTTP，比如HTTPCookieProcessor可以自动保存产生的Cookie，并在请求时附带进去。同样，还有很多类，功能繁多，此处不进行介绍。</p>
-<h1 id="urllib和urllib2的比较">urllib和urllib2的比较</h1><p>urllib和urllib2都是处理URL方面的模块，其中urllib模块对用户控制方面缺乏支持，只提供了简单访问、读取功能。urllib2在用户控制方面比较出色，可以方便的进行相关操作。<br>此外，由于urllib2没有urllib.urlencode()这样的函数，所以大多数情况下需要同时引入这两个包。</p>
+<h1 id="urllib和urllib2的比较">urllib和urllib2的比较</h1><p>urllib和urllib2都是处理URL方面的模块，其中urllib模块对用户控制方面缺乏支持，只提供了简单访问、读取功能。urllib2在用户控制方面比较出色，可以方便的进行相关操作，比如UA、Cookie、Refer等等都可以进行修改。<br>此外，由于urllib2没有urllib.urlencode()和urllib.urlretrieve()这样的函数，两个模块各有所长，urllib擅长对远程文件的操作，urllib2擅长HTTP请求的自定义。</p>
 <p>Modify Time：2015/8/24 10:45:25 </p>
 </span>
       
@@ -428,6 +428,8 @@ Content-Language: zh-CN
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/31/Linux系统信息相关命令/" rel="prev">Linux系统运行状态信息相关命令</a>
             
           </div>
 
@@ -499,21 +501,21 @@ Content-Language: zh-CN
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

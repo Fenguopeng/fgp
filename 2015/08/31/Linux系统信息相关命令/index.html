@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Python,并行,线程,进程," />
+  <meta name="keywords" content="Linux，Linux命令，Linux系统命令," />
 
 
 
@@ -37,16 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Python程序可以分为单进程、单线程、多进程、多线程程序。我们接触更多的是单进程多线程程序，即一个主进程中只有一个线程。当我们需要进行频繁的相似操作时，比如爬取分析1000个网页时，串行执行往往速度不尽人意。我们就要考虑把程序改造为多线程或者多进程多线程。">
+<meta name="description" content="Linux系统信息相关命令，主要介绍查看当前系统信息，包括硬件信息和软件信息，如cpu使用信心、内存使用情况、主机信息、进程信息等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python实现程序并行">
-<meta property="og:url" content="http://yoursite.com/2015/08/21/Python实现程序并行/index.html">
+<meta property="og:title" content="Linux系统运行状态信息相关命令">
+<meta property="og:url" content="http://yoursite.com/2015/08/31/Linux系统信息相关命令/index.html">
 <meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="Python程序可以分为单进程、单线程、多进程、多线程程序。我们接触更多的是单进程多线程程序，即一个主进程中只有一个线程。当我们需要进行频繁的相似操作时，比如爬取分析1000个网页时，串行执行往往速度不尽人意。我们就要考虑把程序改造为多线程或者多进程多线程。">
-<meta property="og:updated_time" content="2015-08-21T13:57:39.735Z">
+<meta property="og:description" content="Linux系统信息相关命令，主要介绍查看当前系统信息，包括硬件信息和软件信息，如cpu使用信心、内存使用情况、主机信息、进程信息等。">
+<meta property="og:updated_time" content="2015-09-01T03:17:39.649Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python实现程序并行">
-<meta name="twitter:description" content="Python程序可以分为单进程、单线程、多进程、多线程程序。我们接触更多的是单进程多线程程序，即一个主进程中只有一个线程。当我们需要进行频繁的相似操作时，比如爬取分析1000个网页时，串行执行往往速度不尽人意。我们就要考虑把程序改造为多线程或者多进程多线程。">
+<meta name="twitter:title" content="Linux系统运行状态信息相关命令">
+<meta name="twitter:description" content="Linux系统信息相关命令，主要介绍查看当前系统信息，包括硬件信息和软件信息，如cpu使用信心、内存使用情况、主机信息、进程信息等。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title> Python实现程序并行 | F.G.P Notes </title>
+  <title> Linux系统运行状态信息相关命令 | F.G.P Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -202,7 +202,7 @@
           
           
             
-              Python实现程序并行
+              Linux系统运行状态信息相关命令
             
           
         </h1>
@@ -211,8 +211,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-21T09:34:29+08:00" content="2015-08-21">
-            2015-08-21
+          <time itemprop="dateCreated" datetime="2015-08-31T15:45:45+08:00" content="2015-08-31">
+            2015-08-31
           </time>
         </span>
 
@@ -221,8 +221,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Python/" itemprop="url" rel="index">
-                  <span itemprop="name">Python</span>
+                <a href="/categories/Linux/" itemprop="url" rel="index">
+                  <span itemprop="name">Linux</span>
                 </a>
               </span>
 
@@ -237,8 +237,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/08/21/Python实现程序并行/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/21/Python实现程序并行/" itemprop="commentsCount"></span>
+              <a href="/2015/08/31/Linux系统信息相关命令/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/31/Linux系统信息相关命令/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -252,8 +252,231 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="进程vs线程">进程vs线程</h1><h1 id="线程池">线程池</h1><h1 id="thread">thread</h1><p><a href="https://docs.python.org/2/library/thread.html#module-thread" target="_blank" rel="external">thread</a>官方文档描述非常简单，主要介绍其是多线程中低级的模块，提供了同步中的锁机制，建议使用threading模块，并介绍其包括的函数。通过thread和threading的使用对比，本人也强烈建议使用threading模块。<br>简要介绍thread模块的使用，其中最简单也是最常用的方法之一是thread.start_new_thread(<em>function</em>,<em>args[,kwargs]</em>),开启一个线程以args作为参数（必须为tuple类型）执行函数function，其中kwargs</p>
-<h1 id="threading">threading</h1></span>
+        <span itemprop="articleBody"><p>系统运行状态相关信息包括CPU、内存使用信息。使用命令，了解当前的硬件资源使用情况。相当于Windows下的任务管理器。</p>
+<h2 id="top命令"><a href="http://linux.die.net/man/1/top" target="_blank" rel="external">top命令</a></h2><p>Linux中的top命令主要显示当前的系统运行状态信息，用于监控服务器性能。信息包括系统运行状态信息，包括当前时间、运行时间、当前用户数量、进程状态、CPU状态、内存状态。以独占显示器的形式动态显示信息。<br>直接执行top命令，显示如下：</p>
+<pre><code>top - <span class="number">17</span>:<span class="number">31</span>:<span class="number">35</span> up <span class="number">20</span> days, <span class="number">23</span>:<span class="number">04</span>,  <span class="number">1</span> user,  load average: <span class="number">0.00</span>, <span class="number">0.01</span>, <span class="number">0.05</span>
+Tasks:  <span class="number">71</span> total,   <span class="number">2</span> running,  <span class="number">69</span> sleeping,   <span class="number">0</span> stopped,   <span class="number">0</span> zombie
+%Cpu(s):  <span class="number">1.2</span> us,  <span class="number">0.0</span> sy,  <span class="number">0.0</span> ni, <span class="number">98.8</span> id,  <span class="number">0.0</span> wa,  <span class="number">0.0</span> hi,  <span class="number">0.0</span> si,  <span class="number">0.0</span> st
+KiB Mem:    <span class="number">501908</span> total,   <span class="number">462292</span> used,    <span class="number">39616</span> <span class="built_in">free</span>,   <span class="number">137124</span> buffers
+KiB Swap:        <span class="number">0</span> total,        <span class="number">0</span> used,        <span class="number">0</span> <span class="built_in">free</span>.   <span class="number">150344</span> cached Mem
+PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+
+<span class="number">11</span> root      <span class="number">20</span>   <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> R  <span class="number">1.2</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">06.15</span> rcuos/<span class="number">0</span>
+<span class="number">1</span> root      <span class="number">20</span>   <span class="number">0</span>  <span class="number">129404</span>   <span class="number">3800</span>   <span class="number">2312</span> S  <span class="number">0.0</span>  <span class="number">0.8</span>   <span class="number">0</span>:<span class="number">03.91</span> systemd
+<span class="number">2</span> root      <span class="number">20</span>   <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.01</span> kthreadd
+<span class="number">3</span> root      <span class="number">20</span>   <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.46</span> ksoftirqd/<span class="number">0</span>
+<span class="number">5</span> root       <span class="number">0</span> -<span class="number">20</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> kworker/<span class="number">0</span>:+
+<span class="number">7</span> root      rt   <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> migration/<span class="number">0</span>
+<span class="number">8</span> root      <span class="number">20</span>   <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> rcu_bh
+<span class="number">9</span> root      <span class="number">20</span>   <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> rcuob/<span class="number">0</span>
+<span class="number">10</span> root      <span class="number">20</span>   <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">05.21</span> rcu_sched
+<span class="number">12</span> root      rt   <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">14.63</span> watchdog/<span class="number">0</span>
+<span class="number">13</span> root       <span class="number">0</span> -<span class="number">20</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> khelper
+<span class="number">14</span> root      <span class="number">20</span>   <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> kdevtmpfs
+<span class="number">15</span> root       <span class="number">0</span> -<span class="number">20</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> netns
+<span class="number">16</span> root       <span class="number">0</span> -<span class="number">20</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> writeback
+<span class="number">17</span> root       <span class="number">0</span> -<span class="number">20</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> kintegrityd
+<span class="number">18</span> root       <span class="number">0</span> -<span class="number">20</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> bioset
+<span class="number">19</span> root       <span class="number">0</span> -<span class="number">20</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> kblockd
+<span class="number">20</span> root      <span class="number">20</span>   <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">0</span> S  <span class="number">0.0</span>  <span class="number">0.0</span>   <span class="number">0</span>:<span class="number">00.00</span> khubd
+</code></pre><p>前五行，显示系统相关信息。下面显示进程相关资源使用情况。<br>操作主要有两种方式，一种是输入命令时，指定参数，另一种是执行之后，动态交互。</p>
+<h3 id="动态交互">动态交互</h3><p>动态交互主要是更改排序。<br><strong>使用方法：</strong>出现界面，输入命令，注意大小写。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M</td>
+<td>按照占用内存排序</td>
+</tr>
+<tr>
+<td>P</td>
+<td>根据CPU占用排序</td>
+</tr>
+<tr>
+<td>T</td>
+<td>根据累计时间排序</td>
+</tr>
+<tr>
+<td>m</td>
+<td>切换显示内存信息，隐藏或显示</td>
+</tr>
+<tr>
+<td>t</td>
+<td>切换显示CPU信息，隐藏或显示</td>
+</tr>
+<tr>
+<td>s <em>time</em></td>
+<td>更改刷新时间</td>
+</tr>
+<tr>
+<td>f,F</td>
+<td>更改显示的项目</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出</td>
+</tr>
+</tbody>
+</table>
+<h3 id="静态交互">静态交互</h3><p><strong>使用方法：</strong> top <em>option</em></p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d</td>
+<td>指定两次刷新时间,单位为秒</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>指定PID</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>显示帮助</td>
+</tr>
+<tr>
+<td>U <em>user</em></td>
+<td>指定用户</td>
+</tr>
+</tbody>
+</table>
+<h2 id="free命令"><a href="http://linux.die.net/man/1/free" target="_blank" rel="external">free命令</a></h2><p><strong>描述：</strong>显示系统中内存使用情况。<br><strong>用法：</strong>free <em>OPTION</em><br><strong>常用选项</strong></p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b，–bytes</td>
+<td>显示以字节为单位</td>
+</tr>
+<tr>
+<td>-k</td>
+<td>显示以KB为单位</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>显示以M为单位</td>
+</tr>
+<tr>
+<td>-g</td>
+<td>显示以G为单位</td>
+</tr>
+<tr>
+<td>-s <em>seconds</em></td>
+<td>周期更新状态，单位为秒</td>
+</tr>
+<tr>
+<td>-c <em>N</em></td>
+<td>周期次数，与-s搭配使用</td>
+</tr>
+<tr>
+<td>-V,–version</td>
+<td>显示版本信息</td>
+</tr>
+</tbody>
+</table>
+<h2 id="uname命令"><a href="http://linux.die.net/man/1/uname" target="_blank" rel="external">uname命令</a></h2><p>输出当前系统信息。<br><strong>使用方法：</strong>uname <em>OPTION</em><br><strong>常用选项：</strong></p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a,-all</td>
+<td>输出全部信息，除-p、-i以及unknown之外</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>内核名称</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>主机名</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>内核发行版本号</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>操作系统版本</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>硬件名字</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>处理器类型</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>硬件体系架构</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>操作系统</td>
+</tr>
+<tr>
+<td>–help</td>
+<td>帮助</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ps命令"><a href="http://linux.die.net/man/1/ps" target="_blank" rel="external">ps命令</a></h2><p>ps命令是用来查看当前系统进程快照，即不能动态跟踪进程变化，可以使用top命令来动态查看进程状态。参数复杂，熟悉常用的方法即可。<br>ps命令支持三种风格的语法格式</p>
+<ul>
+<li>UNIX风格，选项可以组合在一起，并且选项前必须有‘-’连字符</li>
+<li>BSD风格,选项可以组合在一起，但是选项前不能有‘-’连字符</li>
+<li>GUN风格，长选项，选项前有两个‘-’连字符<br><strong>使用方法：</strong> ps [<em>option</em>]<br>不加选项执行ps命令，显示有终端控制的进程。<br><strong>常用选项：</strong><br><strong>显示过滤</strong><br>|选项|功能|<br>|—|—|<br>|-a|全部进程|<br>|-x|显示没有终端控制的进程|<br>|-u <em>user</em>|指定用户|<br>|-C <em>cmdlist</em>|过滤特定命令|<br>|-p|过滤pid|</li>
+</ul>
+<p><strong>显示格式</strong></p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s</td>
+<td>信号格式</td>
+</tr>
+<tr>
+<td>u</td>
+<td>面向用户格式，包括CPU、内存信息</td>
+</tr>
+<tr>
+<td>v</td>
+<td>虚拟内存格式</td>
+</tr>
+</tbody>
+</table>
+<p>常用选项是u。</p>
+<p><strong>常用方法</strong></p>
+<ul>
+<li>ps -aux  显示全部的进程详细信息</li>
+<li>ps -u <em>USER</em> 显示指定用户进程信息</li>
+<li>ps -C <em>command</em> 显示指定command的进程信息</li>
+</ul>
+</span>
       
     </div>
 
@@ -261,13 +484,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag">#Python</a>
-          
-            <a href="/tags/并行/" rel="tag">#并行</a>
-          
-            <a href="/tags/线程/" rel="tag">#线程</a>
-          
-            <a href="/tags/进程/" rel="tag">#进程</a>
+            <a href="/tags/Linux，Linux命令，Linux系统命令/" rel="tag">#Linux，Linux命令，Linux系统命令</a>
           
         </div>
       
@@ -276,13 +493,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/23/urllib与urlib2的区别/" rel="prev">urllib与urllib2的学习</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/12/Linux文件操作命令/" rel="next">Linux文件操作命令</a>
+              <a href="/2015/08/23/urllib与urlib2的区别/" rel="next">urllib与urllib2的学习</a>
             
           </div>
         </div>
@@ -307,8 +522,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/08/21/Python实现程序并行/"
-                   data-title="Python实现程序并行" data-url="http://yoursite.com/2015/08/21/Python实现程序并行/">
+              <div class="ds-thread" data-thread-key="2015/08/31/Linux系统信息相关命令/"
+                   data-title="Linux系统运行状态信息相关命令" data-url="http://yoursite.com/2015/08/31/Linux系统信息相关命令/">
               </div>
             
           </div>
@@ -407,7 +622,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进程vs线程"><span class="nav-number">1.</span> <span class="nav-text">进程vs线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程池"><span class="nav-number">2.</span> <span class="nav-text">线程池</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#thread"><span class="nav-number">3.</span> <span class="nav-text">thread</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#threading"><span class="nav-number">4.</span> <span class="nav-text">threading</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#top命令"><span class="nav-number">1.</span> <span class="nav-text">top命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态交互"><span class="nav-number">1.1.</span> <span class="nav-text">动态交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态交互"><span class="nav-number">1.2.</span> <span class="nav-text">静态交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#free命令"><span class="nav-number">2.</span> <span class="nav-text">free命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uname命令"><span class="nav-number">3.</span> <span class="nav-text">uname命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps命令"><span class="nav-number">4.</span> <span class="nav-text">ps命令</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
