@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="CentOS 7,Shadowsocks," />
+  <meta name="keywords" content="转载,随笔," />
 
 
 
@@ -37,17 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Shadowsocks一个可穿透防火墙的快速代理。本文以CentOS 7作为服务器，Windows+Chrome为客户端组合，进行完整的叙述SS的配置使用。">
+<meta name="description" content="我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shadowsocks配置">
-<meta property="og:url" content="http://yoursite.com/2015/08/10/Shadowsocks配置/index.html">
+<meta property="og:title" content="这就是事故发生的原因……(转载)">
+<meta property="og:url" content="http://yoursite.com/2015/09/10/这就是事故发生的原因……-转载/index.html">
 <meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="Shadowsocks一个可穿透防火墙的快速代理。本文以CentOS 7作为服务器，Windows+Chrome为客户端组合，进行完整的叙述SS的配置使用。">
-<meta property="og:image" content="http://7xjwd1.com1.z0.glb.clouddn.com/Shadowsocks-1.png">
-<meta property="og:updated_time" content="2015-08-12T09:28:41.870Z">
+<meta property="og:description" content="我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。">
+<meta property="og:updated_time" content="2015-09-10T02:05:04.794Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shadowsocks配置">
-<meta name="twitter:description" content="Shadowsocks一个可穿透防火墙的快速代理。本文以CentOS 7作为服务器，Windows+Chrome为客户端组合，进行完整的叙述SS的配置使用。">
+<meta name="twitter:title" content="这就是事故发生的原因……(转载)">
+<meta name="twitter:description" content="我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +56,7 @@
   };
 </script>
 
-  <title> Shadowsocks配置 | F.G.P Notes </title>
+  <title> 这就是事故发生的原因……(转载) | F.G.P Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -203,7 +202,7 @@
           
           
             
-              Shadowsocks配置
+              这就是事故发生的原因……(转载)
             
           
         </h1>
@@ -212,8 +211,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-10T14:18:00+08:00" content="2015-08-10">
-            2015-08-10
+          <time itemprop="dateCreated" datetime="2015-09-10T10:02:13+08:00" content="2015-09-10">
+            2015-09-10
           </time>
         </span>
 
@@ -222,8 +221,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/工具/" itemprop="url" rel="index">
-                  <span itemprop="name">工具</span>
+                <a href="/categories/随笔/" itemprop="url" rel="index">
+                  <span itemprop="name">随笔</span>
                 </a>
               </span>
 
@@ -238,8 +237,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/08/10/Shadowsocks配置/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/10/Shadowsocks配置/" itemprop="commentsCount"></span>
+              <a href="/2015/09/10/这就是事故发生的原因……-转载/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/10/这就是事故发生的原因……-转载/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -253,64 +252,24 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="Shadowsocks配置">Shadowsocks配置</h1><blockquote>
-<p>一个可穿透防火墙的快速代理。本文以CentOS7作为服务器，Windows+Chrome为客户端组合，进行完整的叙述SS的配置使用。</p>
-</blockquote>
-<h2 id="服务端">服务端</h2><p>敬请参考Github开源项目的说明，作者叙述的非常详细，参考官方的说明，对学习是一件好事。传送门 <a href="https://github.com/shadowsocks/shadowsocks" target="_blank" rel="external">Github项目</a> <a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="external">中文使用说明</a></p>
-<h3 id="安装">安装</h3><p>CentOS:<br><code>yum install python-setuptools &amp;&amp; easy_install pip</code><br><code>pip install shadowsocks</code></p>
-<p><a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="external">其他系统</a></p>
-<h3 id="配置文件">配置文件</h3><p>新建配置文件<code>/etc/shadowsocks.json</code>,例如：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	"<span class="attribute">server</span>":<span class="value"><span class="string">"my_server_ip"</span></span>,</span><br><span class="line">	"<span class="attribute">server_port</span>":<span class="value"><span class="number">8388</span></span>,</span><br><span class="line">	"<span class="attribute">local_address</span>": <span class="value"><span class="string">"127.0.0.1"</span></span>,</span><br><span class="line">	"<span class="attribute">local_port</span>":<span class="value"><span class="number">1080</span></span>,</span><br><span class="line">	"<span class="attribute">password</span>":<span class="value"><span class="string">"mypassword"</span></span>,</span><br><span class="line">	"<span class="attribute">timeout</span>":<span class="value"><span class="number">300</span></span>,</span><br><span class="line">	"<span class="attribute">method</span>":<span class="value"><span class="string">"aes-256-cfb"</span></span>,</span><br><span class="line">	"<span class="attribute">fast_open</span>": <span class="value"><span class="literal">false</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
-<p>参数说明：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>server</td>
-<td>服务器监听地址</td>
-</tr>
-<tr>
-<td>server_port</td>
-<td>服务端口</td>
-</tr>
-<tr>
-<td>local_address</td>
-<td>本地监听地址</td>
-</tr>
-<tr>
-<td>local_port</td>
-<td>本地端口</td>
-</tr>
-<tr>
-<td>password</td>
-<td>密码</td>
-</tr>
-<tr>
-<td>timeout</td>
-<td>超时，单位s</td>
-</tr>
-<tr>
-<td>method</td>
-<td>加密方式，默认”aes-256-cfb”，<a href="https://github.com/shadowsocks/shadowsocks/wiki/Encryption" target="_blank" rel="external">详细</a></td>
-</tr>
-<tr>
-<td>fast_open</td>
-<td>TFO(<a href="https://zh.wikipedia.org/wiki/TCP_%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80" target="_blank" rel="external">TCP快速打开</a>)，<a href="https://github.com/shadowsocks/shadowsocks/wiki/TCP-Fast-Open" target="_blank" rel="external">详细</a></td>
-</tr>
-</tbody>
-</table>
-<p> <strong>建议</strong>：不要使用默认的8388端口，可以更改为其他未被占用的端口。   </p>
-<h3 id="运行">运行</h3><p>前台运行\重启\停止：<br><code>ssserver -c /etc/sshadowsocks.json start\resatrt\stop</code><br>后台运行重启\停止：<br><code>ssserver -c /etc/sshadowsocks.json start\restart\stop</code><br>其中-c选项指定配置文件，同样可以使用-h选项查看帮助</p>
-<h3 id="添加开机启动">添加开机启动</h3><p>当服务器重启后，需要手动开启服务。为了方便，我们添加开机启动。当然，本方法是在CentOS 7下利用systemctl的特性进行设定的。同样本方法也可以在CentOS 7 中添加自定义的其他服务。<br><strong>新建文件</strong> /lib/systemd/system/shadowsocks.service，内容如下：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">[Unit]</span>  </span><br><span class="line"><span class="setting">Description=<span class="value">shadowsocks  </span></span></span><br><span class="line"><span class="setting">After=<span class="value">network.target</span></span></span><br><span class="line"><span class="title">   </span><br><span class="line">[Service]</span>  </span><br><span class="line"><span class="setting">Type=<span class="value">forking  </span></span></span><br><span class="line"><span class="setting">PIDFile=<span class="value">/run/shadowsocks.pid</span></span></span><br><span class="line"><span class="setting">PermissionsStartOnly=<span class="value"><span class="keyword">true</span></span></span></span><br><span class="line"><span class="setting">ExecStart=<span class="value">/usr/bin/ssserver --pid-file /run/shadowsocks.pid -c /etc/shadowsocks.json -d start</span></span></span><br><span class="line"><span class="setting">Restart=<span class="value"><span class="keyword">on</span>-abort</span></span></span><br><span class="line"><span class="title">   </span><br><span class="line">[Install]</span>  </span><br><span class="line"><span class="setting">WantedBy=<span class="value">multi-user.target</span></span></span><br></pre></td></tr></table></figure></p>
-<p><strong>添加启动项</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> shadowsocks.service</span><br></pre></td></tr></table></figure></p>
-<p><strong>查看启动状态</strong><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="keyword">is</span>-enabled shadowsocks.service</span><br></pre></td></tr></table></figure></p>
-<h2 id="客户端">客户端</h2><h3 id="SS客户端安装">SS客户端安装</h3><p>Windows版<a href="https://github.com/shadowsocks/shadowsocks-windows" target="_blank" rel="external">下载</a><br>其他请<a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="external">点击</a><br>安装成功后，编辑服务器（如图），根据配置文件，输入相关信息即可。<br><img src="http://7xjwd1.com1.z0.glb.clouddn.com/Shadowsocks-1.png" alt=""></p>
-<h3 id="浏览器配置">浏览器配置</h3><p><strong>简单方法</strong>当需要使用SS时，把浏览器的代理设置为本地客户端的监听地址即可。<br>但是每次操作很麻烦，我们需要插件接管浏览器代理，方便进行切换，这里在Chrome下推荐<a href="https://github.com/FelisCatus/SwitchyOmega" target="_blank" rel="external">Proxy SwitchyOmega</a>,你可以选在在<a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif" target="_blank" rel="external">Chrome应用商店</a>直接下载安装，同样你也可以<a href="https://github.com/FelisCatus/SwitchyOmega/releases" target="_blank" rel="external">下载插件</a>，手动安装。<br>安装成功后，敬请参考<a href="https://github.com/FelisCatus/SwitchyOmega/wiki/GFWList" target="_blank" rel="external">使用说明</a>,文章描述的非常清楚，本文不在赘述。</p>
-<h2 id="其他">其他</h2><p>本文的安装方法主要参考官方的说明，文中已经加以链接，同时加上的一些简单配置，比如开机自启动。<br>在实际使用过程中，难免会遇到问题，比如网络不通，访问速度慢。可以尝试更改加密方式、代理端口。同样，其他优化的策略，会随着使用添加上去。</p>
+        <span itemprop="articleBody"><p>我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。</p>
+<h1 id="1、冰箱师傅、饭店老板">1、冰箱师傅、饭店老板</h1><p>“我是个修冰箱的。前段时间一个小饭店的冰箱门关不上，我去给他们修好了。其实当时我就发现那个冰箱的制冷系统泄漏，制冷剂快要跑光了，但我没说，因为如果下次再去修的话，就能多拿三十块钱上门费。果然，没到一个月那台冰箱就不制冷了，他们又喊我去修，我不但多拿了三十块钱，还以五折的价钱从这家店买了些酱牛肉，赚了。”</p>
+<p>“我是一家小饭店的小老板。现在的东西真靠不住，冰箱一个月坏了两次，大夏天的，里面的熟食都坏掉了，都是贵东西，我舍不得扔，让厨师重新煮了，用重料盖掉腐味，低价卖掉了。修冰箱的师傅买了一些，后来他打电话来说，全家吃了都拉肚子。我有点愧疚，当然也没有承认是我们的问题，吃都吃光了，他没凭没据的，到哪儿也说不清了。”</p>
+<h1 id="2、玩具厂老板，建筑工人，质监局领导">2、玩具厂老板，建筑工人，质监局领导</h1><p>“我是个儿童玩具厂的小老板。不瞒您说，我们的玩具都是用回收的废塑料、生活垃圾、医疗垃圾做的，我当然知道这些二料含铅含贡含甲醛，会对孩子健康有害，但是现在生意这么难做，都用真材实料能赚几块钱？”</p>
+<p>“我是个建桥的工人，这次找了个不错的活，别的工地一天一百二，这里给一百五。上班第一天我就明白了他们工钱高的原因——这是个豆腐渣工程，拿沙子充水泥，拿水泥充钢筋。别的工人不敢干都走了，我咬咬牙留了下来。儿子上个月查出白血病，我那点家底砸锅卖铁也不够他治病的，再不多赚点钱，就只能眼睁睁看着他恶化了。”</p>
+<p>“我是个质监局的领导，上次查了一批玩具小作坊，一个小老板找到我老婆说情，又给我捎去两瓶五粮液，我就把他那批玩具放了。昨天他又被查到，我又帮了他个小忙。处理完事情后他请我吃饭，万没想到，饭后回家的路上，开车过新桥时，那桥居然说塌就塌了！我俩一起栽了下去，双双骨折，唉~”</p>
+<h1 id="3、医生，法官，校长，农民">3、医生，法官，校长，农民</h1><p>“我是个医生。去年一家医疗器械厂来推广他们生产的心脏支架，回扣很高，我看了看，质量好像没什么问题，就用了。没想到丫给的居然是伪劣产品，才用了一例就出医疗事故了。”</p>
+<p>“我是个法官。一个老朋友的医院出了医疗事故，来找了我好几次，看在多年情分上，我睁一眼闭一眼，在判决时没让他们担什么责任。”</p>
+<p>“我是个重点中学的校长。每次开学时来报名的家长都打破头，这学期好不容易都定好了，一个法官的女儿又来加塞，这很难办。也真巧，偏偏有个学生上课辱骂老师，我们从重处理，把他开除了，这才倒出一个名额来给她。”</p>
+<p>“我是个农民，去年拿出所有积蓄做了一次心脏搭桥手术，却被伪劣支架给坑了，医院没赔什么钱，家里就快弹尽粮绝了。之前满心指望孩子能有点出息，可这个不争气的东西却让学校开除回来了。我已经没有劳动能力，就干脆让他弃学在家侍弄大棚。这几天出菜花，他去喷杀虫剂。没想到这倒霉孩子不认识农药，居然稀里糊涂拿错了，还超量喷了上去。结果好些人吃了以后农药中毒，听说有医生，有法官，有校长… …”</p>
+<h1 id="4、我是个上班族">4、我是个上班族</h1><p>“我是个上班族。昨天风好大，我在上班的路上打开车窗向外吐了口痰，居然被大风吹回到自己脸上，太倒霉了！”</p>
+<p>… …</p>
+<p>不知道你信不信因果循环，善恶有报。反正我信。当然大多数时候，我都认为是别人在作恶，自己从来没有。我只是有时候做了顺水人情，有时候睁一眼闭一眼，有时候随便一抬手一放手——顶多只能说是没有摸着良心做好人。但见了很多事情以后，我好像明白了些什么。</p>
+<p>——可能就是那么一随便，就有人倒霉了。而倒霉的那个人，可能就是整个社会第一张倒下的多米诺骨牌，他倒了，就全倒了。如果这个社会人人都倒霉，肯定也跑不了我。</p>
+<p>我的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，都肩并肩手挽手地联络在一起，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。</p>
+<p>所以现在我知道，如果自己不想倒霉，那就尽量不要让别人倒霉，如果我希望身边都是好人，那自己首先要做个好人。</p>
+<p>因为做好人其实也是一个圈套，套来套去，总会把好运套到自己头上。</p>
+<p>（文/李月亮）<br>原文地址：(<a href="http://lcx.cc/?i=4561)[http://lcx.cc/?i=4561" target="_blank" rel="external">http://lcx.cc/?i=4561)[http://lcx.cc/?i=4561</a>]</p>
 </span>
       
     </div>
@@ -319,9 +278,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CentOS-7/" rel="tag">#CentOS 7</a>
+            <a href="/tags/转载/" rel="tag">#转载</a>
           
-            <a href="/tags/Shadowsocks/" rel="tag">#Shadowsocks</a>
+            <a href="/tags/随笔/" rel="tag">#随笔</a>
           
         </div>
       
@@ -330,13 +289,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/12/Linux文件操作命令/" rel="prev">Linux文件操作命令</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/06/ConsoleZ-Setings/" rel="next">ConsoleZ Setings</a>
+              <a href="/2015/09/08/漏洞利用分析/" rel="next">漏洞利用分析</a>
             
           </div>
         </div>
@@ -361,8 +318,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/08/10/Shadowsocks配置/"
-                   data-title="Shadowsocks配置" data-url="http://yoursite.com/2015/08/10/Shadowsocks配置/">
+              <div class="ds-thread" data-thread-key="2015/09/10/这就是事故发生的原因……-转载/"
+                   data-title="这就是事故发生的原因……(转载)" data-url="http://yoursite.com/2015/09/10/这就是事故发生的原因……-转载/">
               </div>
             
           </div>
@@ -461,7 +418,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Shadowsocks配置"><span class="nav-number">1.</span> <span class="nav-text">Shadowsocks配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端"><span class="nav-number">1.1.</span> <span class="nav-text">服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件"><span class="nav-number">1.1.2.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">1.1.3.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加开机启动"><span class="nav-number">1.1.4.</span> <span class="nav-text">添加开机启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端"><span class="nav-number">1.2.</span> <span class="nav-text">客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SS客户端安装"><span class="nav-number">1.2.1.</span> <span class="nav-text">SS客户端安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器配置"><span class="nav-number">1.2.2.</span> <span class="nav-text">浏览器配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.3.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、冰箱师傅、饭店老板"><span class="nav-number">1.</span> <span class="nav-text">1、冰箱师傅、饭店老板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、玩具厂老板，建筑工人，质监局领导"><span class="nav-number">2.</span> <span class="nav-text">2、玩具厂老板，建筑工人，质监局领导</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、医生，法官，校长，农民"><span class="nav-number">3.</span> <span class="nav-text">3、医生，法官，校长，农民</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4、我是个上班族"><span class="nav-number">4.</span> <span class="nav-text">4、我是个上班族</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
