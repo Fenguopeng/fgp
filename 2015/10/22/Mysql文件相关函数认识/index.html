@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="Mysql,SQL注入,网络安全," />
 
 
 
@@ -37,19 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="FHFS v2.1.2 远程命令执行使用主机数量较少，找不到使用主机。
-#">
+<meta name="description" content="SQL注入的危害主要有被脱裤、上传webshell、UDF提权等。本文记录拥有数据库权限下，利用Mysql的相关操作服务器文件函数进行读取文件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="漏洞利用分析">
-<meta property="og:url" content="http://yoursite.com/2015/09/08/漏洞利用分析/index.html">
+<meta property="og:title" content="认识Mysql文件相关函数">
+<meta property="og:url" content="http://yoursite.com/2015/10/22/Mysql文件相关函数认识/index.html">
 <meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="FHFS v2.1.2 远程命令执行使用主机数量较少，找不到使用主机。
-#">
-<meta property="og:updated_time" content="2015-09-08T01:32:07.654Z">
+<meta property="og:description" content="SQL注入的危害主要有被脱裤、上传webshell、UDF提权等。本文记录拥有数据库权限下，利用Mysql的相关操作服务器文件函数进行读取文件。">
+<meta property="og:updated_time" content="2015-10-22T15:31:38.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="漏洞利用分析">
-<meta name="twitter:description" content="FHFS v2.1.2 远程命令执行使用主机数量较少，找不到使用主机。
-#">
+<meta name="twitter:title" content="认识Mysql文件相关函数">
+<meta name="twitter:description" content="SQL注入的危害主要有被脱裤、上传webshell、UDF提权等。本文记录拥有数据库权限下，利用Mysql的相关操作服务器文件函数进行读取文件。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -59,7 +56,7 @@
   };
 </script>
 
-  <title> 漏洞利用分析 | F.G.P Notes </title>
+  <title> 认识Mysql文件相关函数 | F.G.P Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -205,7 +202,7 @@
           
           
             
-              漏洞利用分析
+              认识Mysql文件相关函数
             
           
         </h1>
@@ -214,19 +211,46 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-08T09:25:46+08:00" content="2015-09-08">
-            2015-09-08
+          <time itemprop="dateCreated" datetime="2015-10-22T21:49:48+08:00" content="2015-10-22">
+            2015-10-22
           </time>
         </span>
 
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/网络安全/" itemprop="url" rel="index">
+                  <span itemprop="name">网络安全</span>
+                </a>
+              </span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/网络安全/Mysql/" itemprop="url" rel="index">
+                  <span itemprop="name">Mysql</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
         
 
         
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/08/漏洞利用分析/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/08/漏洞利用分析/" itemprop="commentsCount"></span>
+              <a href="/2015/10/22/Mysql文件相关函数认识/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/22/Mysql文件相关函数认识/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -240,26 +264,73 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="FHFS_v2-1-2_远程命令执行"><a href="https://www.exploit-db.com/exploits/37985/" target="_blank" rel="external">FHFS v2.1.2 远程命令执行</a></h1><p>使用主机数量较少，找不到使用主机。</p>
-<p># </p>
+        <span itemprop="articleBody"><p>前两天在碰到一个Mysql root用户空口令并且允许远程连接。趁着这个机会开始练习使用Mysql相关的操作文件函数。</p>
+<h2 id="测试环境">测试环境</h2><ul>
+<li>CentOS 7 + Mysql 5.6</li>
+<li>Mysql 用户有file权限</li>
+</ul>
+<h2 id="LOAD_FILE(file_name)">LOAD_FILE(<em>file_name</em>)</h2><h3 id="函数说明">函数说明</h3><p><code>Reads the file and returns the file contents as a string. To use this function, the file 
+must be located on the server host, you mustspecify the full path name to the file, and 
+you must have the FILE privilege. The file must be readable by all and its size less than 
+max_allowed_packet bytes. If the secure_file_priv system variable is set to a nonempty 
+directory name, the file to be loaded must be located in that directory.
+If the file does not exist or cannot be read because one of the preceding conditions is 
+not satisfied, the function returns NULL.</code></p>
+<p>读取文件并以文件内容作为字符串返回。说明如下：</p>
+<ul>
+<li>文件必须在服务器上</li>
+<li>必须知道文件的完整路径名</li>
+<li>必须有FILE权限</li>
+<li>文件必须可读</li>
+<li>文件大小必须小于max_allowed_packet</li>
+<li>如果secure_file_priv变量非空，文件必须在指定目录下</li>
+<li>文件不存在、文件不可读，返回值为NULL</li>
+</ul>
+<h3 id="自我理解">自我理解</h3><h4 id="目标文件必须可读">目标文件必须可读</h4><p>文件属性分为三组，owner、group、other权限，目标文件必须可读含义为other权限必须为可读。</p>
+<p>文件<strong>/tmp/test1.txt</strong>拥有者是mysql,权限为666，非同组的其他用户权限为可读可写。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT * FROM <span class="keyword">test</span>.<span class="keyword">test</span> INTO <span class="keyword">OUTFILE</span> '/tmp/test1.txt';</span><br><span class="line"><span class="keyword">Query</span> OK, 1 row affected</span><br><span class="line"></span><br><span class="line">#<span class="keyword">ls</span> -al |grep test1.txt </span><br><span class="line">-rw-rw-rw-   1 mysql  mysql      13 Oct 22 05:26 test1.txt</span><br></pre></td></tr></table></figure></p>
+<p>LOAD_FILE()读取成功<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">mysql&gt; SELECT LOAD_FILE('/tmp/test1.txt');</span><br><span class="line">+-----------------------------+</span></span><br><span class="line"><span class="header">| LOAD_FILE('/tmp/test1.txt') |</span><br><span class="line">+-----------------------------+</span></span><br><span class="line">| admin 123456</span><br><span class="line"><span class="header">                 |</span><br><span class="line">+-----------------------------+</span></span><br><span class="line">1 row in set</span><br></pre></td></tr></table></figure></p>
+<p>更改<strong>/tmp/test1.txt</strong>文件权限为660<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># chmod <span class="number">660</span> test1.txt </span></span><br><span class="line"><span class="preprocessor"># ls -al |grep test1.txt </span></span><br><span class="line">-rw-rw----   <span class="number">1</span> mysql  mysql      <span class="number">13</span> Oct <span class="number">22</span> <span class="number">05</span>:<span class="number">26</span> test1.txt</span><br></pre></td></tr></table></figure></p>
+<p>LOAD_FILE()读取失败<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">mysql&gt; SELECT LOAD_FILE('/tmp/test1.txt');</span><br><span class="line">+-----------------------------+</span></span><br><span class="line"><span class="header">| LOAD_FILE('/tmp/test1.txt') |</span><br><span class="line">+-----------------------------+</span></span><br><span class="line"><span class="header">| NULL                        |</span><br><span class="line">+-----------------------------+</span></span><br><span class="line">1 row in set</span><br></pre></td></tr></table></figure></p>
+<p>在上述例子中，目标文件的拥有者均是mysql，不同结果<strong>说明对目标文件的要求是Other权限为可读，且LOAD_FILE()执行时不是以mysql用户。</strong></p>
+<h2 id="SELECT_…_INTO_OUTFILE_file_name">SELECT … INTO OUTFILE <em>file_name</em></h2><h3 id="函数说明-1">函数说明</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">writes <span class="operator">the</span> selected rows <span class="built_in">to</span> <span class="operator">a</span> <span class="built_in">file</span>. Column <span class="operator">and</span> <span class="built_in">line</span> terminators can be specified <span class="built_in">to</span> </span><br><span class="line">produce <span class="operator">a</span> specific output <span class="built_in">format</span>.</span><br></pre></td></tr></table></figure>
+<p>把所选的多列写进文件，并且可以指定格式。</p>
+<h3 id="自我理解-1">自我理解</h3><h4 id="默认输出到当前数据库所在目录">默认输出到当前数据库所在目录</h4><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># ls -al</span><br><span class="line">total 110616</span><br><span class="line">...</span><br><span class="line">drwx------.  2 mysql mysql     4096 Oct 21 18:08 performance_schema</span><br><span class="line">drwx------   2 mysql mysql       66 Oct 21 23:31 test</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT * FROM test.test INTO OUTFILE 'h.txt';</span><br><span class="line">Query OK, 1 row affected</span><br></pre></td></tr></table></figure>
+<p>数据库的数据存放路径/var/lib/mysql/<em>database_name</em>/,例子中操作的数据库是test，路径是/var/lib/mysql/test/,其中test目录权限仅为mysql用户可读可写可执行。<br>写入成功<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">ls</span></span><br><span class="line"><span class="keyword">db</span>.opt  <span class="keyword">h</span>.txt  <span class="keyword">test</span>.frm  <span class="keyword">test</span>.ibd</span><br></pre></td></tr></table></figure></p>
+<p>说明OUTFILE函数执行时，用户身份是mysql。</p>
+<h3 id="题外话">题外话</h3><ul>
+<li>Mysql运行时，必须以root身份运行</li>
+<li>Mysql system函数,执行shell命令时，是以本地执行环境有关，与远程服务器无关，故有些使用system函数提权的说法并不准确</li>
+<li>可以使用LOAD_FILE()函数查看服务器大部分文件，比如www目录下的文件，其实在实际中最大的障碍是无法获取网站的绝对路径。</li>
+<li>在知道网站绝对路径下，可以使用OUTFILE函数导出一句话木马</li>
+<li>所为的这些已经很老套的入侵方法，其实和Mysql的特性有着极大的关系，换一个角度看待问题，而不是总是想着哪个函数可以getshell，以程序员的眼光看待，以黑客的角度思考</li>
+<li>下周总结Mysql数据库脱裤的几种方法</li>
+</ul>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Mysql/" rel="tag">#Mysql</a>
+          
+            <a href="/tags/SQL注入/" rel="tag">#SQL注入</a>
+          
+            <a href="/tags/网络安全/" rel="tag">#网络安全</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/10/这就是事故发生的原因……-转载/" rel="prev">这就是事故发生的原因……(转载)</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/01/CentOS-7搭建Tomcat及上传木马/" rel="next">CentOS 7搭建Tomcat及上传木马</a>
+              <a href="/2015/09/10/这就是事故发生的原因……-转载/" rel="next">这就是事故发生的原因……(转载)</a>
             
           </div>
         </div>
@@ -284,8 +355,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/08/漏洞利用分析/"
-                   data-title="漏洞利用分析" data-url="http://yoursite.com/2015/09/08/漏洞利用分析/">
+              <div class="ds-thread" data-thread-key="2015/10/22/Mysql文件相关函数认识/"
+                   data-title="认识Mysql文件相关函数" data-url="http://yoursite.com/2015/10/22/Mysql文件相关函数认识/">
               </div>
             
           </div>
@@ -384,7 +455,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FHFS_v2-1-2_远程命令执行"><span class="nav-number">1.</span> <span class="nav-text">FHFS v2.1.2 远程命令执行</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试环境"><span class="nav-number">1.</span> <span class="nav-text">测试环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LOAD_FILE(file_name)"><span class="nav-number">2.</span> <span class="nav-text">LOAD_FILE(file_name)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数说明"><span class="nav-number">2.1.</span> <span class="nav-text">函数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自我理解"><span class="nav-number">2.2.</span> <span class="nav-text">自我理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目标文件必须可读"><span class="nav-number">2.2.1.</span> <span class="nav-text">目标文件必须可读</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SELECT_…_INTO_OUTFILE_file_name"><span class="nav-number">3.</span> <span class="nav-text">SELECT … INTO OUTFILE file_name</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数说明-1"><span class="nav-number">3.1.</span> <span class="nav-text">函数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自我理解-1"><span class="nav-number">3.2.</span> <span class="nav-text">自我理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#默认输出到当前数据库所在目录"><span class="nav-number">3.2.1.</span> <span class="nav-text">默认输出到当前数据库所在目录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题外话"><span class="nav-number">3.3.</span> <span class="nav-text">题外话</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
