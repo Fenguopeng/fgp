@@ -37,18 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Docker是2013年初发布并开源，已经成为热门的云开源项目。在虚拟化技术中，有KVM、Xen、硬件辅助虚拟化Intel-VT和AMD-V、以及我们常用的桌面虚拟化产品Vmware Workstation、VirtualBox。各个虚拟化技术有自己的不同特点、不同的适用场合。接下来一段时间里，开始学习Docker！">
+<meta name="description" content="在第一篇中，简单了介绍了下Docker以及其他几种虚拟化技术。第二篇就开始学习Docker的基础操作部分知识。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker基础(一)">
-<meta property="og:url" content="http://yoursite.com/2015/12/06/Docker基础第一篇/index.html">
+<meta property="og:title" content="Docker基础(第二篇)">
+<meta property="og:url" content="http://yoursite.com/2015/12/06/Docker基础-第二篇/index.html">
 <meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="Docker是2013年初发布并开源，已经成为热门的云开源项目。在虚拟化技术中，有KVM、Xen、硬件辅助虚拟化Intel-VT和AMD-V、以及我们常用的桌面虚拟化产品Vmware Workstation、VirtualBox。各个虚拟化技术有自己的不同特点、不同的适用场合。接下来一段时间里，开始学习Docker！">
-<meta property="og:image" content="http://s8.51cto.com/wyfs02/M01/59/DE/wKiom1TtaLvy-Is-AAB0hhDBRYM506.jpg">
-<meta property="og:image" content="http://static.open-open.com/lib/uploadImg/20150702/20150702142513_379.jpg">
-<meta property="og:updated_time" content="2015-12-06T13:27:07.501Z">
+<meta property="og:description" content="在第一篇中，简单了介绍了下Docker以及其他几种虚拟化技术。第二篇就开始学习Docker的基础操作部分知识。">
+<meta property="og:updated_time" content="2015-12-06T14:27:50.032Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker基础(一)">
-<meta name="twitter:description" content="Docker是2013年初发布并开源，已经成为热门的云开源项目。在虚拟化技术中，有KVM、Xen、硬件辅助虚拟化Intel-VT和AMD-V、以及我们常用的桌面虚拟化产品Vmware Workstation、VirtualBox。各个虚拟化技术有自己的不同特点、不同的适用场合。接下来一段时间里，开始学习Docker！">
+<meta name="twitter:title" content="Docker基础(第二篇)">
+<meta name="twitter:description" content="在第一篇中，简单了介绍了下Docker以及其他几种虚拟化技术。第二篇就开始学习Docker的基础操作部分知识。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -58,7 +56,7 @@
   };
 </script>
 
-  <title> Docker基础(一) | F.G.P Notes </title>
+  <title> Docker基础(第二篇) | F.G.P Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -204,7 +202,7 @@
           
           
             
-              Docker基础(一)
+              Docker基础(第二篇)
             
           
         </h1>
@@ -213,7 +211,7 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-12-06T20:15:05+08:00" content="2015-12-06">
+          <time itemprop="dateCreated" datetime="2015-12-06T21:39:08+08:00" content="2015-12-06">
             2015-12-06
           </time>
         </span>
@@ -223,8 +221,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Dockeer/" itemprop="url" rel="index">
-                  <span itemprop="name">Dockeer</span>
+                <a href="/categories/Docker/" itemprop="url" rel="index">
+                  <span itemprop="name">Docker</span>
                 </a>
               </span>
 
@@ -235,7 +233,7 @@
 
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Dockeer/虚拟化/" itemprop="url" rel="index">
+                <a href="/categories/Docker/虚拟化/" itemprop="url" rel="index">
                   <span itemprop="name">虚拟化</span>
                 </a>
               </span>
@@ -251,8 +249,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/12/06/Docker基础第一篇/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/06/Docker基础第一篇/" itemprop="commentsCount"></span>
+              <a href="/2015/12/06/Docker基础-第二篇/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/06/Docker基础-第二篇/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -266,11 +264,21 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="什么是虚拟化技术？">什么是虚拟化技术？</h1><p>维基百科中<a href="https://zh.wikipedia.org/wiki/%E8%99%9B%E6%93%AC%E5%8C%96" target="_blank" rel="external">虚拟化</a>是一种资源管理技术，是将计算机的各种实体资源，如服务器、网络、内存、存储，予以抽象、转换后呈现出来，打破实体结构间的不可切割的障碍，使用户可以比原来的配置更好的方式来应用这些资源。通俗的讲，就是可以一台物理服务器可以虚拟成多台虚拟服务器，多台物理服务器可以虚拟成一台虚拟服务器，如我们常用的虚拟机。但是虚拟化技术有很多种，下面根据自己的了解，进行简单的概括。<br><strong>完全虚拟化</strong>：虚拟机模拟完整的底层硬件环境和特权指令，客户机的操作系统无需进行修改。<br><strong>硬件辅助虚拟化</strong>：利用硬件（主要是CPU）辅助支持处理敏感指令来实现虚拟化，硬件辅助虚拟化技术有Intel-VT、AMD-V，这也是我们在使用桌面虚拟化产品时，可能会要求我们在BIOS上设置打开虚拟化功能。<br><strong>操作系统级虚拟化</strong>：完全依赖宿主机操作系统，内核创建多个操作系统实例来进行资源隔离。容器技术属于这个范畴。<br>Docker就是容器虚拟化中的一种。</p>
-<h1 id="虚拟化技术有什么用？">虚拟化技术有什么用？</h1><p>在云计算中，虚拟化技术是其中重要技术之一，目前在云计算中虚拟化技术有KVM、Xen。当你购买一台双CPU、64G内存的物理服务器时，你打算在上面跑多个独立的操作系统时，就需要用到虚拟化。当你在阿里云购买ECS时，快速创建好的系统，就需要用到虚拟化。<br>根据我们的使用经验，无论是自己安装虚拟机、还是购买虚拟机，都需要自己选择系统镜像，这就意味着每一个虚拟机都是相对独立的。</p>
-<h1 id="Docker的特点">Docker的特点</h1><p>Docker的最大特点就基于容器，是容器虚拟化技术的一种。<br><img src="http://s8.51cto.com/wyfs02/M01/59/DE/wKiom1TtaLvy-Is-AAB0hhDBRYM506.jpg" alt="传统虚拟化技术与Docker比较"><br>通过上图可以看到，Docker是在操作系统层面进行虚拟化。<br>在性能上比较，正是由于Docker直接复用宿主操作系统，性能更加优越。<br><img src="http://static.open-open.com/lib/uploadImg/20150702/20150702142513_379.jpg" alt=""><br>当然，性能优越的背后也有付出的代价。就目前看来，由于Docker刚刚兴起，还存在很多安全性问题，比如虚拟机用户越权到宿主机。<br><strong>简单来说</strong>，把Docker技术比喻成操作系统中的一个个相互独立的‘应用’，辅上Git的思维，‘应用’有仓库，可以下载分发、可以制作保存。就像Android APP一样，制作好之后，Android手机都可以安装使用。</p>
-<h1 id="Docker的适用场景">Docker的适用场景</h1><p>曾经遇到过这样的场景，在对CMS进行漏洞测试时，往往需要搭建测试环境，包括ngix、PHP、Mysql等，如果换台虚拟机还需要搭建环境、配置环境，很繁琐，就行软件发布流程一样繁琐，开发人员在本地环境开发、测试完成之后，交给运维，运维开始部署环境，进行测试，再上线，一旦环境更改，就需要几个部门联动。在这个过程中，我们发现，我们做了很多重复的东西。<br>说到这里，Docker的优势就展现出来，有人说将会改变整个软件交付流程，大大的降低运维人员的劳动强度。<br>只需要简单部署Docker环境之后，可以直接把本地环境打包，然后直接在另外一台机器运行。<br>这样看来，Docker确实可以节省重复劳动。</p>
-<p>结束语：刚看了几本书的开头，对虚拟化技术有了轮廓，由于毕业设计的需要，会渐渐学习Docker技术。这篇文章只是自己的看法，不当之处，还请批评！</p>
+        <span itemprop="articleBody"><h1 id="我的环境">我的环境</h1><p>目前Docker支持大部分的主流平台，如Ubuntu、Cent OS、Windows、Mac OS等。由于我习惯使用CentOS 7,所以本次实验环境是基于Cent OS 7 64位。<br><em>特别说明：</em>刚安装好的系统，使用前，建议执行<strong>yum -y update</strong>命令，对系统进行更新。</p>
+<h1 id="安装Docker">安装Docker</h1><p>CentOS 7中，源中已经内置Docker，可以直接使用yum安装。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> docker</span><br></pre></td></tr></table></figure></p>
+<p>安装成功后，启动并加入开机自动启动。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="operator"><span class="keyword">start</span> docker</span><br><span class="line">systemctl <span class="keyword">enable</span> docker</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>走过的坑</strong><br>在虚拟机安装之前，同时也在阿里云中centOS 7中尝试安装，遇到Docker无法启动问题，原因在于，Docker运行时需要创建虚拟网卡（就像Vmware中有VMnet1、VMnet8一样），但是默认情况下，阿里云已经占用了私有IP地址段，故需要删除。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route del -net <span class="number">172.16</span><span class="number">.0</span><span class="number">.0</span> netmask <span class="number">255.240</span><span class="number">.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure></p>
+<p>这样，就可以正常启动Docker。查看网卡信息如下：<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ip a</span></span><br><span class="line"><span class="number">1</span>: lo: <span class="variable">&lt;LOOPBACK,UP,LOWER_UP&gt;</span> mtu <span class="number">65536</span> qdisc noqueue <span class="keyword">state</span> UNKNOWN</span><br><span class="line">    ....</span><br><span class="line"><span class="number">4</span>: docker0: <span class="variable">&lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;</span> mtu <span class="number">1500</span> qdisc noqueue <span class="keyword">state</span> UP</span><br><span class="line">    link/ether <span class="number">02</span>:<span class="number">42</span>:a2:<span class="number">21</span>:be:fa brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    <span class="keyword">inet</span> <span class="number">172.17</span>.<span class="number">42.1</span>/<span class="number">16</span> scope <span class="keyword">global</span> docker0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    <span class="keyword">inet6</span> fe80::<span class="number">42</span>:a2ff:fe21:befa/<span class="number">64</span> scope link</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure></p>
+<p>多了一个docker0网卡，且ip段为172.17.0.0。</p>
+<h1 id="下载镜像">下载镜像</h1><p>安装完Docker后，需要下载镜像。那什么是镜像呢？简单的来说，就是docker可以启动运行的文件，举个例子，就像我们安装好虚拟机的文件，拷贝给别人在别人的虚拟机中也能打开。<br>镜像在哪里，如何获取？镜像放置在一个镜像库中，默认镜像库是Docker Hub，这个镜像库是Docker公司负责维护的公共仓库，当然也可以选择其他镜像仓库，如公司的私有仓库、国内维护的仓库dockerpool。<br><strong>下载镜像</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、docker pull ubuntu</span><br><span class="line"><span class="number">2</span>、docker pull ubuntu:<span class="number">14.04</span></span><br><span class="line"><span class="number">3</span>、docker pull dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span></span><br></pre></td></tr></table></figure></p>
+<p>其中14.04是镜像的标签，如果忽略，默认为latelast。<br><strong>走过的坑</strong><br>由于Docker版本升级，当从非官方源下载时，为了安全起见，需要进行手工认证下载源的安全性。<br>在CentOS 7中，Docker的配置文件<strong>/etc/sysconfig/docker</strong>，<br>在<strong>INSECURE_REGISTRY</strong>处修改，添加自己的源，并去掉注释。如：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">INSECURE_REGISTRY=<span class="value"><span class="string">'--insecure-registry dl.dockerpool.com:5000'</span></span></span></span><br></pre></td></tr></table></figure></p>
+<p>重新启动docker服务，便可以在非官方源下载了。<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker<span class="keyword"></span><br><span class="line">system</span>ctl stop docker<span class="keyword"></span><br><span class="line">system</span>ctl start docker<span class="keyword"></span><br><span class="line">system</span>ctl status docker</span><br></pre></td></tr></table></figure></p>
+<h1 id="容器新建、启动、终止">容器新建、启动、终止</h1><p>下载好镜像只有，可以查看本地的镜像。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="preprocessor"># docker images</span></span><br><span class="line">REPOSITORY                      TAG                 IMAGE ID            CREATED             VIRTUAL SIZE</span><br><span class="line">dl.dockerpool.com:<span class="number">5000</span>/ubuntu   <span class="number">14.04</span>               <span class="number">5506</span>de2b643b        <span class="number">13</span> months ago       <span class="number">199.2</span> MB</span><br><span class="line">dl.dockerpool.com:<span class="number">5000</span>/ubuntu   latest              <span class="number">0</span>b310e6bf058        <span class="number">13</span> months ago       <span class="number">126.6</span> MB</span><br></pre></td></tr></table></figure></p>
+<p>指定镜像，创建容器。容器我们可以简单的认为是我们通过虚拟机文件启动的一台虚拟机。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="preprocessor"># docker create -it dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span></span></span><br><span class="line"><span class="number">130</span>b9ee0454e81b3fa62deec189c33b5be295035dbeda9f2ad93578e385e1993</span><br></pre></td></tr></table></figure></p>
+<p>其中我们需要指定完整的镜像名称以及标签。<br>创建好的容器并不会运行，而是处于停止状态。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="preprocessor"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE                                 COMMAND             CREATED              STATUS                   PORTS               NAMES</span><br><span class="line"><span class="number">130</span>b9ee0454e        dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span>   <span class="string">"/bin/bash"</span>         About a minute ago   Created                                      evil_bohr</span><br></pre></td></tr></table></figure></p>
+<p>启动指定容器,需要指定容器ID，当然可以简写，只要可以唯一识别即可。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="preprocessor"># docker start <span class="number">130</span></span></span><br><span class="line"><span class="number">130</span></span><br><span class="line">[root@localhost ~]<span class="preprocessor"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE                                 COMMAND             CREATED             STATUS                   PORTS               NAMES</span><br><span class="line"><span class="number">130</span>b9ee0454e        dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span>   <span class="string">"/bin/bash"</span>         <span class="number">3</span> minutes ago       Up <span class="number">6</span> seconds                                 evil_bohr</span><br></pre></td></tr></table></figure></p>
+<p>终止指定容器<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="preprocessor"># docker stop <span class="number">130</span></span></span><br><span class="line"><span class="number">130</span></span><br><span class="line">[root@localhost ~]<span class="preprocessor"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE                                 COMMAND             CREATED             STATUS                     PORTS               NAMES</span><br><span class="line"><span class="number">130</span>b9ee0454e        dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span>   <span class="string">"/bin/bash"</span>         <span class="number">5</span> <span class="function">minutes ago       <span class="title">Exited</span> <span class="params">(<span class="number">0</span>)</span> 6 seconds ago                       evil_bohr</span></span><br></pre></td></tr></table></figure></p>
+<p>除了这几种最基础的操作以外，还有许多操作需要我学习，我也会不断学习，不断总结。</p>
 </span>
       
     </div>
@@ -292,7 +300,7 @@
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/08/搭建git服务器/" rel="next">搭建git服务器</a>
+              <a href="/2015/12/06/Docker基础-第一篇/" rel="next">Docker基础(一)</a>
             
           </div>
         </div>
@@ -317,8 +325,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/12/06/Docker基础第一篇/"
-                   data-title="Docker基础(一)" data-url="http://yoursite.com/2015/12/06/Docker基础第一篇/">
+              <div class="ds-thread" data-thread-key="2015/12/06/Docker基础-第二篇/"
+                   data-title="Docker基础(第二篇)" data-url="http://yoursite.com/2015/12/06/Docker基础-第二篇/">
               </div>
             
           </div>
@@ -358,14 +366,14 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
@@ -417,7 +425,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是虚拟化技术？"><span class="nav-number">1.</span> <span class="nav-text">什么是虚拟化技术？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟化技术有什么用？"><span class="nav-number">2.</span> <span class="nav-text">虚拟化技术有什么用？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker的特点"><span class="nav-number">3.</span> <span class="nav-text">Docker的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker的适用场景"><span class="nav-number">4.</span> <span class="nav-text">Docker的适用场景</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我的环境"><span class="nav-number">1.</span> <span class="nav-text">我的环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Docker"><span class="nav-number">2.</span> <span class="nav-text">安装Docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下载镜像"><span class="nav-number">3.</span> <span class="nav-text">下载镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#容器新建、启动、终止"><span class="nav-number">4.</span> <span class="nav-text">容器新建、启动、终止</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
