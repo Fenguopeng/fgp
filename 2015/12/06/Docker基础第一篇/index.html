@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="ConsoleZ," />
+  <meta name="keywords" content="Docker," />
 
 
 
@@ -37,19 +37,18 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="ConsoleZ是一款Windows下非常好用的控制台。作为Console2的fork版本，对Windows Vista/7/8支持的更好。作为CMD的长期用户，今天也可以感受一下带颜色Console的幸福感！下面记录了其配置过程。">
+<meta name="description" content="Docker是2013年初发布并开源，已经成为热门的云开源项目。在虚拟化技术中，有KVM、Xen、硬件辅助虚拟化Intel-VT和AMD-V、以及我们常用的桌面虚拟化产品Vmware Workstation、VirtualBox。各个虚拟化技术有自己的不同特点、不同的适用场合。接下来一段时间里，开始学习Docker！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ConsoleZ Setings">
-<meta property="og:url" content="http://yoursite.com/2015/08/06/ConsoleZ-Setings/index.html">
+<meta property="og:title" content="Docker基础(一)">
+<meta property="og:url" content="http://yoursite.com/2015/12/06/Docker基础第一篇/index.html">
 <meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="ConsoleZ是一款Windows下非常好用的控制台。作为Console2的fork版本，对Windows Vista/7/8支持的更好。作为CMD的长期用户，今天也可以感受一下带颜色Console的幸福感！下面记录了其配置过程。">
-<meta property="og:image" content="http://7xjwd1.com1.z0.glb.clouddn.com/ConsoleZ-1.png">
-<meta property="og:image" content="http://7xjwd1.com1.z0.glb.clouddn.com/ConsoleZ-2.png">
-<meta property="og:image" content="http://7xjwd1.com1.z0.glb.clouddn.com/ConsoleZ-3.jpg">
-<meta property="og:updated_time" content="2015-08-10T08:13:28.754Z">
+<meta property="og:description" content="Docker是2013年初发布并开源，已经成为热门的云开源项目。在虚拟化技术中，有KVM、Xen、硬件辅助虚拟化Intel-VT和AMD-V、以及我们常用的桌面虚拟化产品Vmware Workstation、VirtualBox。各个虚拟化技术有自己的不同特点、不同的适用场合。接下来一段时间里，开始学习Docker！">
+<meta property="og:image" content="http://s8.51cto.com/wyfs02/M01/59/DE/wKiom1TtaLvy-Is-AAB0hhDBRYM506.jpg">
+<meta property="og:image" content="http://static.open-open.com/lib/uploadImg/20150702/20150702142513_379.jpg">
+<meta property="og:updated_time" content="2015-12-06T13:27:07.501Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ConsoleZ Setings">
-<meta name="twitter:description" content="ConsoleZ是一款Windows下非常好用的控制台。作为Console2的fork版本，对Windows Vista/7/8支持的更好。作为CMD的长期用户，今天也可以感受一下带颜色Console的幸福感！下面记录了其配置过程。">
+<meta name="twitter:title" content="Docker基础(一)">
+<meta name="twitter:description" content="Docker是2013年初发布并开源，已经成为热门的云开源项目。在虚拟化技术中，有KVM、Xen、硬件辅助虚拟化Intel-VT和AMD-V、以及我们常用的桌面虚拟化产品Vmware Workstation、VirtualBox。各个虚拟化技术有自己的不同特点、不同的适用场合。接下来一段时间里，开始学习Docker！">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -59,7 +58,7 @@
   };
 </script>
 
-  <title> ConsoleZ Setings | F.G.P Notes </title>
+  <title> Docker基础(一) | F.G.P Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -205,7 +204,7 @@
           
           
             
-              ConsoleZ Setings
+              Docker基础(一)
             
           
         </h1>
@@ -214,8 +213,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-06T09:11:04+08:00" content="2015-08-06">
-            2015-08-06
+          <time itemprop="dateCreated" datetime="2015-12-06T20:15:05+08:00" content="2015-12-06">
+            2015-12-06
           </time>
         </span>
 
@@ -224,8 +223,20 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/工具/" itemprop="url" rel="index">
-                  <span itemprop="name">工具</span>
+                <a href="/categories/Dockeer/" itemprop="url" rel="index">
+                  <span itemprop="name">Dockeer</span>
+                </a>
+              </span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Dockeer/虚拟化/" itemprop="url" rel="index">
+                  <span itemprop="name">虚拟化</span>
                 </a>
               </span>
 
@@ -240,8 +251,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/08/06/ConsoleZ-Setings/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/06/ConsoleZ-Setings/" itemprop="commentsCount"></span>
+              <a href="/2015/12/06/Docker基础第一篇/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/06/Docker基础第一篇/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -255,40 +266,11 @@
       
 
       
-        <span itemprop="articleBody"><blockquote>
-<p>ConsoleZ是一款Windows下非常好用的控制台。作为Console2的fork版本，对Windows Vista/7/8支持的更好。作为CMD的长期用户，今天也可以感受一下带颜色Console的幸福感！下面记录了其配置过程。</p>
-</blockquote>
-<h2 id="下载地址">下载地址</h2><p>作者原版<a href="https://github.com/cbucher/console/wiki/Downloads" target="_blank" rel="external">GitHub下载</a></p>
-<h2 id="排版错乱">排版错乱</h2><p>首次使用时，会出现界面错乱情况。<br>解决办法：菜单-view–Console Window，弹出CMD窗口，将属性-字体修改为<strong>新宋体</strong>。</p>
-<h2 id="集成Git_bash">集成Git bash</h2><p>在Windows下，使用Git bash，由于支持Linux命令，使用起来非常方便。把Git bash集成到ConsoleZ中，体验更好。<br>操作：菜单-Edit-Console-Shell，添加git的shell目录，如<code>H:\Git\bin\sh.exe --login -i</code>，重新启动后，就会看到熟悉的Git bash了。</p>
-<p>遇到Git bash中文显示乱码解决办法：Git目录下 在文件/etc/git-completion.bash末尾添加<code>alias ls=&#39;ls --show-control-chars --color=auto&#39;</code>即可解决。</p>
-<h2 id="设置鼠标右键">设置鼠标右键</h2><p>设置鼠标右键快捷方式，可以快速的在相应目录下打开Console，避免了繁琐的<em>cd</em>命令进入目录。共有两种快捷方式，第一种在空白处打开Console，位置在当前目录。第二种文件夹右键，位置在该文件夹下。</p>
-<h3 id="空白处右键设置">空白处右键设置</h3><p>打开注册表编辑器（运行 - regedit），定位到HKEY_CLASSES_ROOT\Directory\Background\shell，右键-新建-项Console，其数据值（右键显示的名称）任意填写，例如：<code>在此处打开Console</code>，在Console下新建项command，数据值为Console.exe的路径，例如：<code>C:\ConsoleZ\Console.exe</code> 这时在任意空白处右键，就会看到<code>在此处打开Console</code>，点击便会在当前目录下打开Console。</p>
-<h3 id="文件夹右键设置">文件夹右键设置</h3><p>注册表编辑器，定位HKEY_CLASSES_ROOT\Directory\shell，新建项目Console，值设置为Console Here，在Console下新建项目Command，值设置为<code>&quot;C:\Windows\SysWOW64\wscript&quot; &quot;C:\ConsoleZ\ConsoleZ.vbs&quot; &quot;%v&quot;</code>，其中ConsoleZ.vbs内容如下：</p>
-<pre><code><span class="keyword">Set</span> fso = <span class="built_in">CreateObject</span>(<span class="string">"Scripting.FileSystemObject"</span>)
-<span class="keyword">Set</span> shell = <span class="built_in">CreateObject</span>(<span class="string">"WScript.Shell"</span>)
-
-<span class="keyword">Const</span> TemporaryFolder = <span class="number">2</span>
-linkfile = fso.BuildPath(fso.GetSpecialFolder(TemporaryFolder), <span class="string">"Console.exe.lnk"</span>)
-gitdir = fso.GetParentFolderName(WScript.ScriptFullName)
-
-<span class="comment">'Dynamically create a shortcut with the current directory as the working directory.</span>
-<span class="keyword">Set</span> link = shell.CreateShortcut(linkfile)
-link.TargetPath = fso.BuildPath(gitdir, <span class="string">"Console.exe"</span>)
-<span class="keyword">If</span> WScript.Arguments.Length &gt; <span class="number">0</span> <span class="keyword">Then</span> link.WorkingDirectory = WScript.Arguments(<span class="number">0</span>)
-link.Save
-
-<span class="keyword">Set</span> app = <span class="built_in">CreateObject</span>(<span class="string">"Shell.Application"</span>)
-app.ShellExecute linkfile
-</code></pre><p>!注意自己的目录</p>
-<h2 id="样式设置">样式设置</h2><h3 id="字体">字体</h3><p>菜单-Edit-Settings(快捷键CTRL+S)打开设置窗口。Appearance-Font，可以设定字体样式和大小。这里根据网友的建议和自己的调整，设置为name：Consolas，size：10<br><img src="http://7xjwd1.com1.z0.glb.clouddn.com/ConsoleZ-1.png" alt=""></p>
-<h3 id="背景透明度">背景透明度</h3><p>背景颜色设定，在设置窗口中Tabs-Backgroud-Solid，配色方案为红45绿52蓝54。<br>透明度设定，在Styles-Window transparency中，选择Alpha样式。其中Active window设定20，Inactive window设定为50.<br><img src="http://7xjwd1.com1.z0.glb.clouddn.com/ConsoleZ-2.png" alt=""></p>
-<h3 id="快捷键">快捷键</h3><p>在设置窗口中Mouse是鼠标快捷键，平常最常用的就是复制粘贴，可以更改为自己习惯的方式，但是千万别设置为右键，因为右键的功能是显示菜单功能，否则会冲突，只能更改配置文件。</p>
-<h3 id="工具栏隐藏">工具栏隐藏</h3><p>对于使用快捷键来说，ConsoleZ上面的菜单栏、工具栏、搜索栏与整体风格显得格格不入。可以选择不显示这些。操作：菜单-view，建议留下状态栏，其他取消。下次访问菜单，可以右键。<br>整体效果图<br><img src="http://7xjwd1.com1.z0.glb.clouddn.com/ConsoleZ-3.jpg" alt=""></p>
-<h2 id="Alias设置">Alias设置</h2><p>有一些常用的命令并且很长，每次补全很繁琐。可以把自己的命令起个别名。比如把notepad++.exe简为n、MarkdownPad2.exe简为m。在Git目录下 在文件/etc/git-completion.bash末尾添加即可。如：</p>
-<pre><code><span class="built_in">alias</span> m=<span class="string">'MarkdownPad2.exe'</span>
-<span class="built_in">alias</span> n=<span class="string">'notepad++.exe'</span>
-</code></pre><h2 id="个人修改版下载">个人修改版下载</h2><p>个人版<a href="https://github.com/Fenguopeng/ConsoleZ-per/" target="_blank" rel="external">Github下载</a><br>说明：修改ConsoleZ.reg文件,路径修复为自己本地实际路径，运行reg文件即可添加注册表。</p>
+        <span itemprop="articleBody"><h1 id="什么是虚拟化技术？">什么是虚拟化技术？</h1><p>维基百科中<a href="https://zh.wikipedia.org/wiki/%E8%99%9B%E6%93%AC%E5%8C%96" target="_blank" rel="external">虚拟化</a>是一种资源管理技术，是将计算机的各种实体资源，如服务器、网络、内存、存储，予以抽象、转换后呈现出来，打破实体结构间的不可切割的障碍，使用户可以比原来的配置更好的方式来应用这些资源。通俗的讲，就是可以一台物理服务器可以虚拟成多台虚拟服务器，多台物理服务器可以虚拟成一台虚拟服务器，如我们常用的虚拟机。但是虚拟化技术有很多种，下面根据自己的了解，进行简单的概括。<br><strong>完全虚拟化</strong>：虚拟机模拟完整的底层硬件环境和特权指令，客户机的操作系统无需进行修改。<br><strong>硬件辅助虚拟化</strong>：利用硬件（主要是CPU）辅助支持处理敏感指令来实现虚拟化，硬件辅助虚拟化技术有Intel-VT、AMD-V，这也是我们在使用桌面虚拟化产品时，可能会要求我们在BIOS上设置打开虚拟化功能。<br><strong>操作系统级虚拟化</strong>：完全依赖宿主机操作系统，内核创建多个操作系统实例来进行资源隔离。容器技术属于这个范畴。<br>Docker就是容器虚拟化中的一种。</p>
+<h1 id="虚拟化技术有什么用？">虚拟化技术有什么用？</h1><p>在云计算中，虚拟化技术是其中重要技术之一，目前在云计算中虚拟化技术有KVM、Xen。当你购买一台双CPU、64G内存的物理服务器时，你打算在上面跑多个独立的操作系统时，就需要用到虚拟化。当你在阿里云购买ECS时，快速创建好的系统，就需要用到虚拟化。<br>根据我们的使用经验，无论是自己安装虚拟机、还是购买虚拟机，都需要自己选择系统镜像，这就意味着每一个虚拟机都是相对独立的。</p>
+<h1 id="Docker的特点">Docker的特点</h1><p>Docker的最大特点就基于容器，是容器虚拟化技术的一种。<br><img src="http://s8.51cto.com/wyfs02/M01/59/DE/wKiom1TtaLvy-Is-AAB0hhDBRYM506.jpg" alt="传统虚拟化技术与Docker比较"><br>通过上图可以看到，Docker是在操作系统层面进行虚拟化。<br>在性能上比较，正是由于Docker直接复用宿主操作系统，性能更加优越。<br><img src="http://static.open-open.com/lib/uploadImg/20150702/20150702142513_379.jpg" alt=""><br>当然，性能优越的背后也有付出的代价。就目前看来，由于Docker刚刚兴起，还存在很多安全性问题，比如虚拟机用户越权到宿主机。<br><strong>简单来说</strong>，把Docker技术比喻成操作系统中的一个个相互独立的‘应用’，辅上Git的思维，‘应用’有仓库，可以下载分发、可以制作保存。就像Android APP一样，制作好之后，Android手机都可以安装使用。</p>
+<h1 id="Docker的适用场景">Docker的适用场景</h1><p>曾经遇到过这样的场景，在对CMS进行漏洞测试时，往往需要搭建测试环境，包括ngix、PHP、Mysql等，如果换台虚拟机还需要搭建环境、配置环境，很繁琐，就行软件发布流程一样繁琐，开发人员在本地环境开发、测试完成之后，交给运维，运维开始部署环境，进行测试，再上线，一旦环境更改，就需要几个部门联动。在这个过程中，我们发现，我们做了很多重复的东西。<br>说到这里，Docker的优势就展现出来，有人说将会改变整个软件交付流程，大大的降低运维人员的劳动强度。<br>只需要简单部署Docker环境之后，可以直接把本地环境打包，然后直接在另外一台机器运行。<br>这样看来，Docker确实可以节省重复劳动。</p>
+<p>结束语：刚看了几本书的开头，对虚拟化技术有了轮廓，由于毕业设计的需要，会渐渐学习Docker技术。这篇文章只是自己的看法，不当之处，还请批评！</p>
 </span>
       
     </div>
@@ -297,7 +279,7 @@ app.ShellExecute linkfile
       
         <div class="post-tags">
           
-            <a href="/tags/ConsoleZ/" rel="tag">#ConsoleZ</a>
+            <a href="/tags/Docker/" rel="tag">#Docker</a>
           
         </div>
       
@@ -306,13 +288,11 @@ app.ShellExecute linkfile
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/10/Shadowsocks配置/" rel="prev">Shadowsocks配置</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/05/利用Hexo在VPS部署博客过程/" rel="next">利用Hexo在VPS部署博客过程</a>
+              <a href="/2015/11/08/搭建git服务器/" rel="next">搭建git服务器</a>
             
           </div>
         </div>
@@ -337,8 +317,8 @@ app.ShellExecute linkfile
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/08/06/ConsoleZ-Setings/"
-                   data-title="ConsoleZ Setings" data-url="http://yoursite.com/2015/08/06/ConsoleZ-Setings/">
+              <div class="ds-thread" data-thread-key="2015/12/06/Docker基础第一篇/"
+                   data-title="Docker基础(一)" data-url="http://yoursite.com/2015/12/06/Docker基础第一篇/">
               </div>
             
           </div>
@@ -437,7 +417,7 @@ app.ShellExecute linkfile
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载地址"><span class="nav-number">1.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排版错乱"><span class="nav-number">2.</span> <span class="nav-text">排版错乱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集成Git_bash"><span class="nav-number">3.</span> <span class="nav-text">集成Git bash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置鼠标右键"><span class="nav-number">4.</span> <span class="nav-text">设置鼠标右键</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#空白处右键设置"><span class="nav-number">4.1.</span> <span class="nav-text">空白处右键设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件夹右键设置"><span class="nav-number">4.2.</span> <span class="nav-text">文件夹右键设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式设置"><span class="nav-number">5.</span> <span class="nav-text">样式设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字体"><span class="nav-number">5.1.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景透明度"><span class="nav-number">5.2.</span> <span class="nav-text">背景透明度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">5.3.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具栏隐藏"><span class="nav-number">5.4.</span> <span class="nav-text">工具栏隐藏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Alias设置"><span class="nav-number">6.</span> <span class="nav-text">Alias设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人修改版下载"><span class="nav-number">7.</span> <span class="nav-text">个人修改版下载</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是虚拟化技术？"><span class="nav-number">1.</span> <span class="nav-text">什么是虚拟化技术？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟化技术有什么用？"><span class="nav-number">2.</span> <span class="nav-text">虚拟化技术有什么用？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker的特点"><span class="nav-number">3.</span> <span class="nav-text">Docker的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker的适用场景"><span class="nav-number">4.</span> <span class="nav-text">Docker的适用场景</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
