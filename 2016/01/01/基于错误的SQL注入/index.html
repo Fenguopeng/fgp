@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="转载,随笔," />
+  <meta name="keywords" content="sql注入," />
 
 
 
@@ -37,16 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。">
+<meta name="description" content="SQL注入学习系列，第一篇基于错误的SQL注入，此种类型主要包括两大类，分别是联合查询和子查询两种，其中联合查询又分为字符型型和整型。这篇文章记录SQL注入的原因，及基于错误的SQL注入利用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="这就是事故发生的原因……(转载)">
-<meta property="og:url" content="http://yoursite.com/2015/09/10/这就是事故发生的原因……-转载/index.html">
+<meta property="og:title" content="基于错误的SQL注入">
+<meta property="og:url" content="http://yoursite.com/2016/01/01/基于错误的SQL注入/index.html">
 <meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。">
-<meta property="og:updated_time" content="2015-09-10T02:05:04.794Z">
+<meta property="og:description" content="SQL注入学习系列，第一篇基于错误的SQL注入，此种类型主要包括两大类，分别是联合查询和子查询两种，其中联合查询又分为字符型型和整型。这篇文章记录SQL注入的原因，及基于错误的SQL注入利用。">
+<meta property="og:updated_time" content="2016-01-01T15:08:40.733Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这就是事故发生的原因……(转载)">
-<meta name="twitter:description" content="我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。">
+<meta name="twitter:title" content="基于错误的SQL注入">
+<meta name="twitter:description" content="SQL注入学习系列，第一篇基于错误的SQL注入，此种类型主要包括两大类，分别是联合查询和子查询两种，其中联合查询又分为字符型型和整型。这篇文章记录SQL注入的原因，及基于错误的SQL注入利用。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title> 这就是事故发生的原因……(转载) | F.G.P Notes </title>
+  <title> 基于错误的SQL注入 | F.G.P Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -202,7 +202,7 @@
           
           
             
-              这就是事故发生的原因……(转载)
+              基于错误的SQL注入
             
           
         </h1>
@@ -211,8 +211,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-10T10:02:13+08:00" content="2015-09-10">
-            2015-09-10
+          <time itemprop="dateCreated" datetime="2016-01-01T21:25:17+08:00" content="2016-01-01">
+            2016-01-01
           </time>
         </span>
 
@@ -221,8 +221,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/随笔/" itemprop="url" rel="index">
-                  <span itemprop="name">随笔</span>
+                <a href="/categories/网络安全/" itemprop="url" rel="index">
+                  <span itemprop="name">网络安全</span>
                 </a>
               </span>
 
@@ -237,8 +237,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/10/这就是事故发生的原因……-转载/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/10/这就是事故发生的原因……-转载/" itemprop="commentsCount"></span>
+              <a href="/2016/01/01/基于错误的SQL注入/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/01/基于错误的SQL注入/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -252,25 +252,45 @@
       
 
       
-        <span itemprop="articleBody"><p>我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。</p>
-<h1 id="1、冰箱师傅、饭店老板">1、冰箱师傅、饭店老板</h1><p>“我是个修冰箱的。前段时间一个小饭店的冰箱门关不上，我去给他们修好了。其实当时我就发现那个冰箱的制冷系统泄漏，制冷剂快要跑光了，但我没说，因为如果下次再去修的话，就能多拿三十块钱上门费。果然，没到一个月那台冰箱就不制冷了，他们又喊我去修，我不但多拿了三十块钱，还以五折的价钱从这家店买了些酱牛肉，赚了。”</p>
-<p>“我是一家小饭店的小老板。现在的东西真靠不住，冰箱一个月坏了两次，大夏天的，里面的熟食都坏掉了，都是贵东西，我舍不得扔，让厨师重新煮了，用重料盖掉腐味，低价卖掉了。修冰箱的师傅买了一些，后来他打电话来说，全家吃了都拉肚子。我有点愧疚，当然也没有承认是我们的问题，吃都吃光了，他没凭没据的，到哪儿也说不清了。”</p>
-<h1 id="2、玩具厂老板，建筑工人，质监局领导">2、玩具厂老板，建筑工人，质监局领导</h1><p>“我是个儿童玩具厂的小老板。不瞒您说，我们的玩具都是用回收的废塑料、生活垃圾、医疗垃圾做的，我当然知道这些二料含铅含贡含甲醛，会对孩子健康有害，但是现在生意这么难做，都用真材实料能赚几块钱？”</p>
-<p>“我是个建桥的工人，这次找了个不错的活，别的工地一天一百二，这里给一百五。上班第一天我就明白了他们工钱高的原因——这是个豆腐渣工程，拿沙子充水泥，拿水泥充钢筋。别的工人不敢干都走了，我咬咬牙留了下来。儿子上个月查出白血病，我那点家底砸锅卖铁也不够他治病的，再不多赚点钱，就只能眼睁睁看着他恶化了。”</p>
-<p>“我是个质监局的领导，上次查了一批玩具小作坊，一个小老板找到我老婆说情，又给我捎去两瓶五粮液，我就把他那批玩具放了。昨天他又被查到，我又帮了他个小忙。处理完事情后他请我吃饭，万没想到，饭后回家的路上，开车过新桥时，那桥居然说塌就塌了！我俩一起栽了下去，双双骨折，唉~”</p>
-<h1 id="3、医生，法官，校长，农民">3、医生，法官，校长，农民</h1><p>“我是个医生。去年一家医疗器械厂来推广他们生产的心脏支架，回扣很高，我看了看，质量好像没什么问题，就用了。没想到丫给的居然是伪劣产品，才用了一例就出医疗事故了。”</p>
-<p>“我是个法官。一个老朋友的医院出了医疗事故，来找了我好几次，看在多年情分上，我睁一眼闭一眼，在判决时没让他们担什么责任。”</p>
-<p>“我是个重点中学的校长。每次开学时来报名的家长都打破头，这学期好不容易都定好了，一个法官的女儿又来加塞，这很难办。也真巧，偏偏有个学生上课辱骂老师，我们从重处理，把他开除了，这才倒出一个名额来给她。”</p>
-<p>“我是个农民，去年拿出所有积蓄做了一次心脏搭桥手术，却被伪劣支架给坑了，医院没赔什么钱，家里就快弹尽粮绝了。之前满心指望孩子能有点出息，可这个不争气的东西却让学校开除回来了。我已经没有劳动能力，就干脆让他弃学在家侍弄大棚。这几天出菜花，他去喷杀虫剂。没想到这倒霉孩子不认识农药，居然稀里糊涂拿错了，还超量喷了上去。结果好些人吃了以后农药中毒，听说有医生，有法官，有校长… …”</p>
-<h1 id="4、我是个上班族">4、我是个上班族</h1><p>“我是个上班族。昨天风好大，我在上班的路上打开车窗向外吐了口痰，居然被大风吹回到自己脸上，太倒霉了！”</p>
-<p>… …</p>
-<p>不知道你信不信因果循环，善恶有报。反正我信。当然大多数时候，我都认为是别人在作恶，自己从来没有。我只是有时候做了顺水人情，有时候睁一眼闭一眼，有时候随便一抬手一放手——顶多只能说是没有摸着良心做好人。但见了很多事情以后，我好像明白了些什么。</p>
-<p>——可能就是那么一随便，就有人倒霉了。而倒霉的那个人，可能就是整个社会第一张倒下的多米诺骨牌，他倒了，就全倒了。如果这个社会人人都倒霉，肯定也跑不了我。</p>
-<p>我的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，都肩并肩手挽手地联络在一起，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。</p>
-<p>所以现在我知道，如果自己不想倒霉，那就尽量不要让别人倒霉，如果我希望身边都是好人，那自己首先要做个好人。</p>
-<p>因为做好人其实也是一个圈套，套来套去，总会把好运套到自己头上。</p>
-<p>（文/李月亮）<br>原文地址：(<a href="http://lcx.cc/?i=4561)[http://lcx.cc/?i=4561" target="_blank" rel="external">http://lcx.cc/?i=4561)[http://lcx.cc/?i=4561</a>]</p>
-</span>
+        <span itemprop="articleBody"><h1 id="基于错误的SQL注入">基于错误的SQL注入</h1><h2 id="最前面的话">最前面的话</h2><ul>
+<li>预备知识<ul>
+<li>SQL基础知识，包括数据库增、删、改、查等SQL基础语句以及聚合函数、子查询等一些高级语法。</li>
+<li>编程知识，包括使用编程语言提供的操纵数据库接口，如PHP中的mysql系列函数。</li>
+</ul>
+</li>
+<li>文章以<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="external">sqli-labs</a>作为学习环境，大家可以在本地下载安装</li>
+<li>文章会努力从如何攻击、剖析原因、防范横向叙述，从读取数据、提权纵向延伸。</li>
+<li>文章会定期更新，也是对自己学习的监督。</li>
+<li>文中不当之处，敬请指出，望不吝赐教。</li>
+</ul>
+<p>第一篇文章先介绍基于错误的SQL注入，简言之，输入畸形数据后，我们可以回显的错误信息，我们根据错误信息帮助我们进行注入。本文结构如下：</p>
+<blockquote>
+<p>概要</p>
+<ul>
+<li>联合查询 Union Select<ul>
+<li>字符型 String</li>
+<li>整型 Intiger</li>
+<li>手工注入攻击</li>
+</ul>
+</li>
+<li>子查询或双查询 Double</li>
+</ul>
+</blockquote>
+<h2 id="联合查询_Union_Select">联合查询 Union Select</h2><h3 id="字符型_String">字符型 String</h3><h4 id="攻击测试">攻击测试</h4><p>sqli-labs中<strong>less-1 Error Based-String</strong>,我们输入<em>?id=1</em>,正常显示用户名和密码。输入畸形数据<em>?id=1’</em>,报错如下：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You have an error in your SQL syntax; <span class="operator"><span class="keyword">check</span> the <span class="keyword">manual</span> that corresponds <span class="keyword">to</span> your MySQL </span><br><span class="line"><span class="keyword">server</span> <span class="keyword">version</span> <span class="keyword">for</span> the <span class="keyword">right</span> syntax <span class="keyword">to</span> <span class="keyword">use</span> near <span class="string">''</span><span class="number">1</span><span class="string">''</span> <span class="keyword">LIMIT</span> <span class="number">0</span>,<span class="number">1</span><span class="string">' at line 1</span></span></span><br></pre></td></tr></table></figure></p>
+<p>错误中提示，我们在SQL语法错误，在第一行的’’1’’ LIMIT 0,1’附近。其中，<strong>‘1’</strong>的两边有单引号，由于我们刚才在<strong>1</strong>的后面加的单引号，导致解析异常。通过错误我们发现，在SQL语句中，参数<strong>1</strong>是作为字符串进行查询的，故我们把这种类型的SQL注入称之为<strong>基于错误的字符型注入</strong>。注：可以是单引号、双引号</p>
+<h4 id="源代码分析">源代码分析</h4><p>SQL语句：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">SELECT * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>=<span class="string">'$id'</span> <span class="keyword">LIMIT</span> <span class="number">0</span>,<span class="number">1</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>输入正常是SQL语句：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">SELECT * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>=<span class="string">'1'</span> <span class="keyword">LIMIT</span> <span class="number">0</span>,<span class="number">1</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>畸形数据时SQL语句：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">SELECT * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>=<span class="string">'1'' LIMIT 0,1;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>通过上述两条SQL语句，是把id作为字符形式进行查询，故可以理解为基于错误的<strong>字符型</strong>注入。<br>那么错误是怎么显示出来的？在源代码有一下语句：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$<span class="literal">result</span>=mysql_query($sql);</span><br><span class="line">$row = mysql_fetch_array($<span class="literal">result</span>);</span><br><span class="line"><span class="comment">#var_dump($row);</span></span><br><span class="line"><span class="keyword">if</span>($row)</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">&#123;</span><br><span class="line">	echo '&lt;font color= <span class="string">"#FFFF00"</span>&gt;';</span><br><span class="line">	print_r(mysql_error());</span><br><span class="line">	echo <span class="string">"&lt;/font&gt;"</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>print_r(mysql_error())</strong>语句在异常时，输出错误信息。<br>通过上面简单的源代码分析，可以理解<strong>基于错误的字符型注入</strong>。</p>
+<h3 id="整型_Intiger">整型 Intiger</h3><p><strong>基于错误的整型注入</strong>和上面类似。简要叙述。</p>
+<h4 id="攻击测试-1">攻击测试</h4><p>sqli-labs中<strong>less-2 Error Based-Intiger</strong>,我们输入<em>?id=1</em>,正常显示用户名和密码。输入畸形数据<em>?id=1’</em>,报错如下：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You have an error in your SQL syntax; <span class="operator"><span class="keyword">check</span> the <span class="keyword">manual</span> that corresponds <span class="keyword">to</span> your MySQL </span><br><span class="line"><span class="keyword">server</span> <span class="keyword">version</span> <span class="keyword">for</span> the <span class="keyword">right</span> syntax <span class="keyword">to</span> <span class="keyword">use</span> near <span class="string">''</span> <span class="keyword">LIMIT</span> <span class="number">0</span>,<span class="number">1</span><span class="string">' at line 1</span></span></span><br></pre></td></tr></table></figure></p>
+<p><strong>注意！上述报错信息与上一条有区别。</strong>对比如下：<br>第一条 <strong>‘1’’ LIMIT 0,1</strong><br>第二条 <strong>‘ LIMIT 0,1</strong><br>第一条中1，第二条中没有。说明第二条中，我们输入的单引号没有打乱原本的单引号闭合策略。详细看源代码分析。</p>
+<h4 id="源代码分析-1">源代码分析</h4><p>SQL语句：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">SELECT * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>=$<span class="keyword">id</span> <span class="keyword">LIMIT</span> <span class="number">0</span>,<span class="number">1</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>正常试:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">SELECT * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>=<span class="number">1</span> <span class="keyword">LIMIT</span> <span class="number">0</span>,<span class="number">1</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>异常时：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">SELECT * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>=<span class="number">1</span><span class="string">' LIMIT 0,1;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>这里id以整型带入SQL语句查询。故理解为<strong>基于错误的整型注入</strong>。</p>
+<h3 id="手工注入攻击">手工注入攻击</h3><h2 id="子查询_Double">子查询 Double</h2></span>
       
     </div>
 
@@ -278,9 +298,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/转载/" rel="tag">#转载</a>
-          
-            <a href="/tags/随笔/" rel="tag">#随笔</a>
+            <a href="/tags/sql注入/" rel="tag">#sql注入</a>
           
         </div>
       
@@ -289,13 +307,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/22/Mysql文件相关函数认识/" rel="prev">认识Mysql文件相关函数</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/08/漏洞利用分析/" rel="next">漏洞利用分析</a>
+              <a href="/2015/12/07/内网端口转发/" rel="next">内网端口转发</a>
             
           </div>
         </div>
@@ -320,8 +336,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/10/这就是事故发生的原因……-转载/"
-                   data-title="这就是事故发生的原因……(转载)" data-url="http://yoursite.com/2015/09/10/这就是事故发生的原因……-转载/">
+              <div class="ds-thread" data-thread-key="2016/01/01/基于错误的SQL注入/"
+                   data-title="基于错误的SQL注入" data-url="http://yoursite.com/2016/01/01/基于错误的SQL注入/">
               </div>
             
           </div>
@@ -420,7 +436,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、冰箱师傅、饭店老板"><span class="nav-number">1.</span> <span class="nav-text">1、冰箱师傅、饭店老板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、玩具厂老板，建筑工人，质监局领导"><span class="nav-number">2.</span> <span class="nav-text">2、玩具厂老板，建筑工人，质监局领导</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、医生，法官，校长，农民"><span class="nav-number">3.</span> <span class="nav-text">3、医生，法官，校长，农民</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4、我是个上班族"><span class="nav-number">4.</span> <span class="nav-text">4、我是个上班族</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于错误的SQL注入"><span class="nav-number">1.</span> <span class="nav-text">基于错误的SQL注入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最前面的话"><span class="nav-number">1.1.</span> <span class="nav-text">最前面的话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联合查询_Union_Select"><span class="nav-number">1.2.</span> <span class="nav-text">联合查询 Union Select</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符型_String"><span class="nav-number">1.2.1.</span> <span class="nav-text">字符型 String</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#攻击测试"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">攻击测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码分析"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">源代码分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整型_Intiger"><span class="nav-number">1.2.2.</span> <span class="nav-text">整型 Intiger</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#攻击测试-1"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">攻击测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码分析-1"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">源代码分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手工注入攻击"><span class="nav-number">1.2.3.</span> <span class="nav-text">手工注入攻击</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子查询_Double"><span class="nav-number">1.3.</span> <span class="nav-text">子查询 Double</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

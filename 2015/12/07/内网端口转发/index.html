@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="转载,随笔," />
+  <meta name="keywords" content="渗透," />
 
 
 
@@ -37,16 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。">
+<meta name="description" content="在大公司里面，常采用外网代理服务器+内网真实Web服务器架构，这样当我们拿到内网服务器权限以后，就需要考虑内网端口转发。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="这就是事故发生的原因……(转载)">
-<meta property="og:url" content="http://yoursite.com/2015/09/10/这就是事故发生的原因……-转载/index.html">
+<meta property="og:title" content="内网端口转发">
+<meta property="og:url" content="http://yoursite.com/2015/12/07/内网端口转发/index.html">
 <meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。">
-<meta property="og:updated_time" content="2015-09-10T02:05:04.794Z">
+<meta property="og:description" content="在大公司里面，常采用外网代理服务器+内网真实Web服务器架构，这样当我们拿到内网服务器权限以后，就需要考虑内网端口转发。">
+<meta property="og:updated_time" content="2015-12-07T14:51:38.387Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这就是事故发生的原因……(转载)">
-<meta name="twitter:description" content="我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。">
+<meta name="twitter:title" content="内网端口转发">
+<meta name="twitter:description" content="在大公司里面，常采用外网代理服务器+内网真实Web服务器架构，这样当我们拿到内网服务器权限以后，就需要考虑内网端口转发。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title> 这就是事故发生的原因……(转载) | F.G.P Notes </title>
+  <title> 内网端口转发 | F.G.P Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -202,7 +202,7 @@
           
           
             
-              这就是事故发生的原因……(转载)
+              内网端口转发
             
           
         </h1>
@@ -211,8 +211,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-10T10:02:13+08:00" content="2015-09-10">
-            2015-09-10
+          <time itemprop="dateCreated" datetime="2015-12-07T21:20:23+08:00" content="2015-12-07">
+            2015-12-07
           </time>
         </span>
 
@@ -221,8 +221,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/随笔/" itemprop="url" rel="index">
-                  <span itemprop="name">随笔</span>
+                <a href="/categories/网络安全/" itemprop="url" rel="index">
+                  <span itemprop="name">网络安全</span>
                 </a>
               </span>
 
@@ -237,8 +237,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/10/这就是事故发生的原因……-转载/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/10/这就是事故发生的原因……-转载/" itemprop="commentsCount"></span>
+              <a href="/2015/12/07/内网端口转发/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/07/内网端口转发/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -252,25 +252,12 @@
       
 
       
-        <span itemprop="articleBody"><p>我们自己的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。</p>
-<h1 id="1、冰箱师傅、饭店老板">1、冰箱师傅、饭店老板</h1><p>“我是个修冰箱的。前段时间一个小饭店的冰箱门关不上，我去给他们修好了。其实当时我就发现那个冰箱的制冷系统泄漏，制冷剂快要跑光了，但我没说，因为如果下次再去修的话，就能多拿三十块钱上门费。果然，没到一个月那台冰箱就不制冷了，他们又喊我去修，我不但多拿了三十块钱，还以五折的价钱从这家店买了些酱牛肉，赚了。”</p>
-<p>“我是一家小饭店的小老板。现在的东西真靠不住，冰箱一个月坏了两次，大夏天的，里面的熟食都坏掉了，都是贵东西，我舍不得扔，让厨师重新煮了，用重料盖掉腐味，低价卖掉了。修冰箱的师傅买了一些，后来他打电话来说，全家吃了都拉肚子。我有点愧疚，当然也没有承认是我们的问题，吃都吃光了，他没凭没据的，到哪儿也说不清了。”</p>
-<h1 id="2、玩具厂老板，建筑工人，质监局领导">2、玩具厂老板，建筑工人，质监局领导</h1><p>“我是个儿童玩具厂的小老板。不瞒您说，我们的玩具都是用回收的废塑料、生活垃圾、医疗垃圾做的，我当然知道这些二料含铅含贡含甲醛，会对孩子健康有害，但是现在生意这么难做，都用真材实料能赚几块钱？”</p>
-<p>“我是个建桥的工人，这次找了个不错的活，别的工地一天一百二，这里给一百五。上班第一天我就明白了他们工钱高的原因——这是个豆腐渣工程，拿沙子充水泥，拿水泥充钢筋。别的工人不敢干都走了，我咬咬牙留了下来。儿子上个月查出白血病，我那点家底砸锅卖铁也不够他治病的，再不多赚点钱，就只能眼睁睁看着他恶化了。”</p>
-<p>“我是个质监局的领导，上次查了一批玩具小作坊，一个小老板找到我老婆说情，又给我捎去两瓶五粮液，我就把他那批玩具放了。昨天他又被查到，我又帮了他个小忙。处理完事情后他请我吃饭，万没想到，饭后回家的路上，开车过新桥时，那桥居然说塌就塌了！我俩一起栽了下去，双双骨折，唉~”</p>
-<h1 id="3、医生，法官，校长，农民">3、医生，法官，校长，农民</h1><p>“我是个医生。去年一家医疗器械厂来推广他们生产的心脏支架，回扣很高，我看了看，质量好像没什么问题，就用了。没想到丫给的居然是伪劣产品，才用了一例就出医疗事故了。”</p>
-<p>“我是个法官。一个老朋友的医院出了医疗事故，来找了我好几次，看在多年情分上，我睁一眼闭一眼，在判决时没让他们担什么责任。”</p>
-<p>“我是个重点中学的校长。每次开学时来报名的家长都打破头，这学期好不容易都定好了，一个法官的女儿又来加塞，这很难办。也真巧，偏偏有个学生上课辱骂老师，我们从重处理，把他开除了，这才倒出一个名额来给她。”</p>
-<p>“我是个农民，去年拿出所有积蓄做了一次心脏搭桥手术，却被伪劣支架给坑了，医院没赔什么钱，家里就快弹尽粮绝了。之前满心指望孩子能有点出息，可这个不争气的东西却让学校开除回来了。我已经没有劳动能力，就干脆让他弃学在家侍弄大棚。这几天出菜花，他去喷杀虫剂。没想到这倒霉孩子不认识农药，居然稀里糊涂拿错了，还超量喷了上去。结果好些人吃了以后农药中毒，听说有医生，有法官，有校长… …”</p>
-<h1 id="4、我是个上班族">4、我是个上班族</h1><p>“我是个上班族。昨天风好大，我在上班的路上打开车窗向外吐了口痰，居然被大风吹回到自己脸上，太倒霉了！”</p>
-<p>… …</p>
-<p>不知道你信不信因果循环，善恶有报。反正我信。当然大多数时候，我都认为是别人在作恶，自己从来没有。我只是有时候做了顺水人情，有时候睁一眼闭一眼，有时候随便一抬手一放手——顶多只能说是没有摸着良心做好人。但见了很多事情以后，我好像明白了些什么。</p>
-<p>——可能就是那么一随便，就有人倒霉了。而倒霉的那个人，可能就是整个社会第一张倒下的多米诺骨牌，他倒了，就全倒了。如果这个社会人人都倒霉，肯定也跑不了我。</p>
-<p>我的每一次“没做好人”，都像迎风吐痰，都是给世界设下的一个圈套，这个圈套也许大也许小，但最终很可能重新套回到我身上。因为社会本身就是一个整体，这里面生存的每一个人，都肩并肩手挽手地联络在一起，不分职业身份，无论贫富贵贱，大家共同织起一张网，也共同做这网里的鱼。</p>
-<p>所以现在我知道，如果自己不想倒霉，那就尽量不要让别人倒霉，如果我希望身边都是好人，那自己首先要做个好人。</p>
-<p>因为做好人其实也是一个圈套，套来套去，总会把好运套到自己头上。</p>
-<p>（文/李月亮）<br>原文地址：(<a href="http://lcx.cc/?i=4561)[http://lcx.cc/?i=4561" target="_blank" rel="external">http://lcx.cc/?i=4561)[http://lcx.cc/?i=4561</a>]</p>
-</span>
+        <span itemprop="articleBody"><blockquote>
+<p>外网IP+内网服务器的架构有多种实现方式。本文抛开架构不谈，以内网服务器是否可以连通外网作为区别进行阐述。<br>由于目前经验不足，本文会持续更新。</p>
+</blockquote>
+<h1 id="内网服务器可以连通外网">内网服务器可以连通外网</h1><p>常见的架构如家用路由器进行端口映射，把外网IP的80端口映射到内网主机的相应端口。此方法的缺点是外网80端口无法映射多台内网主机。<br>在上述情况中，通常位于内网的主机也是可以连接外网的。如果我们有这种情况下的内网主机权限，可以采用反向连接的方式进行端口转发。</p>
+<h2 id="nc">nc</h2><h2 id="lcx">lcx</h2><h2 id="其他反向连接工具">其他反向连接工具</h2><h1 id="内网服务器无法连通外网">内网服务器无法连通外网</h1><p>常见的架构有Nginx反向代理，一台外网IP可以通过nginx反向代理代理多个域名，这样的优点可以nginx进行静态文件缓存，减少后端服务器压力。这种架构下，通常内部服务器无法连接外网，只有特定的端口与代理服务器通信。<br>我们拥有这种情况下的内网主机权限，无法连接外网，端口无法反向主动连接外部服务器。这种情况下，我们只能模拟HTTP通信，通过映射的端口出来。这种方法的缺点是容易受到网速影响，体验较差，不稳定。</p>
+<h2 id="reGroge">reGroge</h2><h2 id="Tuana">Tuana</h2></span>
       
     </div>
 
@@ -278,9 +265,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/转载/" rel="tag">#转载</a>
-          
-            <a href="/tags/随笔/" rel="tag">#随笔</a>
+            <a href="/tags/渗透/" rel="tag">#渗透</a>
           
         </div>
       
@@ -289,13 +274,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/22/Mysql文件相关函数认识/" rel="prev">认识Mysql文件相关函数</a>
+              <a href="/2016/01/01/基于错误的SQL注入/" rel="prev">基于错误的SQL注入</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/08/漏洞利用分析/" rel="next">漏洞利用分析</a>
+              <a href="/2015/12/06/Docker基础-第二篇/" rel="next">Docker基础(第二篇)</a>
             
           </div>
         </div>
@@ -320,8 +305,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/10/这就是事故发生的原因……-转载/"
-                   data-title="这就是事故发生的原因……(转载)" data-url="http://yoursite.com/2015/09/10/这就是事故发生的原因……-转载/">
+              <div class="ds-thread" data-thread-key="2015/12/07/内网端口转发/"
+                   data-title="内网端口转发" data-url="http://yoursite.com/2015/12/07/内网端口转发/">
               </div>
             
           </div>
@@ -420,7 +405,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、冰箱师傅、饭店老板"><span class="nav-number">1.</span> <span class="nav-text">1、冰箱师傅、饭店老板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、玩具厂老板，建筑工人，质监局领导"><span class="nav-number">2.</span> <span class="nav-text">2、玩具厂老板，建筑工人，质监局领导</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、医生，法官，校长，农民"><span class="nav-number">3.</span> <span class="nav-text">3、医生，法官，校长，农民</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4、我是个上班族"><span class="nav-number">4.</span> <span class="nav-text">4、我是个上班族</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#内网服务器可以连通外网"><span class="nav-number">1.</span> <span class="nav-text">内网服务器可以连通外网</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nc"><span class="nav-number">1.1.</span> <span class="nav-text">nc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lcx"><span class="nav-number">1.2.</span> <span class="nav-text">lcx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他反向连接工具"><span class="nav-number">1.3.</span> <span class="nav-text">其他反向连接工具</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内网服务器无法连通外网"><span class="nav-number">2.</span> <span class="nav-text">内网服务器无法连通外网</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#reGroge"><span class="nav-number">2.1.</span> <span class="nav-text">reGroge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tuana"><span class="nav-number">2.2.</span> <span class="nav-text">Tuana</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
