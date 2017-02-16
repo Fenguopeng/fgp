@@ -1,318 +1,114 @@
-<!doctype html>
-<html class="theme-next use-motion theme-next-mist">
+<!DOCTYPE html>
+<html>
 <head>
-  
-
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
-
-
-    <meta name="description" content="天道酬勤" />
-
-
-
-  <meta name="keywords" content="Docker," />
-
-
-
-
-
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
-
-
-<meta name="description" content="在第一篇中，简单了介绍了下Docker以及其他几种虚拟化技术。第二篇就开始学习Docker的基础操作部分知识。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Docker基础(第二篇)">
-<meta property="og:url" content="http://yoursite.com/2015/12/06/Docker基础-第二篇/index.html">
-<meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="在第一篇中，简单了介绍了下Docker以及其他几种虚拟化技术。第二篇就开始学习Docker的基础操作部分知识。">
-<meta property="og:updated_time" content="2015-12-06T14:27:50.032Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker基础(第二篇)">
-<meta name="twitter:description" content="在第一篇中，简单了介绍了下Docker以及其他几种虚拟化技术。第二篇就开始学习Docker的基础操作部分知识。">
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
-  };
-</script>
-
-  <title> Docker基础(第二篇) | F.G.P Notes </title>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v="/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<title> Docker基础(第二篇) | 时针它不停在转动 </title>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
-  
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?a03bca2bc270c73a5c785ac1c8b25056";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-  <div class="container one-column page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
-      <span class="site-title">F.G.P Notes</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
+<body>
+<div id="">
+<header id="header" class="header"><div class="header_wrapper">
+<h1 class="title">
+<a href="/">时针它不停在转动</a>
 </h1>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+<ul class="nav">
+
+
+<li>
+<a href="/">首页</a>
+</li>
+
+
+<li>
+<a href="/categories">分类</a>
+</li>
+
+
+<li>
+<a href="/archives">归档</a>
+</li>
+
+
+<li>
+<a href="/about">关于</a>
+</li>
+
+</ul>
 </div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu menu-left">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
-            标签
-          </a>
-        </li>
-      
-
-      
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  
-  <form class="site-search-form">
-    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-  </form>
-
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'uPfnJsoWp_MdvH7M3amD','2.0.0');
-</script>
-
-
-
-    </div>
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content"> 
+</header>
+<main id="main" class="main">
+<section id="content" class="content">
 
   <div id="posts" class="posts-expand">
     
+<article class="post">
+<header class="post-header">
+<h1 class="post-title">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+Docker基础(第二篇)
+</a>
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              Docker基础(第二篇)
-            
-          
-        </h1>
-      
+</h1>
+<div class="post-meta">
+<span class="post-time">2015-12-06</span>
+<span class="post-category">
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-12-06T21:39:08+08:00" content="2015-12-06">
-            2015-12-06
-          </time>
-        </span>
+&nbsp; | &nbsp;
+<a class="post-cat-link" href="/categories/Docker/">
+Docker
+</a>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Docker/" itemprop="url" rel="index">
-                  <span itemprop="name">Docker</span>
-                </a>
-              </span>
+&nbsp; | &nbsp;
+<a class="post-cat-link" href="/categories/Docker/虚拟化/">
+虚拟化
+</a>
 
-              
-              
-                ， 
-              
+</span>
+</div>
+</header>
 
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Docker/虚拟化/" itemprop="url" rel="index">
-                  <span itemprop="name">虚拟化</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/12/06/Docker基础-第二篇/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/06/Docker基础-第二篇/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        <span itemprop="articleBody"><h1 id="我的环境">我的环境</h1><p>目前Docker支持大部分的主流平台，如Ubuntu、Cent OS、Windows、Mac OS等。由于我习惯使用CentOS 7,所以本次实验环境是基于Cent OS 7 64位。<br><em>特别说明：</em>刚安装好的系统，使用前，建议执行<strong>yum -y update</strong>命令，对系统进行更新。</p>
-<h1 id="安装Docker">安装Docker</h1><p>CentOS 7中，源中已经内置Docker，可以直接使用yum安装。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> docker</span><br></pre></td></tr></table></figure></p>
-<p>安装成功后，启动并加入开机自动启动。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="operator"><span class="keyword">start</span> docker</span><br><span class="line">systemctl <span class="keyword">enable</span> docker</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>走过的坑</strong><br>在虚拟机安装之前，同时也在阿里云中centOS 7中尝试安装，遇到Docker无法启动问题，原因在于，Docker运行时需要创建虚拟网卡（就像Vmware中有VMnet1、VMnet8一样），但是默认情况下，阿里云已经占用了私有IP地址段，故需要删除。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route del -net <span class="number">172.16</span><span class="number">.0</span><span class="number">.0</span> netmask <span class="number">255.240</span><span class="number">.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure></p>
-<p>这样，就可以正常启动Docker。查看网卡信息如下：<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ip a</span></span><br><span class="line"><span class="number">1</span>: lo: <span class="variable">&lt;LOOPBACK,UP,LOWER_UP&gt;</span> mtu <span class="number">65536</span> qdisc noqueue <span class="keyword">state</span> UNKNOWN</span><br><span class="line">    ....</span><br><span class="line"><span class="number">4</span>: docker0: <span class="variable">&lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;</span> mtu <span class="number">1500</span> qdisc noqueue <span class="keyword">state</span> UP</span><br><span class="line">    link/ether <span class="number">02</span>:<span class="number">42</span>:a2:<span class="number">21</span>:be:fa brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    <span class="keyword">inet</span> <span class="number">172.17</span>.<span class="number">42.1</span>/<span class="number">16</span> scope <span class="keyword">global</span> docker0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    <span class="keyword">inet6</span> fe80::<span class="number">42</span>:a2ff:fe21:befa/<span class="number">64</span> scope link</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure></p>
+<span class="articleBody"><h1 id="我的环境"><a href="#我的环境" class="headerlink" title="我的环境"></a>我的环境</h1><p>目前Docker支持大部分的主流平台，如Ubuntu、Cent OS、Windows、Mac OS等。由于我习惯使用CentOS 7,所以本次实验环境是基于Cent OS 7 64位。<br><em>特别说明：</em>刚安装好的系统，使用前，建议执行<strong>yum -y update</strong>命令，对系统进行更新。</p>
+<h1 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h1><p>CentOS 7中，源中已经内置Docker，可以直接使用yum安装。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y <span class="keyword">install</span> docker</div></pre></td></tr></table></figure></p>
+<p>安装成功后，启动并加入开机自动启动。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="keyword">start</span> docker</div><div class="line">systemctl <span class="keyword">enable</span> docker</div></pre></td></tr></table></figure></p>
+<p><strong>走过的坑</strong><br>在虚拟机安装之前，同时也在阿里云中centOS 7中尝试安装，遇到Docker无法启动问题，原因在于，Docker运行时需要创建虚拟网卡（就像Vmware中有VMnet1、VMnet8一样），但是默认情况下，阿里云已经占用了私有IP地址段，故需要删除。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">route</span> <span class="selector-tag">del</span> <span class="selector-tag">-net</span> 172<span class="selector-class">.16</span><span class="selector-class">.0</span><span class="selector-class">.0</span> <span class="selector-tag">netmask</span> 255<span class="selector-class">.240</span><span class="selector-class">.0</span><span class="selector-class">.0</span></div></pre></td></tr></table></figure></p>
+<p>这样，就可以正常启动Docker。查看网卡信息如下：<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># ip a</span></div><div class="line"><span class="number">1</span>: lo: <span class="variable">&lt;LOOPBACK,UP,LOWER_UP&gt;</span> mtu <span class="number">65536</span> qdisc noqueue <span class="keyword">state</span> UNKNOWN</div><div class="line">    ....</div><div class="line"><span class="number">4</span>: docker0: <span class="variable">&lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;</span> mtu <span class="number">1500</span> qdisc noqueue <span class="keyword">state</span> UP</div><div class="line">    link/ether <span class="number">02</span>:<span class="number">42</span>:a2:<span class="number">21</span>:be:fa brd ff:ff:ff:ff:ff:ff</div><div class="line">    <span class="keyword">inet</span> <span class="number">172.17</span>.<span class="number">42.1</span>/<span class="number">16</span> scope <span class="keyword">global</span> docker0</div><div class="line">       valid_lft forever preferred_lft forever</div><div class="line">    <span class="keyword">inet6</span> fe80::<span class="number">42</span>:a2ff:fe21:befa/<span class="number">64</span> scope link</div><div class="line">       valid_lft forever preferred_lft forever</div></pre></td></tr></table></figure></p>
 <p>多了一个docker0网卡，且ip段为172.17.0.0。</p>
-<h1 id="下载镜像">下载镜像</h1><p>安装完Docker后，需要下载镜像。那什么是镜像呢？简单的来说，就是docker可以启动运行的文件，举个例子，就像我们安装好虚拟机的文件，拷贝给别人在别人的虚拟机中也能打开。<br>镜像在哪里，如何获取？镜像放置在一个镜像库中，默认镜像库是Docker Hub，这个镜像库是Docker公司负责维护的公共仓库，当然也可以选择其他镜像仓库，如公司的私有仓库、国内维护的仓库dockerpool。<br><strong>下载镜像</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、docker pull ubuntu</span><br><span class="line"><span class="number">2</span>、docker pull ubuntu:<span class="number">14.04</span></span><br><span class="line"><span class="number">3</span>、docker pull dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span></span><br></pre></td></tr></table></figure></p>
-<p>其中14.04是镜像的标签，如果忽略，默认为latelast。<br><strong>走过的坑</strong><br>由于Docker版本升级，当从非官方源下载时，为了安全起见，需要进行手工认证下载源的安全性。<br>在CentOS 7中，Docker的配置文件<strong>/etc/sysconfig/docker</strong>，<br>在<strong>INSECURE_REGISTRY</strong>处修改，添加自己的源，并去掉注释。如：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">INSECURE_REGISTRY=<span class="value"><span class="string">'--insecure-registry dl.dockerpool.com:5000'</span></span></span></span><br></pre></td></tr></table></figure></p>
-<p>重新启动docker服务，便可以在非官方源下载了。<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker<span class="keyword"></span><br><span class="line">system</span>ctl stop docker<span class="keyword"></span><br><span class="line">system</span>ctl start docker<span class="keyword"></span><br><span class="line">system</span>ctl status docker</span><br></pre></td></tr></table></figure></p>
-<h1 id="容器新建、启动、终止">容器新建、启动、终止</h1><p>下载好镜像只有，可以查看本地的镜像。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="preprocessor"># docker images</span></span><br><span class="line">REPOSITORY                      TAG                 IMAGE ID            CREATED             VIRTUAL SIZE</span><br><span class="line">dl.dockerpool.com:<span class="number">5000</span>/ubuntu   <span class="number">14.04</span>               <span class="number">5506</span>de2b643b        <span class="number">13</span> months ago       <span class="number">199.2</span> MB</span><br><span class="line">dl.dockerpool.com:<span class="number">5000</span>/ubuntu   latest              <span class="number">0</span>b310e6bf058        <span class="number">13</span> months ago       <span class="number">126.6</span> MB</span><br></pre></td></tr></table></figure></p>
-<p>指定镜像，创建容器。容器我们可以简单的认为是我们通过虚拟机文件启动的一台虚拟机。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="preprocessor"># docker create -it dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span></span></span><br><span class="line"><span class="number">130</span>b9ee0454e81b3fa62deec189c33b5be295035dbeda9f2ad93578e385e1993</span><br></pre></td></tr></table></figure></p>
-<p>其中我们需要指定完整的镜像名称以及标签。<br>创建好的容器并不会运行，而是处于停止状态。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="preprocessor"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE                                 COMMAND             CREATED              STATUS                   PORTS               NAMES</span><br><span class="line"><span class="number">130</span>b9ee0454e        dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span>   <span class="string">"/bin/bash"</span>         About a minute ago   Created                                      evil_bohr</span><br></pre></td></tr></table></figure></p>
-<p>启动指定容器,需要指定容器ID，当然可以简写，只要可以唯一识别即可。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="preprocessor"># docker start <span class="number">130</span></span></span><br><span class="line"><span class="number">130</span></span><br><span class="line">[root@localhost ~]<span class="preprocessor"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE                                 COMMAND             CREATED             STATUS                   PORTS               NAMES</span><br><span class="line"><span class="number">130</span>b9ee0454e        dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span>   <span class="string">"/bin/bash"</span>         <span class="number">3</span> minutes ago       Up <span class="number">6</span> seconds                                 evil_bohr</span><br></pre></td></tr></table></figure></p>
-<p>终止指定容器<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="preprocessor"># docker stop <span class="number">130</span></span></span><br><span class="line"><span class="number">130</span></span><br><span class="line">[root@localhost ~]<span class="preprocessor"># docker ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE                                 COMMAND             CREATED             STATUS                     PORTS               NAMES</span><br><span class="line"><span class="number">130</span>b9ee0454e        dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span>   <span class="string">"/bin/bash"</span>         <span class="number">5</span> <span class="function">minutes ago       <span class="title">Exited</span> <span class="params">(<span class="number">0</span>)</span> 6 seconds ago                       evil_bohr</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h1><p>安装完Docker后，需要下载镜像。那什么是镜像呢？简单的来说，就是docker可以启动运行的文件，举个例子，就像我们安装好虚拟机的文件，拷贝给别人在别人的虚拟机中也能打开。<br>镜像在哪里，如何获取？镜像放置在一个镜像库中，默认镜像库是Docker Hub，这个镜像库是Docker公司负责维护的公共仓库，当然也可以选择其他镜像仓库，如公司的私有仓库、国内维护的仓库dockerpool。<br><strong>下载镜像</strong><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、docker pull ubuntu</div><div class="line"><span class="number">2</span>、docker pull ubuntu:<span class="number">14.04</span></div><div class="line"><span class="number">3</span>、docker pull <span class="selector-tag">dl</span><span class="selector-class">.dockerpool</span><span class="selector-class">.com</span>:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span></div></pre></td></tr></table></figure></p>
+<p>其中14.04是镜像的标签，如果忽略，默认为latelast。<br><strong>走过的坑</strong><br>由于Docker版本升级，当从非官方源下载时，为了安全起见，需要进行手工认证下载源的安全性。<br>在CentOS 7中，Docker的配置文件<strong>/etc/sysconfig/docker</strong>，<br>在<strong>INSECURE_REGISTRY</strong>处修改，添加自己的源，并去掉注释。如：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">INSECURE_REGISTRY</span>=<span class="string">'--insecure-registry dl.dockerpool.com:5000'</span></div></pre></td></tr></table></figure></p>
+<p>重新启动docker服务，便可以在非官方源下载了。<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">systemctl restart docker<span class="keyword"></span></div><div class="line">systemctl stop docker<span class="keyword"></span></div><div class="line">systemctl start docker<span class="keyword"></span></div><div class="line">systemctl status docker</div></pre></td></tr></table></figure></p>
+<h1 id="容器新建、启动、终止"><a href="#容器新建、启动、终止" class="headerlink" title="容器新建、启动、终止"></a>容器新建、启动、终止</h1><p>下载好镜像只有，可以查看本地的镜像。<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># docker images</span></div><div class="line">REPOSITORY                      <span class="keyword">TAG</span>                 <span class="title">IMAGE</span> ID            CREATED             VIRTUAL SIZE</div><div class="line">dl.dockerpool.com:<span class="number">5000</span>/ubuntu   <span class="number">14.04</span>               <span class="number">5506</span>de2b643b        <span class="number">13</span> months ago       <span class="number">199.2</span> MB</div><div class="line">dl.dockerpool.com:<span class="number">5000</span>/ubuntu   latest              <span class="number">0</span>b310e6bf058        <span class="number">13</span> months ago       <span class="number">126.6</span> MB</div></pre></td></tr></table></figure></p>
+<p>指定镜像，创建容器。容器我们可以简单的认为是我们通过虚拟机文件启动的一台虚拟机。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[root@localhost ~]</span># <span class="selector-tag">docker</span> <span class="selector-tag">create</span> <span class="selector-tag">-it</span> <span class="selector-tag">dl</span><span class="selector-class">.dockerpool</span><span class="selector-class">.com</span><span class="selector-pseudo">:5000</span>/<span class="selector-tag">ubuntu</span><span class="selector-pseudo">:14.04</span></div><div class="line"><span class="selector-tag">130b9ee0454e81b3fa62deec189c33b5be295035dbeda9f2ad93578e385e1993</span></div></pre></td></tr></table></figure></p>
+<p>其中我们需要指定完整的镜像名称以及标签。<br>创建好的容器并不会运行，而是处于停止状态。<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># docker ps -a</span></div><div class="line">CONTAINER ID        IMAGE                                 COMMAND             CREATED              STATUS                   PORTS               NAMES</div><div class="line"><span class="number">130</span>b9ee0454e        dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span>   <span class="string">"/bin/bash"</span>         About a minute ago   Created                                      evil_bohr</div></pre></td></tr></table></figure></p>
+<p>启动指定容器,需要指定容器ID，当然可以简写，只要可以唯一识别即可。<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># docker start 130</span></div><div class="line"><span class="number">130</span></div><div class="line">[root@localhost ~]<span class="comment"># docker ps -a</span></div><div class="line">CONTAINER ID        IMAGE                                 COMMAND             CREATED             STATUS                   PORTS               NAMES</div><div class="line"><span class="number">130</span>b9ee0454e        dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span>   <span class="string">"/bin/bash"</span>         <span class="number">3</span> minutes ago       Up <span class="number">6</span> seconds                                 evil_bohr</div></pre></td></tr></table></figure></p>
+<p>终止指定容器<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># docker stop 130</span></div><div class="line"><span class="number">130</span></div><div class="line">[root@localhost ~]<span class="comment"># docker ps -a</span></div><div class="line">CONTAINER ID        IMAGE                                 COMMAND             CREATED             STATUS                     PORTS               NAMES</div><div class="line"><span class="number">130</span>b9ee0454e        dl.dockerpool.com:<span class="number">5000</span>/ubuntu:<span class="number">14.04</span>   <span class="string">"/bin/bash"</span>         <span class="number">5</span> minutes ago       Exited (<span class="number">0</span>) <span class="number">6</span> seconds ago                       evil_bohr</div></pre></td></tr></table></figure></p>
 <p>除了这几种最基础的操作以外，还有许多操作需要我学习，我也会不断学习，不断总结。</p>
 </span>
-      
+
+<footer class="post-footer">
+
+<a class="post-tag-link" href="/tags/Docker/">#Docker</a>
+
+
+
+<div class="post-nav">
+	<div class="post-nav-prev post-nav-item">
+	
+		<a rel="prev" href="/2015/12/07/内网端口转发/">内网端口转发</a>
+	
     </div>
+    <div class="post-nav-next post-nav-item">
+    
+    	<a rel="next" href="/2015/12/06/Docker基础-第一篇/">Docker基础(一)</a>
+    
+    </div>
+</div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Docker/" rel="tag">#Docker</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/07/内网端口转发/" rel="prev">内网端口转发</a>
-            
-          </div>
-
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/12/06/Docker基础-第一篇/" rel="next">Docker基础(一)</a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
+</footer>
+</article>
 
 
     <div class="post-spread">
@@ -320,401 +116,16 @@
     </div>
   </div>
 
- </div>
-
-        
-
-        
-          <div class="comments" id="comments">
-            
-              <div class="ds-thread" data-thread-key="2015/12/06/Docker基础-第二篇/"
-                   data-title="Docker基础(第二篇)" data-url="http://yoursite.com/2015/12/06/Docker基础-第二篇/">
-              </div>
-            
-          </div>
-        
-      </div>
-
-      
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="http://7xjwd1.com1.z0.glb.clouddn.com/photo.jpeg" alt="F.G.P" itemprop="image"/>
-          <p class="site-author-name" itemprop="name">F.G.P</p>
-        </div>
-        <p class="site-description motion-element" itemprop="description">天道酬勤</p>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">20</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">15</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">33</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2608621505" target="_blank">Weibo</a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-            <p class="site-author-name">友情链接</p>
-            
-              <span class="links-of-author-item">
-              <a href="http://dropsec.xyz" target="_blank">Drops</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://blog.dropsec.xyz" target="_blank">Drops Blog</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://bbs.dropsec.xyz" target="_blank">Drops BBS</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://blog.neargle.com" target="_blank">Neargle</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://www.mtfly.net" target="_blank">Mtfly</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://wkh.dropsec.xyz" target="_blank">Wkh</a>
-              </span>
-            
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
-          <div class="post-toc">
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我的环境"><span class="nav-number">1.</span> <span class="nav-text">我的环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Docker"><span class="nav-number">2.</span> <span class="nav-text">安装Docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下载镜像"><span class="nav-number">3.</span> <span class="nav-text">下载镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#容器新建、启动、终止"><span class="nav-number">4.</span> <span class="nav-text">容器新建、启动、终止</span></a></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </section>
-      
-
-    </div>
-  </aside>
-
-
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
-  
-  &copy; &nbsp;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="icon-next-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">F.G.P</span>
+</section>
+</main>
+<footer class="footer" id="footer">
+<div class="copyright">
+<i class="fa fa-copyright">2015-2017</i>
 </div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
+</footer>
 </div>
 
 
- </div>
-    </footer>
 
-    <div class="back-to-top"></div>
-  </div>
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  
-  
-    
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"in4secblog"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
-  	<script src="/js/ua-parser.min.js"></script>
-  	<script src="/js/hook-duoshuo.js"></script>
-  
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
-
-
-
-  <script type="text/javascript" src="/js/nav-toggle.js"></script>
-
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
-      }
-    }
-  });
-</script>
-
-
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-    });
-  </script>
-
-  
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
 </body>
 </html>

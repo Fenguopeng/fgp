@@ -1,296 +1,99 @@
-<!doctype html>
-<html class="theme-next use-motion theme-next-mist">
+<!DOCTYPE html>
+<html>
 <head>
-  
-
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
-
-
-    <meta name="description" content="天道酬勤" />
-
-
-
-  <meta name="keywords" content="渗透," />
-
-
-
-
-
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
-
-
-<meta name="description" content="在大公司里面，常采用外网代理服务器+内网真实Web服务器架构，这样当我们拿到内网服务器权限以后，就需要考虑内网端口转发。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="内网端口转发">
-<meta property="og:url" content="http://yoursite.com/2015/12/07/内网端口转发/index.html">
-<meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="在大公司里面，常采用外网代理服务器+内网真实Web服务器架构，这样当我们拿到内网服务器权限以后，就需要考虑内网端口转发。">
-<meta property="og:updated_time" content="2015-12-07T14:51:38.387Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="内网端口转发">
-<meta name="twitter:description" content="在大公司里面，常采用外网代理服务器+内网真实Web服务器架构，这样当我们拿到内网服务器权限以后，就需要考虑内网端口转发。">
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
-  };
-</script>
-
-  <title> 内网端口转发 | F.G.P Notes </title>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v="/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<title> 内网端口转发 | 时针它不停在转动 </title>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
-  
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?a03bca2bc270c73a5c785ac1c8b25056";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-  <div class="container one-column page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
-      <span class="site-title">F.G.P Notes</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
+<body>
+<div id="">
+<header id="header" class="header"><div class="header_wrapper">
+<h1 class="title">
+<a href="/">时针它不停在转动</a>
 </h1>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+<ul class="nav">
+
+
+<li>
+<a href="/">首页</a>
+</li>
+
+
+<li>
+<a href="/categories">分类</a>
+</li>
+
+
+<li>
+<a href="/archives">归档</a>
+</li>
+
+
+<li>
+<a href="/about">关于</a>
+</li>
+
+</ul>
 </div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu menu-left">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
-            标签
-          </a>
-        </li>
-      
-
-      
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  
-  <form class="site-search-form">
-    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-  </form>
-
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'uPfnJsoWp_MdvH7M3amD','2.0.0');
-</script>
-
-
-
-    </div>
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content"> 
+</header>
+<main id="main" class="main">
+<section id="content" class="content">
 
   <div id="posts" class="posts-expand">
     
+<article class="post">
+<header class="post-header">
+<h1 class="post-title">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+内网端口转发
+</a>
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              内网端口转发
-            
-          
-        </h1>
-      
+</h1>
+<div class="post-meta">
+<span class="post-time">2015-12-07</span>
+<span class="post-category">
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-12-07T21:20:23+08:00" content="2015-12-07">
-            2015-12-07
-          </time>
-        </span>
+&nbsp; | &nbsp;
+<a class="post-cat-link" href="/categories/网络安全/">
+网络安全
+</a>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/网络安全/" itemprop="url" rel="index">
-                  <span itemprop="name">网络安全</span>
-                </a>
-              </span>
+</span>
+</div>
+</header>
 
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/12/07/内网端口转发/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/07/内网端口转发/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        <span itemprop="articleBody"><blockquote>
+<span class="articleBody"><blockquote>
 <p>外网IP+内网服务器的架构有多种实现方式。本文抛开架构不谈，以内网服务器是否可以连通外网作为区别进行阐述。<br>由于目前经验不足，本文会持续更新。</p>
 </blockquote>
-<h1 id="内网服务器可以连通外网">内网服务器可以连通外网</h1><p>常见的架构如家用路由器进行端口映射，把外网IP的80端口映射到内网主机的相应端口。此方法的缺点是外网80端口无法映射多台内网主机。<br>在上述情况中，通常位于内网的主机也是可以连接外网的。如果我们有这种情况下的内网主机权限，可以采用反向连接的方式进行端口转发。</p>
-<h2 id="nc">nc</h2><h2 id="lcx">lcx</h2><h2 id="其他反向连接工具">其他反向连接工具</h2><h1 id="内网服务器无法连通外网">内网服务器无法连通外网</h1><p>常见的架构有Nginx反向代理，一台外网IP可以通过nginx反向代理代理多个域名，这样的优点可以nginx进行静态文件缓存，减少后端服务器压力。这种架构下，通常内部服务器无法连接外网，只有特定的端口与代理服务器通信。<br>我们拥有这种情况下的内网主机权限，无法连接外网，端口无法反向主动连接外部服务器。这种情况下，我们只能模拟HTTP通信，通过映射的端口出来。这种方法的缺点是容易受到网速影响，体验较差，不稳定。</p>
-<h2 id="reGroge">reGroge</h2><h2 id="Tuana">Tuana</h2></span>
-      
+<h1 id="内网服务器可以连通外网"><a href="#内网服务器可以连通外网" class="headerlink" title="内网服务器可以连通外网"></a>内网服务器可以连通外网</h1><p>常见的架构如家用路由器进行端口映射，把外网IP的80端口映射到内网主机的相应端口。此方法的缺点是外网80端口无法映射多台内网主机。<br>在上述情况中，通常位于内网的主机也是可以连接外网的。如果我们有这种情况下的内网主机权限，可以采用反向连接的方式进行端口转发。</p>
+<h2 id="nc"><a href="#nc" class="headerlink" title="nc"></a>nc</h2><h2 id="lcx"><a href="#lcx" class="headerlink" title="lcx"></a>lcx</h2><h2 id="其他反向连接工具"><a href="#其他反向连接工具" class="headerlink" title="其他反向连接工具"></a>其他反向连接工具</h2><h1 id="内网服务器无法连通外网"><a href="#内网服务器无法连通外网" class="headerlink" title="内网服务器无法连通外网"></a>内网服务器无法连通外网</h1><p>常见的架构有Nginx反向代理，一台外网IP可以通过nginx反向代理代理多个域名，这样的优点可以nginx进行静态文件缓存，减少后端服务器压力。这种架构下，通常内部服务器无法连接外网，只有特定的端口与代理服务器通信。<br>我们拥有这种情况下的内网主机权限，无法连接外网，端口无法反向主动连接外部服务器。这种情况下，我们只能模拟HTTP通信，通过映射的端口出来。这种方法的缺点是容易受到网速影响，体验较差，不稳定。</p>
+<h2 id="reGroge"><a href="#reGroge" class="headerlink" title="reGroge"></a>reGroge</h2><h2 id="Tuana"><a href="#Tuana" class="headerlink" title="Tuana"></a>Tuana</h2></span>
+
+<footer class="post-footer">
+
+<a class="post-tag-link" href="/tags/渗透/">#渗透</a>
+
+
+
+<div class="post-nav">
+	<div class="post-nav-prev post-nav-item">
+	
+		<a rel="prev" href="/2016/01/01/基于错误的SQL注入/">基于错误的SQL注入</a>
+	
     </div>
+    <div class="post-nav-next post-nav-item">
+    
+    	<a rel="next" href="/2015/12/06/Docker基础-第二篇/">Docker基础(第二篇)</a>
+    
+    </div>
+</div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/渗透/" rel="tag">#渗透</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/01/基于错误的SQL注入/" rel="prev">基于错误的SQL注入</a>
-            
-          </div>
-
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/12/06/Docker基础-第二篇/" rel="next">Docker基础(第二篇)</a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
+</footer>
+</article>
 
 
     <div class="post-spread">
@@ -298,401 +101,16 @@
     </div>
   </div>
 
- </div>
-
-        
-
-        
-          <div class="comments" id="comments">
-            
-              <div class="ds-thread" data-thread-key="2015/12/07/内网端口转发/"
-                   data-title="内网端口转发" data-url="http://yoursite.com/2015/12/07/内网端口转发/">
-              </div>
-            
-          </div>
-        
-      </div>
-
-      
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="http://7xjwd1.com1.z0.glb.clouddn.com/photo.jpeg" alt="F.G.P" itemprop="image"/>
-          <p class="site-author-name" itemprop="name">F.G.P</p>
-        </div>
-        <p class="site-description motion-element" itemprop="description">天道酬勤</p>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">20</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">15</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">33</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2608621505" target="_blank">Weibo</a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-            <p class="site-author-name">友情链接</p>
-            
-              <span class="links-of-author-item">
-              <a href="http://dropsec.xyz" target="_blank">Drops</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://blog.dropsec.xyz" target="_blank">Drops Blog</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://bbs.dropsec.xyz" target="_blank">Drops BBS</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://blog.neargle.com" target="_blank">Neargle</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://www.mtfly.net" target="_blank">Mtfly</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://wkh.dropsec.xyz" target="_blank">Wkh</a>
-              </span>
-            
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
-          <div class="post-toc">
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#内网服务器可以连通外网"><span class="nav-number">1.</span> <span class="nav-text">内网服务器可以连通外网</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nc"><span class="nav-number">1.1.</span> <span class="nav-text">nc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lcx"><span class="nav-number">1.2.</span> <span class="nav-text">lcx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他反向连接工具"><span class="nav-number">1.3.</span> <span class="nav-text">其他反向连接工具</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内网服务器无法连通外网"><span class="nav-number">2.</span> <span class="nav-text">内网服务器无法连通外网</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#reGroge"><span class="nav-number">2.1.</span> <span class="nav-text">reGroge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tuana"><span class="nav-number">2.2.</span> <span class="nav-text">Tuana</span></a></li></ol></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </section>
-      
-
-    </div>
-  </aside>
-
-
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
-  
-  &copy; &nbsp;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="icon-next-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">F.G.P</span>
+</section>
+</main>
+<footer class="footer" id="footer">
+<div class="copyright">
+<i class="fa fa-copyright">2015-2017</i>
 </div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
+</footer>
 </div>
 
 
- </div>
-    </footer>
 
-    <div class="back-to-top"></div>
-  </div>
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  
-  
-    
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"in4secblog"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
-  	<script src="/js/ua-parser.min.js"></script>
-  	<script src="/js/hook-duoshuo.js"></script>
-  
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
-
-
-
-  <script type="text/javascript" src="/js/nav-toggle.js"></script>
-
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
-      }
-    }
-  });
-</script>
-
-
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-    });
-  </script>
-
-  
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
 </body>
 </html>

@@ -1,259 +1,73 @@
-<!doctype html>
-<html class="theme-next use-motion theme-next-mist">
+<!DOCTYPE html>
+<html>
 <head>
-  
-
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
-
-
-    <meta name="description" content="天道酬勤" />
-
-
-
-  <meta name="keywords" content="python,urllib,urllib2,爬虫," />
-
-
-
-
-
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
-
-
-<meta name="description" content="学习python写爬虫，刚开始离不开urllib、urllib2两个和处理URL的相关的模块。每次写程序都要import这两个库，时间长了，总是在想，这两个库有什么区别？urllib2是urllib的升级版么？带着疑问，开始查看手册、查找资料。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="urllib与urllib2的学习">
-<meta property="og:url" content="http://yoursite.com/2015/08/23/urllib与urlib2的区别/index.html">
-<meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="学习python写爬虫，刚开始离不开urllib、urllib2两个和处理URL的相关的模块。每次写程序都要import这两个库，时间长了，总是在想，这两个库有什么区别？urllib2是urllib的升级版么？带着疑问，开始查看手册、查找资料。">
-<meta property="og:updated_time" content="2015-08-24T03:15:37.351Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="urllib与urllib2的学习">
-<meta name="twitter:description" content="学习python写爬虫，刚开始离不开urllib、urllib2两个和处理URL的相关的模块。每次写程序都要import这两个库，时间长了，总是在想，这两个库有什么区别？urllib2是urllib的升级版么？带着疑问，开始查看手册、查找资料。">
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
-  };
-</script>
-
-  <title> urllib与urllib2的学习 | F.G.P Notes </title>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v="/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<title> urllib与urllib2的学习 | 时针它不停在转动 </title>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
-  
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?a03bca2bc270c73a5c785ac1c8b25056";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-  <div class="container one-column page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
-      <span class="site-title">F.G.P Notes</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
+<body>
+<div id="">
+<header id="header" class="header"><div class="header_wrapper">
+<h1 class="title">
+<a href="/">时针它不停在转动</a>
 </h1>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+<ul class="nav">
+
+
+<li>
+<a href="/">首页</a>
+</li>
+
+
+<li>
+<a href="/categories">分类</a>
+</li>
+
+
+<li>
+<a href="/archives">归档</a>
+</li>
+
+
+<li>
+<a href="/about">关于</a>
+</li>
+
+</ul>
 </div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu menu-left">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
-            标签
-          </a>
-        </li>
-      
-
-      
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  
-  <form class="site-search-form">
-    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-  </form>
-
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'uPfnJsoWp_MdvH7M3amD','2.0.0');
-</script>
-
-
-
-    </div>
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content"> 
+</header>
+<main id="main" class="main">
+<section id="content" class="content">
 
   <div id="posts" class="posts-expand">
     
+<article class="post">
+<header class="post-header">
+<h1 class="post-title">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+urllib与urllib2的学习
+</a>
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              urllib与urllib2的学习
-            
-          
-        </h1>
-      
+</h1>
+<div class="post-meta">
+<span class="post-time">2015-08-23</span>
+<span class="post-category">
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-23T11:17:52+08:00" content="2015-08-23">
-            2015-08-23
-          </time>
-        </span>
+&nbsp; | &nbsp;
+<a class="post-cat-link" href="/categories/Python/">
+Python
+</a>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Python/" itemprop="url" rel="index">
-                  <span itemprop="name">Python</span>
-                </a>
-              </span>
+</span>
+</div>
+</header>
 
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/23/urllib与urlib2的区别/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/23/urllib与urlib2的区别/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        <span itemprop="articleBody"><h1 id="urllib的基本使用">urllib的基本使用</h1><p>urllib提供了通过万维网获取数据的高级别接口。特别的是，urlopen()与open()相似，但是接受统一资源标识符（URL）而不是文件名。此外，urllib有一些限制，只能进行读取，不能进行其他操作。</p>
-<h2 id="常用方法">常用方法</h2><h3 id="urlopen">urlopen</h3><p>函数原型：<br>urllib.urlopen(<em>url[, data[, proxies[, context]]]</em>)</p>
+<span class="articleBody"><h1 id="urllib的基本使用"><a href="#urllib的基本使用" class="headerlink" title="urllib的基本使用"></a>urllib的基本使用</h1><p>urllib提供了通过万维网获取数据的高级别接口。特别的是，urlopen()与open()相似，但是接受统一资源标识符（URL）而不是文件名。此外，urllib有一些限制，只能进行读取，不能进行其他操作。</p>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><h3 id="urlopen"><a href="#urlopen" class="headerlink" title="urlopen"></a>urlopen</h3><p>函数原型：<br>urllib.urlopen(<em>url[, data[, proxies[, context]]]</em>)</p>
 <ul>
 <li><em>url</em>:访问的目标URL</li>
 <li><em>data</em>：进行POST的数据，形式符合<em>application/x-www-form-urlencoded format</em>,可以使用urllib.urlencode()函数</li>
@@ -271,86 +85,86 @@
 </ul>
 <p><strong>PS：</strong>read()、readline()、readlines()不能同时使用,下面代码经过人工修改。</p>
 <pre><code>&gt;&gt;&gt; import urllib
-&gt;&gt;&gt; url = <span class="string">"http://127.0.0.1/hello.txt"</span>
-&gt;&gt;&gt; page = urllib.<span class="function"><span class="title">urlopen</span><span class="params">(url)</span></span>
-&gt;&gt;&gt; print page.<span class="function"><span class="title">read</span><span class="params">()</span></span>
+&gt;&gt;&gt; url = &quot;http://127.0.0.1/hello.txt&quot;
+&gt;&gt;&gt; page = urllib.urlopen(url)
+&gt;&gt;&gt; print page.read()
 welcome
 hello
 大家好
-&gt;&gt;&gt; print page.<span class="function"><span class="title">readline</span><span class="params">()</span></span>
+&gt;&gt;&gt; print page.readline()
 welcome
-&gt;&gt;&gt; print page.<span class="function"><span class="title">readlines</span><span class="params">()</span></span>
-[<span class="string">'welcome\r\n'</span>, <span class="string">'hello\r\n'</span>, <span class="string">'\xb4\xf3\xbc\xd2\xba\xc3'</span>]
-&gt;&gt;&gt; print page.<span class="function"><span class="title">info</span><span class="params">()</span></span>
-Date: Sun, <span class="number">23</span> Aug <span class="number">2015</span> <span class="number">13</span>:<span class="number">46</span>:<span class="number">28</span> GMT
-Server: Apache/<span class="number">2.2</span>.<span class="number">21</span> (Win32) PHP/<span class="number">5.3</span>.<span class="number">10</span>
-Last-Modified: Sun, <span class="number">23</span> Aug <span class="number">2015</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">57</span> GMT
-ETag: <span class="string">"12000000002146-16-51dfa8a00c1be"</span>
+&gt;&gt;&gt; print page.readlines()
+[&apos;welcome\r\n&apos;, &apos;hello\r\n&apos;, &apos;\xb4\xf3\xbc\xd2\xba\xc3&apos;]
+&gt;&gt;&gt; print page.info()
+Date: Sun, 23 Aug 2015 13:46:28 GMT
+Server: Apache/2.2.21 (Win32) PHP/5.3.10
+Last-Modified: Sun, 23 Aug 2015 13:32:57 GMT
+ETag: &quot;12000000002146-16-51dfa8a00c1be&quot;
 Accept-Ranges: bytes
-Content-Length: <span class="number">22</span>
+Content-Length: 22
 Connection: close
 Content-Type: text/plain
 
-&gt;&gt;&gt; print page.<span class="function"><span class="title">getcode</span><span class="params">()</span></span>
-<span class="number">200</span>
-&gt;&gt;&gt; print page.<span class="function"><span class="title">geturl</span><span class="params">()</span></span>
-http:<span class="comment">//127.0.0.1/hello.txt</span>
-</code></pre><h3 id="urlretrieve">urlretrieve</h3><p>拷贝远程文件到本地。如果URL指向本地文件，或者是一个有效的已经存在的缓存对象，将不会进行拷贝。返回值为tuple(filename,headers),<em>filename</em>指本地文件。headers是响应头。（与urlopen()中info()一样）<br>函数原型：<br>urllib.<strong>urlretrieve</strong>(*url[, filename[, reporthook[, data]]])</p>
+&gt;&gt;&gt; print page.getcode()
+200
+&gt;&gt;&gt; print page.geturl()
+http://127.0.0.1/hello.txt
+</code></pre><h3 id="urlretrieve"><a href="#urlretrieve" class="headerlink" title="urlretrieve"></a>urlretrieve</h3><p>拷贝远程文件到本地。如果URL指向本地文件，或者是一个有效的已经存在的缓存对象，将不会进行拷贝。返回值为tuple(filename,headers),<em>filename</em>指本地文件。headers是响应头。（与urlopen()中info()一样）<br>函数原型：<br>urllib.<strong>urlretrieve</strong>(*url[, filename[, reporthook[, data]]])</p>
 <ul>
 <li><em>url</em>:目标URL</li>
 <li><em>filename</em>：保存到本地的文件名</li>
 <li><em>reporthook</em>：回调函数，每一次连接传输完成后，都会出发该回调函数。回调函数提供三个参数，第一个已经传输的数据块个数，第二个是传输的数据块大小（单位B），第三个是文件的完整大小。根据这三个参数，可以计算当前下载进度。</li>
 <li><em>data</em>：需要POST的数据</li>
 </ul>
-<pre><code><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">import</span> urllib
-<span class="prompt">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">callbackfunc</span><span class="params">(blocknum, blocksize, totalsize)</span>:</span>
-<span class="prompt">... </span>    <span class="string">'''回调函数
-<span class="prompt">... </span>    @blocknum: 已经下载的数据块
-<span class="prompt">... </span>    @blocksize: 数据块的大小
-<span class="prompt">... </span>    @totalsize: 远程文件的大小
-<span class="prompt">... </span>    '''</span>
-<span class="prompt">... </span>    percent = <span class="number">100.0</span> * blocknum * blocksize / totalsize
-<span class="prompt">... </span>    <span class="keyword">if</span> percent &gt; <span class="number">100</span>:
-<span class="prompt">... </span>        percent = <span class="number">100</span>
-<span class="prompt">... </span>    <span class="keyword">print</span> <span class="string">"%.2f%%"</span> % percent
+<pre><code>&gt;&gt;&gt; import urllib
+&gt;&gt;&gt; def callbackfunc(blocknum, blocksize, totalsize):
+...     &apos;&apos;&apos;回调函数
+...     @blocknum: 已经下载的数据块
+...     @blocksize: 数据块的大小
+...     @totalsize: 远程文件的大小
+...     &apos;&apos;&apos;
+...     percent = 100.0 * blocknum * blocksize / totalsize
+...     if percent &gt; 100:
+...         percent = 100
+...     print &quot;%.2f%%&quot; % percent
 ...
-<span class="prompt">&gt;&gt;&gt; </span>url = <span class="string">'http://www.zzti.edu.cn'</span>
-<span class="prompt">&gt;&gt;&gt; </span>local = <span class="string">'d:\\zzti.html'</span>
-<span class="prompt">&gt;&gt;&gt; </span>page = urllib.urlretrieve(url, local, callbackfunc)
-<span class="number">0.00</span>%
-<span class="number">9.27</span>%
-<span class="number">18.53</span>%
-<span class="number">27.80</span>%
-<span class="number">37.07</span>%
-<span class="number">46.33</span>%
-<span class="number">55.60</span>%
-<span class="number">64.86</span>%
-<span class="number">74.13</span>%
-<span class="number">83.40</span>%
-<span class="number">92.66</span>%
-<span class="number">100.00</span>%
-<span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> page[<span class="number">0</span>]
+&gt;&gt;&gt; url = &apos;http://www.zzti.edu.cn&apos;
+&gt;&gt;&gt; local = &apos;d:\\zzti.html&apos;
+&gt;&gt;&gt; page = urllib.urlretrieve(url, local, callbackfunc)
+0.00%
+9.27%
+18.53%
+27.80%
+37.07%
+46.33%
+55.60%
+64.86%
+74.13%
+83.40%
+92.66%
+100.00%
+&gt;&gt;&gt; print page[0]
 d:\zzti.html
-<span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> page[<span class="number">1</span>]
-Date: Mon, <span class="number">24</span> Aug <span class="number">2015</span> <span class="number">02</span>:<span class="number">32</span>:<span class="number">53</span> GMT
+&gt;&gt;&gt; print page[1]
+Date: Mon, 24 Aug 2015 02:32:53 GMT
 Server: VWebServer
-Last-Modified: Sat, <span class="number">22</span> Aug <span class="number">2015</span> <span class="number">08</span>:<span class="number">44</span>:<span class="number">19</span> GMT
-ETag: <span class="string">"15956-51de263e01ec0"</span>
+Last-Modified: Sat, 22 Aug 2015 08:44:19 GMT
+ETag: &quot;15956-51de263e01ec0&quot;
 Accept-Ranges: bytes
-Content-Length: <span class="number">88406</span>
-Cache-Control: max-age=<span class="number">600</span>
-Expires: Mon, <span class="number">24</span> Aug <span class="number">2015</span> <span class="number">02</span>:<span class="number">42</span>:<span class="number">53</span> GMT
+Content-Length: 88406
+Cache-Control: max-age=600
+Expires: Mon, 24 Aug 2015 02:42:53 GMT
 Vary: Accept-Encoding
 Connection: close
 Content-Type: text/html
 Content-Language: zh-CN
-</code></pre><h3 id="urlencode">urlencode</h3><p>URL格式化，对POST数据格式化特别好用。<br>函数原型：<br>urllib.urlencode(<em>query</em>)</p>
-<pre><code><span class="prompt">&gt;&gt;</span>&gt; import urllib
-<span class="prompt">&gt;&gt;</span>&gt; data = {<span class="string">"username"</span><span class="symbol">:<span class="string">"peter"</span></span>,<span class="string">"password"</span><span class="symbol">:<span class="string">"123456"</span></span>}
-<span class="prompt">&gt;&gt;</span>&gt; print urllib.urlencode(data)
-username=peter&amp;password=<span class="number">123456</span>
-</code></pre><h1 id="urllib2的基本使用">urllib2的基本使用</h1><p>urllib2定义了许多关于处理URL方面（更多的是HTTP）的函数、类，同时提供支持基本的功能外，还包括认证、重定向、cookie等等实用功能。</p>
-<h2 id="常用方法-1">常用方法</h2><h3 id="urlopen-1">urlopen</h3><p>函数原型：<br>urllib2.<strong>urlopen</strong>(<em>url,[, data[, timeout[, capath[, cadefault[, context]]]]]</em>)</p>
+</code></pre><h3 id="urlencode"><a href="#urlencode" class="headerlink" title="urlencode"></a>urlencode</h3><p>URL格式化，对POST数据格式化特别好用。<br>函数原型：<br>urllib.urlencode(<em>query</em>)</p>
+<pre><code>&gt;&gt;&gt; import urllib
+&gt;&gt;&gt; data = {&quot;username&quot;:&quot;peter&quot;,&quot;password&quot;:&quot;123456&quot;}
+&gt;&gt;&gt; print urllib.urlencode(data)
+username=peter&amp;password=123456
+</code></pre><h1 id="urllib2的基本使用"><a href="#urllib2的基本使用" class="headerlink" title="urllib2的基本使用"></a>urllib2的基本使用</h1><p>urllib2定义了许多关于处理URL方面（更多的是HTTP）的函数、类，同时提供支持基本的功能外，还包括认证、重定向、cookie等等实用功能。</p>
+<h2 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h2><h3 id="urlopen-1"><a href="#urlopen-1" class="headerlink" title="urlopen"></a>urlopen</h3><p>函数原型：<br>urllib2.<strong>urlopen</strong>(<em>url,[, data[, timeout[, capath[, cadefault[, context]]]]]</em>)</p>
 <ul>
 <li><em>url</em>是必选参数，其形式可以是字符串，也可以是Request对象。</li>
 <li>可选参数<em>data</em>，是发送给服务器的数据，其形式需要满足<em>application/x-www-form-urlencoded format</em>,可以使用urllib.urlencode()函数。同时，当指定<em>data</em>时，HTTP请求的类型会变成POST类型。</li>
@@ -362,26 +176,26 @@ username=peter&amp;password=<span class="number">123456</span>
 <li><strong>getcode()</strong> 返回HTTP状态码</li>
 </ul>
 <pre><code>&gt;&gt;&gt; import urllib2
-&gt;&gt;&gt; page = urllib2.urlopen(<span class="string">"http://www.zut.edu.cn"</span>,timeout=<span class="number">5</span>)
+&gt;&gt;&gt; page = urllib2.urlopen(&quot;http://www.zut.edu.cn&quot;,timeout=5)
 &gt;&gt;&gt; print page.geturl()
-http:<span class="comment">//www.zut.edu.cn</span>
+http://www.zut.edu.cn
 &gt;&gt;&gt; print page.info()
-Date: Sun, <span class="number">23</span> Aug <span class="number">2015</span> <span class="number">04</span>:<span class="number">21</span>:<span class="number">19</span> GMT
+Date: Sun, 23 Aug 2015 04:21:19 GMT
 Server: VWebServer
-Last-Modified: Sat, <span class="number">22</span> Aug <span class="number">2015</span> <span class="number">08</span>:<span class="number">44</span>:<span class="number">19</span> GMT
-ETag: <span class="string">"15956-51de263e01ec0"</span>
+Last-Modified: Sat, 22 Aug 2015 08:44:19 GMT
+ETag: &quot;15956-51de263e01ec0&quot;
 Accept-Ranges: bytes
-Content-Length: <span class="number">88406</span>
-Cache-Control: max-age=<span class="number">600</span>
-Expires: Sun, <span class="number">23</span> Aug <span class="number">2015</span> <span class="number">04</span>:<span class="number">31</span>:<span class="number">19</span> GMT
+Content-Length: 88406
+Cache-Control: max-age=600
+Expires: Sun, 23 Aug 2015 04:31:19 GMT
 Vary: Accept-Encoding
 Connection: close
 Content-Type: text/html
 Content-Language: zh-CN
 
 &gt;&gt;&gt; print page.getcode()
-<span class="number">200</span>
-</code></pre><h3 id="Request">Request</h3><p>Request类原型：<br>urllib2.<strong>Request</strong>(<em>url,[, data][, headers][, origin_req_host][, unverifiable]</em>)</p>
+200
+</code></pre><h3 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h3><p>Request类原型：<br>urllib2.<strong>Request</strong>(<em>url,[, data][, headers][, origin_req_host][, unverifiable]</em>)</p>
 <ul>
 <li><em>url</em>:必选。有效的URL字符串</li>
 <li><em>data</em>：可选。同urlopen()的data参数</li>
@@ -400,52 +214,41 @@ Content-Language: zh-CN
 <li><em>get_type()</em>:返回URL类型</li>
 <li><em>get_host()</em>:返回连接主机</li>
 </ul>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import urllib2</span><br><span class="line">import urllib</span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://www.zut.edu.cn"</span></span><br><span class="line">data = &#123;<span class="string">"username"</span>: <span class="string">'peter'</span>&#125;</span><br><span class="line">data = urllib.urlencode(data)</span><br><span class="line">useragent = (<span class="string">"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) "</span></span><br><span class="line">            <span class="string">"Chrome/44.0.2403.155 Safari/537.36"</span>)</span><br><span class="line">refer = <span class="string">"www.123456.com"</span></span><br><span class="line">headers = &#123;<span class="string">"User-Agent"</span>: useragent,<span class="string">"Refer"</span>: refer&#125;</span><br><span class="line">request = urllib2.Request(url, data=data, headers=headers)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"request.get_method():<span class="variable">%s</span>"</span> % request.get_method()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"request.get_header(\"Refer\"):<span class="variable">%s</span>"</span> % request.get_header(<span class="string">"Refer"</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"request.has_data():<span class="variable">%s</span>"</span> % request.has_data()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"request.get_data():<span class="variable">%s</span>"</span> % request.get_data()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"request.get_full_url():<span class="variable">%s</span>"</span> % request.get_full_url()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"request.get_type():<span class="variable">%s</span>"</span> % request.get_type()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"request.get_host():<span class="variable">%s</span>"</span> % request.get_host()</span><br><span class="line">page = urllib2.urlopen(request)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"page.getcode():<span class="variable">%s</span>"</span> % page.getcode()</span><br></pre></td></tr></table></figure>
-<p>运行结果如下：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">request.<span class="function"><span class="title">get_method</span><span class="params">()</span></span>:POST</span><br><span class="line">request.<span class="function"><span class="title">get_header</span><span class="params">(<span class="string">"Refer"</span>)</span></span>:www.<span class="number">123456</span><span class="class">.com</span></span><br><span class="line">request.<span class="function"><span class="title">has_data</span><span class="params">()</span></span>:True</span><br><span class="line">request.<span class="function"><span class="title">get_data</span><span class="params">()</span></span>:username=peter</span><br><span class="line">request.<span class="function"><span class="title">get_full_url</span><span class="params">()</span></span>:http:<span class="comment">//www.zut.edu.cn</span></span><br><span class="line">request.<span class="function"><span class="title">get_type</span><span class="params">()</span></span>:http</span><br><span class="line">request.<span class="function"><span class="title">get_host</span><span class="params">()</span></span>:www<span class="class">.zut</span><span class="class">.edu</span><span class="class">.cn</span></span><br><span class="line">page.<span class="function"><span class="title">getcode</span><span class="params">()</span></span>:<span class="number">200</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import urllib2</div><div class="line">import urllib</div><div class="line"></div><div class="line">url = <span class="string">"http://www.zut.edu.cn"</span></div><div class="line">data = &#123;<span class="string">"username"</span>: <span class="string">'peter'</span>&#125;</div><div class="line">data = urllib.urlencode(data)</div><div class="line">useragent = (<span class="string">"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) "</span></div><div class="line">            <span class="string">"Chrome/44.0.2403.155 Safari/537.36"</span>)</div><div class="line">refer = <span class="string">"www.123456.com"</span></div><div class="line">headers = &#123;<span class="string">"User-Agent"</span>: useragent,<span class="string">"Refer"</span>: refer&#125;</div><div class="line">request = urllib2.Request(url, data=data, headers=headers)</div><div class="line"><span class="keyword">print</span> <span class="string">"request.get_method():%s"</span> % request.get_method()</div><div class="line"><span class="keyword">print</span> <span class="string">"request.get_header(\"Refer\"):%s"</span> % request.get_header(<span class="string">"Refer"</span>)</div><div class="line"><span class="keyword">print</span> <span class="string">"request.has_data():%s"</span> % request.has_data()</div><div class="line"><span class="keyword">print</span> <span class="string">"request.get_data():%s"</span> % request.get_data()</div><div class="line"><span class="keyword">print</span> <span class="string">"request.get_full_url():%s"</span> % request.get_full_url()</div><div class="line"><span class="keyword">print</span> <span class="string">"request.get_type():%s"</span> % request.get_type()</div><div class="line"><span class="keyword">print</span> <span class="string">"request.get_host():%s"</span> % request.get_host()</div><div class="line">page = urllib2.urlopen(request)</div><div class="line"><span class="keyword">print</span> <span class="string">"page.getcode():%s"</span> % page.getcode()</div></pre></td></tr></table></figure>
+<p>运行结果如下：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">request.get_method()<span class="symbol">:POST</span></div><div class="line">request.get_header(<span class="string">"Refer"</span>)<span class="symbol">:www</span>.<span class="number">123456</span>.com</div><div class="line">request.has_data()<span class="symbol">:True</span></div><div class="line">request.get_data()<span class="symbol">:username=peter</span></div><div class="line">request.get_full_url()<span class="symbol">:http</span><span class="symbol">://www</span>.zut.edu.cn</div><div class="line">request.get_type()<span class="symbol">:http</span></div><div class="line">request.get_host()<span class="symbol">:www</span>.zut.edu.cn</div><div class="line">page.getcode()<span class="symbol">:</span><span class="number">200</span></div></pre></td></tr></table></figure></p>
 <p>上面例子中，测试了常用的request对象的方法。包括POST方法、自定义请求header等，其中POST数据需要使用urllib.urlencode()函数进行格式化，因为在urllib2中没有这样的方法。此外对headers中的默认值进行说明。在Python2.7.9中，Accept-Encoding默认为identity，User-Agent默认为Python-urllib/2.7。在大多数情况下，我们需要修改默认值。</p>
-<h3 id="build_opener">build_opener</h3><p>函数原型：<br>urllib2.build_opener([<em>handler</em>,…])<br>返回<strong>OpenerDirector</strong>实例，<em>handler</em>可以是HTTPHandler， HTTPDefaultErrorHandler，HTTPCookieProcessor等等。<br>引入OpenerDirector的好处是可以更加灵活的操纵HTTP，比如HTTPCookieProcessor可以自动保存产生的Cookie，并在请求时附带进去。同样，还有很多类，功能繁多，此处不进行介绍。</p>
-<h1 id="urllib和urllib2的比较">urllib和urllib2的比较</h1><p>urllib和urllib2都是处理URL方面的模块，其中urllib模块对用户控制方面缺乏支持，只提供了简单访问、读取功能。urllib2在用户控制方面比较出色，可以方便的进行相关操作，比如UA、Cookie、Refer等等都可以进行修改。<br>此外，由于urllib2没有urllib.urlencode()和urllib.urlretrieve()这样的函数，两个模块各有所长，urllib擅长对远程文件的操作，urllib2擅长HTTP请求的自定义。</p>
+<h3 id="build-opener"><a href="#build-opener" class="headerlink" title="build_opener"></a>build_opener</h3><p>函数原型：<br>urllib2.build_opener([<em>handler</em>,…])<br>返回<strong>OpenerDirector</strong>实例，<em>handler</em>可以是HTTPHandler， HTTPDefaultErrorHandler，HTTPCookieProcessor等等。<br>引入OpenerDirector的好处是可以更加灵活的操纵HTTP，比如HTTPCookieProcessor可以自动保存产生的Cookie，并在请求时附带进去。同样，还有很多类，功能繁多，此处不进行介绍。</p>
+<h1 id="urllib和urllib2的比较"><a href="#urllib和urllib2的比较" class="headerlink" title="urllib和urllib2的比较"></a>urllib和urllib2的比较</h1><p>urllib和urllib2都是处理URL方面的模块，其中urllib模块对用户控制方面缺乏支持，只提供了简单访问、读取功能。urllib2在用户控制方面比较出色，可以方便的进行相关操作，比如UA、Cookie、Refer等等都可以进行修改。<br>此外，由于urllib2没有urllib.urlencode()和urllib.urlretrieve()这样的函数，两个模块各有所长，urllib擅长对远程文件的操作，urllib2擅长HTTP请求的自定义。</p>
 <p>Modify Time：2015/8/24 10:45:25 </p>
 </span>
-      
+
+<footer class="post-footer">
+
+<a class="post-tag-link" href="/tags/python/">#python</a>
+
+<a class="post-tag-link" href="/tags/urllib/">#urllib</a>
+
+<a class="post-tag-link" href="/tags/urllib2/">#urllib2</a>
+
+<a class="post-tag-link" href="/tags/爬虫/">#爬虫</a>
+
+
+
+<div class="post-nav">
+	<div class="post-nav-prev post-nav-item">
+	
+		<a rel="prev" href="/2015/08/31/Linux系统信息相关命令/">Linux系统运行状态信息相关命令</a>
+	
     </div>
+    <div class="post-nav-next post-nav-item">
+    
+    	<a rel="next" href="/2015/08/21/Python实现程序并行/">Python实现程序并行</a>
+    
+    </div>
+</div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/python/" rel="tag">#python</a>
-          
-            <a href="/tags/urllib/" rel="tag">#urllib</a>
-          
-            <a href="/tags/urllib2/" rel="tag">#urllib2</a>
-          
-            <a href="/tags/爬虫/" rel="tag">#爬虫</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/08/31/Linux系统信息相关命令/" rel="prev">Linux系统运行状态信息相关命令</a>
-            
-          </div>
-
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/08/21/Python实现程序并行/" rel="next">Python实现程序并行</a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
+</footer>
+</article>
 
 
     <div class="post-spread">
@@ -453,401 +256,16 @@ Content-Language: zh-CN
     </div>
   </div>
 
- </div>
-
-        
-
-        
-          <div class="comments" id="comments">
-            
-              <div class="ds-thread" data-thread-key="2015/08/23/urllib与urlib2的区别/"
-                   data-title="urllib与urllib2的学习" data-url="http://yoursite.com/2015/08/23/urllib与urlib2的区别/">
-              </div>
-            
-          </div>
-        
-      </div>
-
-      
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="http://7xjwd1.com1.z0.glb.clouddn.com/photo.jpeg" alt="F.G.P" itemprop="image"/>
-          <p class="site-author-name" itemprop="name">F.G.P</p>
-        </div>
-        <p class="site-description motion-element" itemprop="description">天道酬勤</p>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">20</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">15</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">33</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2608621505" target="_blank">Weibo</a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-            <p class="site-author-name">友情链接</p>
-            
-              <span class="links-of-author-item">
-              <a href="http://dropsec.xyz" target="_blank">Drops</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://blog.dropsec.xyz" target="_blank">Drops Blog</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://bbs.dropsec.xyz" target="_blank">Drops BBS</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://blog.neargle.com" target="_blank">Neargle</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://www.mtfly.net" target="_blank">Mtfly</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://wkh.dropsec.xyz" target="_blank">Wkh</a>
-              </span>
-            
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
-          <div class="post-toc">
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#urllib的基本使用"><span class="nav-number">1.</span> <span class="nav-text">urllib的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用方法"><span class="nav-number">1.1.</span> <span class="nav-text">常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#urlopen"><span class="nav-number">1.1.1.</span> <span class="nav-text">urlopen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#urlretrieve"><span class="nav-number">1.1.2.</span> <span class="nav-text">urlretrieve</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#urlencode"><span class="nav-number">1.1.3.</span> <span class="nav-text">urlencode</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#urllib2的基本使用"><span class="nav-number">2.</span> <span class="nav-text">urllib2的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用方法-1"><span class="nav-number">2.1.</span> <span class="nav-text">常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#urlopen-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">urlopen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Request"><span class="nav-number">2.1.2.</span> <span class="nav-text">Request</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#build_opener"><span class="nav-number">2.1.3.</span> <span class="nav-text">build_opener</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#urllib和urllib2的比较"><span class="nav-number">3.</span> <span class="nav-text">urllib和urllib2的比较</span></a></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </section>
-      
-
-    </div>
-  </aside>
-
-
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
-  
-  &copy; &nbsp;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="icon-next-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">F.G.P</span>
+</section>
+</main>
+<footer class="footer" id="footer">
+<div class="copyright">
+<i class="fa fa-copyright">2015-2017</i>
 </div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
+</footer>
 </div>
 
 
- </div>
-    </footer>
 
-    <div class="back-to-top"></div>
-  </div>
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  
-  
-    
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"in4secblog"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
-  	<script src="/js/ua-parser.min.js"></script>
-  	<script src="/js/hook-duoshuo.js"></script>
-  
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
-
-
-
-  <script type="text/javascript" src="/js/nav-toggle.js"></script>
-
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
-      }
-    }
-  });
-</script>
-
-
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-    });
-  </script>
-
-  
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
 </body>
 </html>

@@ -1,259 +1,73 @@
-<!doctype html>
-<html class="theme-next use-motion theme-next-mist">
+<!DOCTYPE html>
+<html>
 <head>
-  
-
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
-
-
-    <meta name="description" content="天道酬勤" />
-
-
-
-  <meta name="keywords" content="Linux,Linux命令,文件操作," />
-
-
-
-
-
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
-
-
-<meta name="description" content="熟练掌握Linux的常用命令，对工作效率有很大提高。本文主要介绍文件操作相关的命令，包括文件的新建、删除、查找，其中每个部分会对命令的常用参数进行剖析，例如新建文件时修改时间、根据需求针对性文件查找。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux文件操作命令">
-<meta property="og:url" content="http://yoursite.com/2015/08/12/Linux文件操作命令/index.html">
-<meta property="og:site_name" content="F.G.P Notes">
-<meta property="og:description" content="熟练掌握Linux的常用命令，对工作效率有很大提高。本文主要介绍文件操作相关的命令，包括文件的新建、删除、查找，其中每个部分会对命令的常用参数进行剖析，例如新建文件时修改时间、根据需求针对性文件查找。">
-<meta property="og:updated_time" content="2016-03-29T13:57:27.073Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux文件操作命令">
-<meta name="twitter:description" content="熟练掌握Linux的常用命令，对工作效率有很大提高。本文主要介绍文件操作相关的命令，包括文件的新建、删除、查找，其中每个部分会对命令的常用参数进行剖析，例如新建文件时修改时间、根据需求针对性文件查找。">
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
-  };
-</script>
-
-  <title> Linux文件操作命令 | F.G.P Notes </title>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v="/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<title> Linux文件操作命令 | 时针它不停在转动 </title>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
-  
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?a03bca2bc270c73a5c785ac1c8b25056";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-  <div class="container one-column page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
-      <span class="site-title">F.G.P Notes</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
+<body>
+<div id="">
+<header id="header" class="header"><div class="header_wrapper">
+<h1 class="title">
+<a href="/">时针它不停在转动</a>
 </h1>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+<ul class="nav">
+
+
+<li>
+<a href="/">首页</a>
+</li>
+
+
+<li>
+<a href="/categories">分类</a>
+</li>
+
+
+<li>
+<a href="/archives">归档</a>
+</li>
+
+
+<li>
+<a href="/about">关于</a>
+</li>
+
+</ul>
 </div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu menu-left">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
-            标签
-          </a>
-        </li>
-      
-
-      
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  
-  <form class="site-search-form">
-    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-  </form>
-
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'uPfnJsoWp_MdvH7M3amD','2.0.0');
-</script>
-
-
-
-    </div>
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content"> 
+</header>
+<main id="main" class="main">
+<section id="content" class="content">
 
   <div id="posts" class="posts-expand">
     
+<article class="post">
+<header class="post-header">
+<h1 class="post-title">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+Linux文件操作命令
+</a>
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              Linux文件操作命令
-            
-          
-        </h1>
-      
+</h1>
+<div class="post-meta">
+<span class="post-time">2015-08-12</span>
+<span class="post-category">
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-12T16:23:22+08:00" content="2015-08-12">
-            2015-08-12
-          </time>
-        </span>
+&nbsp; | &nbsp;
+<a class="post-cat-link" href="/categories/Linux/">
+Linux
+</a>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Linux/" itemprop="url" rel="index">
-                  <span itemprop="name">Linux</span>
-                </a>
-              </span>
+</span>
+</div>
+</header>
 
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/12/Linux文件操作命令/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/12/Linux文件操作命令/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        <span itemprop="articleBody"><h1 id="文件新建">文件新建</h1><p>文件的时间属性分为访问时间(Access)、修改时间(Modify)、状态改变时间（Change），可以使用<a href="http://linux.die.net/man/1/stat" target="_blank" rel="external">stat</a>查看文件信息。<br>新建文件方式有多种，比如touch、vi等。下面介绍touch命令的使用。</p>
-<h2 id="touch命令"><a href="http://linux.die.net/man/1/touch" target="_blank" rel="external">touch</a>命令</h2><h3 id="命令介绍">命令介绍</h3><p><strong>功能描述：</strong>更新文件的访问时间、修改时间为当前时间。文件如果不存在则创建空文件。<br><strong>使用方法：</strong><br><code>touch [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
+<span class="articleBody"><h1 id="文件新建"><a href="#文件新建" class="headerlink" title="文件新建"></a>文件新建</h1><p>文件的时间属性分为访问时间(Access)、修改时间(Modify)、状态改变时间（Change），可以使用<a href="http://linux.die.net/man/1/stat" target="_blank" rel="external">stat</a>查看文件信息。<br>新建文件方式有多种，比如touch、vi等。下面介绍touch命令的使用。</p>
+<h2 id="touch命令"><a href="#touch命令" class="headerlink" title="touch命令"></a><a href="http://linux.die.net/man/1/touch" target="_blank" rel="external">touch</a>命令</h2><h3 id="命令介绍"><a href="#命令介绍" class="headerlink" title="命令介绍"></a>命令介绍</h3><p><strong>功能描述：</strong>更新文件的访问时间、修改时间为当前时间。文件如果不存在则创建空文件。<br><strong>使用方法：</strong><br><code>touch [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
 <table>
 <thead>
 <tr>
@@ -288,12 +102,12 @@
 </tr>
 </tbody>
 </table>
-<h3 id="命令使用实例">命令使用实例</h3><p><strong>默认用法，更改文件时间为当前时间</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@blog ~]<span class="preprocessor"># stat test1.txt</span></span><br><span class="line">  File: ‘test1.txt’</span><br><span class="line">  Size: <span class="number">0</span>               Blocks: <span class="number">0</span>          IO Block: <span class="number">4096</span>   regular empty file</span><br><span class="line">Device: fd01h/<span class="number">64769</span>d    Inode: <span class="number">913954</span>      Links: <span class="number">1</span></span><br><span class="line">Access: (<span class="number">0644</span>/-rw-r--r--)  Uid: (    <span class="number">0</span>/    root)   Gid: (    <span class="number">0</span>/    root)</span><br><span class="line">Access: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">54</span>:<span class="number">14.286000000</span> +<span class="number">0800</span></span><br><span class="line">Modify: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">54</span>:<span class="number">14.286000000</span> +<span class="number">0800</span></span><br><span class="line">Change: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">54</span>:<span class="number">14.286000000</span> +<span class="number">0800</span></span><br><span class="line"> Birth: -</span><br><span class="line">[root@blog ~]<span class="preprocessor"># touch test1.txt</span></span><br><span class="line">[root@blog ~]<span class="preprocessor"># stat test1.txt</span></span><br><span class="line">  File: ‘test1.txt’</span><br><span class="line">  Size: <span class="number">0</span>               Blocks: <span class="number">0</span>          IO Block: <span class="number">4096</span>   regular empty file</span><br><span class="line">Device: fd01h/<span class="number">64769</span>d    Inode: <span class="number">913954</span>      Links: <span class="number">1</span></span><br><span class="line">Access: (<span class="number">0644</span>/-rw-r--r--)  Uid: (    <span class="number">0</span>/    root)   Gid: (    <span class="number">0</span>/    root)</span><br><span class="line">Access: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">54</span>:<span class="number">48.671000000</span> +<span class="number">0800</span></span><br><span class="line">Modify: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">54</span>:<span class="number">48.671000000</span> +<span class="number">0800</span></span><br><span class="line">Change: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">54</span>:<span class="number">48.671000000</span> +<span class="number">0800</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>-a，只更改访问时间</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@blog ~]<span class="preprocessor"># touch -a test1.txt</span></span><br><span class="line">[root@blog ~]<span class="preprocessor"># stat test1.txt</span></span><br><span class="line">  File: ‘test1.txt’</span><br><span class="line">  Size: <span class="number">0</span>               Blocks: <span class="number">0</span>          IO Block: <span class="number">4096</span>   regular empty file</span><br><span class="line">Device: fd01h/<span class="number">64769</span>d    Inode: <span class="number">913954</span>      Links: <span class="number">1</span></span><br><span class="line">Access: (<span class="number">0644</span>/-rw-r--r--)  Uid: (    <span class="number">0</span>/    root)   Gid: (    <span class="number">0</span>/    root)</span><br><span class="line">Access: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">56</span>:<span class="number">17.287000000</span> +<span class="number">0800</span></span><br><span class="line">Modify: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">54</span>:<span class="number">48.671000000</span> +<span class="number">0800</span></span><br><span class="line">Change: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">56</span>:<span class="number">17.287000000</span> +<span class="number">0800</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>-m，只改变更改时间</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@blog ~]<span class="preprocessor"># touch -m test1.txt</span></span><br><span class="line">[root@blog ~]<span class="preprocessor"># stat test1.txt</span></span><br><span class="line">  File: ‘test1.txt’</span><br><span class="line">  Size: <span class="number">0</span>               Blocks: <span class="number">0</span>          IO Block: <span class="number">4096</span>   regular empty file</span><br><span class="line">Device: fd01h/<span class="number">64769</span>d    Inode: <span class="number">913954</span>      Links: <span class="number">1</span></span><br><span class="line">Access: (<span class="number">0644</span>/-rw-r--r--)  Uid: (    <span class="number">0</span>/    root)   Gid: (    <span class="number">0</span>/    root)</span><br><span class="line">Access: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">56</span>:<span class="number">17.287000000</span> +<span class="number">0800</span></span><br><span class="line">Modify: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">57</span>:<span class="number">08.959000000</span> +<span class="number">0800</span></span><br><span class="line">Change: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">57</span>:<span class="number">08.959000000</span> +<span class="number">0800</span></span><br><span class="line"> Birth: -</span><br></pre></td></tr></table></figure></p>
-<p><strong>-r,参照给定文件更改时间</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@blog ~]<span class="preprocessor"># touch -r test1.txt <span class="number">123.</span>txt</span></span><br><span class="line">[root@blog ~]<span class="preprocessor"># stat <span class="number">123.</span>txt</span></span><br><span class="line">  File: ‘<span class="number">123.</span>txt’</span><br><span class="line">  Size: <span class="number">0</span>               Blocks: <span class="number">0</span>          IO Block: <span class="number">4096</span>   regular empty file</span><br><span class="line">Device: fd01h/<span class="number">64769</span>d    Inode: <span class="number">913955</span>      Links: <span class="number">1</span></span><br><span class="line">Access: (<span class="number">0644</span>/-rw-r--r--)  Uid: (    <span class="number">0</span>/    root)   Gid: (    <span class="number">0</span>/    root)</span><br><span class="line">Access: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">56</span>:<span class="number">17.287000000</span> +<span class="number">0800</span></span><br><span class="line">Modify: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">57</span>:<span class="number">08.959000000</span> +<span class="number">0800</span></span><br><span class="line">Change: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">21</span>:<span class="number">58</span>:<span class="number">48.402000000</span> +<span class="number">0800</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>-t,使用时间戳</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@blog ~]<span class="preprocessor"># touch -t <span class="number">209912121234</span> <span class="number">123.</span>txt</span></span><br><span class="line">[root@blog ~]<span class="preprocessor"># stat <span class="number">123.</span>txt</span></span><br><span class="line">  File: ‘<span class="number">123.</span>txt’</span><br><span class="line">  Size: <span class="number">0</span>               Blocks: <span class="number">0</span>          IO Block: <span class="number">4096</span>   regular empty file</span><br><span class="line">Device: fd01h/<span class="number">64769</span>d    Inode: <span class="number">913955</span>      Links: <span class="number">1</span></span><br><span class="line">Access: (<span class="number">0644</span>/-rw-r--r--)  Uid: (    <span class="number">0</span>/    root)   Gid: (    <span class="number">0</span>/    root)</span><br><span class="line">Access: <span class="number">2099</span>-<span class="number">12</span>-<span class="number">12</span> <span class="number">12</span>:<span class="number">34</span>:<span class="number">00.000000000</span> +<span class="number">0800</span></span><br><span class="line">Modify: <span class="number">2099</span>-<span class="number">12</span>-<span class="number">12</span> <span class="number">12</span>:<span class="number">34</span>:<span class="number">00.000000000</span> +<span class="number">0800</span></span><br><span class="line">Change: <span class="number">2015</span>-<span class="number">08</span>-<span class="number">12</span> <span class="number">22</span>:<span class="number">00</span>:<span class="number">15.235000000</span> +<span class="number">0800</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="文件删除">文件删除</h1><h2 id="rm命令"><a href="http://linux.die.net/man/1/rm" target="_blank" rel="external">rm</a>命令</h2><h3 id="命令介绍-1">命令介绍</h3><p><strong>功能描述：</strong>删除指定文件，默认不删除目录<br><strong>使用方法：</strong><br><code>rm [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
+<h3 id="命令使用实例"><a href="#命令使用实例" class="headerlink" title="命令使用实例"></a>命令使用实例</h3><p><strong>默认用法，更改文件时间为当前时间</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">stat</span> <span class="selector-tag">test1</span><span class="selector-class">.txt</span></div><div class="line">  <span class="selector-tag">File</span>: ‘<span class="selector-tag">test1</span><span class="selector-class">.txt</span>’</div><div class="line">  <span class="selector-tag">Size</span>: <span class="selector-tag">0</span>               <span class="selector-tag">Blocks</span>: <span class="selector-tag">0</span>          <span class="selector-tag">IO</span> <span class="selector-tag">Block</span>: <span class="selector-tag">4096</span>   <span class="selector-tag">regular</span> <span class="selector-tag">empty</span> <span class="selector-tag">file</span></div><div class="line"><span class="selector-tag">Device</span>: <span class="selector-tag">fd01h</span>/<span class="selector-tag">64769d</span>    <span class="selector-tag">Inode</span>: <span class="selector-tag">913954</span>      <span class="selector-tag">Links</span>: <span class="selector-tag">1</span></div><div class="line"><span class="selector-tag">Access</span>: (<span class="number">0644</span>/-rw-r--r--)  <span class="selector-tag">Uid</span>: (    <span class="number">0</span>/    root)   <span class="selector-tag">Gid</span>: (    <span class="number">0</span>/    root)</div><div class="line"><span class="selector-tag">Access</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:54</span><span class="selector-pseudo">:14.286000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Modify</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:54</span><span class="selector-pseudo">:14.286000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Change</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:54</span><span class="selector-pseudo">:14.286000000</span> +<span class="selector-tag">0800</span></div><div class="line"> <span class="selector-tag">Birth</span>: <span class="selector-tag">-</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">touch</span> <span class="selector-tag">test1</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">stat</span> <span class="selector-tag">test1</span><span class="selector-class">.txt</span></div><div class="line">  <span class="selector-tag">File</span>: ‘<span class="selector-tag">test1</span><span class="selector-class">.txt</span>’</div><div class="line">  <span class="selector-tag">Size</span>: <span class="selector-tag">0</span>               <span class="selector-tag">Blocks</span>: <span class="selector-tag">0</span>          <span class="selector-tag">IO</span> <span class="selector-tag">Block</span>: <span class="selector-tag">4096</span>   <span class="selector-tag">regular</span> <span class="selector-tag">empty</span> <span class="selector-tag">file</span></div><div class="line"><span class="selector-tag">Device</span>: <span class="selector-tag">fd01h</span>/<span class="selector-tag">64769d</span>    <span class="selector-tag">Inode</span>: <span class="selector-tag">913954</span>      <span class="selector-tag">Links</span>: <span class="selector-tag">1</span></div><div class="line"><span class="selector-tag">Access</span>: (<span class="number">0644</span>/-rw-r--r--)  <span class="selector-tag">Uid</span>: (    <span class="number">0</span>/    root)   <span class="selector-tag">Gid</span>: (    <span class="number">0</span>/    root)</div><div class="line"><span class="selector-tag">Access</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:54</span><span class="selector-pseudo">:48.671000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Modify</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:54</span><span class="selector-pseudo">:48.671000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Change</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:54</span><span class="selector-pseudo">:48.671000000</span> +<span class="selector-tag">0800</span></div></pre></td></tr></table></figure></p>
+<p><strong>-a，只更改访问时间</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">touch</span> <span class="selector-tag">-a</span> <span class="selector-tag">test1</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">stat</span> <span class="selector-tag">test1</span><span class="selector-class">.txt</span></div><div class="line">  <span class="selector-tag">File</span>: ‘<span class="selector-tag">test1</span><span class="selector-class">.txt</span>’</div><div class="line">  <span class="selector-tag">Size</span>: <span class="selector-tag">0</span>               <span class="selector-tag">Blocks</span>: <span class="selector-tag">0</span>          <span class="selector-tag">IO</span> <span class="selector-tag">Block</span>: <span class="selector-tag">4096</span>   <span class="selector-tag">regular</span> <span class="selector-tag">empty</span> <span class="selector-tag">file</span></div><div class="line"><span class="selector-tag">Device</span>: <span class="selector-tag">fd01h</span>/<span class="selector-tag">64769d</span>    <span class="selector-tag">Inode</span>: <span class="selector-tag">913954</span>      <span class="selector-tag">Links</span>: <span class="selector-tag">1</span></div><div class="line"><span class="selector-tag">Access</span>: (<span class="number">0644</span>/-rw-r--r--)  <span class="selector-tag">Uid</span>: (    <span class="number">0</span>/    root)   <span class="selector-tag">Gid</span>: (    <span class="number">0</span>/    root)</div><div class="line"><span class="selector-tag">Access</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:56</span><span class="selector-pseudo">:17.287000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Modify</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:54</span><span class="selector-pseudo">:48.671000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Change</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:56</span><span class="selector-pseudo">:17.287000000</span> +<span class="selector-tag">0800</span></div></pre></td></tr></table></figure></p>
+<p><strong>-m，只改变更改时间</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">touch</span> <span class="selector-tag">-m</span> <span class="selector-tag">test1</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">stat</span> <span class="selector-tag">test1</span><span class="selector-class">.txt</span></div><div class="line">  <span class="selector-tag">File</span>: ‘<span class="selector-tag">test1</span><span class="selector-class">.txt</span>’</div><div class="line">  <span class="selector-tag">Size</span>: <span class="selector-tag">0</span>               <span class="selector-tag">Blocks</span>: <span class="selector-tag">0</span>          <span class="selector-tag">IO</span> <span class="selector-tag">Block</span>: <span class="selector-tag">4096</span>   <span class="selector-tag">regular</span> <span class="selector-tag">empty</span> <span class="selector-tag">file</span></div><div class="line"><span class="selector-tag">Device</span>: <span class="selector-tag">fd01h</span>/<span class="selector-tag">64769d</span>    <span class="selector-tag">Inode</span>: <span class="selector-tag">913954</span>      <span class="selector-tag">Links</span>: <span class="selector-tag">1</span></div><div class="line"><span class="selector-tag">Access</span>: (<span class="number">0644</span>/-rw-r--r--)  <span class="selector-tag">Uid</span>: (    <span class="number">0</span>/    root)   <span class="selector-tag">Gid</span>: (    <span class="number">0</span>/    root)</div><div class="line"><span class="selector-tag">Access</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:56</span><span class="selector-pseudo">:17.287000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Modify</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:57</span><span class="selector-pseudo">:08.959000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Change</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:57</span><span class="selector-pseudo">:08.959000000</span> +<span class="selector-tag">0800</span></div><div class="line"> <span class="selector-tag">Birth</span>: <span class="selector-tag">-</span></div></pre></td></tr></table></figure></p>
+<p><strong>-r,参照给定文件更改时间</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">touch</span> <span class="selector-tag">-r</span> <span class="selector-tag">test1</span><span class="selector-class">.txt</span> <span class="selector-tag">123</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">stat</span> <span class="selector-tag">123</span><span class="selector-class">.txt</span></div><div class="line">  <span class="selector-tag">File</span>: ‘<span class="selector-tag">123</span><span class="selector-class">.txt</span>’</div><div class="line">  <span class="selector-tag">Size</span>: <span class="selector-tag">0</span>               <span class="selector-tag">Blocks</span>: <span class="selector-tag">0</span>          <span class="selector-tag">IO</span> <span class="selector-tag">Block</span>: <span class="selector-tag">4096</span>   <span class="selector-tag">regular</span> <span class="selector-tag">empty</span> <span class="selector-tag">file</span></div><div class="line"><span class="selector-tag">Device</span>: <span class="selector-tag">fd01h</span>/<span class="selector-tag">64769d</span>    <span class="selector-tag">Inode</span>: <span class="selector-tag">913955</span>      <span class="selector-tag">Links</span>: <span class="selector-tag">1</span></div><div class="line"><span class="selector-tag">Access</span>: (<span class="number">0644</span>/-rw-r--r--)  <span class="selector-tag">Uid</span>: (    <span class="number">0</span>/    root)   <span class="selector-tag">Gid</span>: (    <span class="number">0</span>/    root)</div><div class="line"><span class="selector-tag">Access</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:56</span><span class="selector-pseudo">:17.287000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Modify</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:57</span><span class="selector-pseudo">:08.959000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Change</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">21</span><span class="selector-pseudo">:58</span><span class="selector-pseudo">:48.402000000</span> +<span class="selector-tag">0800</span></div></pre></td></tr></table></figure></p>
+<p><strong>-t,使用时间戳</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">touch</span> <span class="selector-tag">-t</span> <span class="selector-tag">209912121234</span> <span class="selector-tag">123</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">stat</span> <span class="selector-tag">123</span><span class="selector-class">.txt</span></div><div class="line">  <span class="selector-tag">File</span>: ‘<span class="selector-tag">123</span><span class="selector-class">.txt</span>’</div><div class="line">  <span class="selector-tag">Size</span>: <span class="selector-tag">0</span>               <span class="selector-tag">Blocks</span>: <span class="selector-tag">0</span>          <span class="selector-tag">IO</span> <span class="selector-tag">Block</span>: <span class="selector-tag">4096</span>   <span class="selector-tag">regular</span> <span class="selector-tag">empty</span> <span class="selector-tag">file</span></div><div class="line"><span class="selector-tag">Device</span>: <span class="selector-tag">fd01h</span>/<span class="selector-tag">64769d</span>    <span class="selector-tag">Inode</span>: <span class="selector-tag">913955</span>      <span class="selector-tag">Links</span>: <span class="selector-tag">1</span></div><div class="line"><span class="selector-tag">Access</span>: (<span class="number">0644</span>/-rw-r--r--)  <span class="selector-tag">Uid</span>: (    <span class="number">0</span>/    root)   <span class="selector-tag">Gid</span>: (    <span class="number">0</span>/    root)</div><div class="line"><span class="selector-tag">Access</span>: <span class="selector-tag">2099-12-12</span> <span class="selector-tag">12</span><span class="selector-pseudo">:34</span><span class="selector-pseudo">:00.000000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Modify</span>: <span class="selector-tag">2099-12-12</span> <span class="selector-tag">12</span><span class="selector-pseudo">:34</span><span class="selector-pseudo">:00.000000000</span> +<span class="selector-tag">0800</span></div><div class="line"><span class="selector-tag">Change</span>: <span class="selector-tag">2015-08-12</span> <span class="selector-tag">22</span><span class="selector-pseudo">:00</span><span class="selector-pseudo">:15.235000000</span> +<span class="selector-tag">0800</span></div></pre></td></tr></table></figure></p>
+<h1 id="文件删除"><a href="#文件删除" class="headerlink" title="文件删除"></a>文件删除</h1><h2 id="rm命令"><a href="#rm命令" class="headerlink" title="rm命令"></a><a href="http://linux.die.net/man/1/rm" target="_blank" rel="external">rm</a>命令</h2><h3 id="命令介绍-1"><a href="#命令介绍-1" class="headerlink" title="命令介绍"></a>命令介绍</h3><p><strong>功能描述：</strong>删除指定文件，默认不删除目录<br><strong>使用方法：</strong><br><code>rm [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
 <table>
 <thead>
 <tr>
@@ -316,10 +130,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="命令使用实例-1">命令使用实例</h3><p><strong>默认删除文件,会给出提示</strong><br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># ls</span></span><br><span class="line"><span class="number">123.</span>txt  test1.txt</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># rm test1.txt</span></span><br><span class="line">rm: remove regular empty file ‘test1.txt’? y</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># ls</span></span><br><span class="line"><span class="number">123.</span>txt</span><br></pre></td></tr></table></figure></p>
-<p><strong>-f，无提示</strong><br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># ls</span></span><br><span class="line"><span class="number">123.</span>txt</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># rm -f 123.txt</span></span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># ls</span></span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor">#</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>-rf，无提示递归删除目录文件</strong><br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># find test/</span></span><br><span class="line">test/</span><br><span class="line">test/test.txt</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># rm -rf test</span></span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># ls</span></span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor">#</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="文件移动">文件移动</h1><h2 id="mv命令"><a href="http://linux.die.net/man/1/mv" target="_blank" rel="external">mv</a>命令</h2><h3 id="命令介绍-2">命令介绍</h3><p><strong>功能描述：</strong>重命名文件，或者移动文件<br><strong>使用方法：</strong><br><code>mv [OPTION]...[-T]SOURCE...DEST</code><br><code>mv [OPTION]...SOURCE...DIRECTORY</code><br><code>mv [OPTION]...-t DIRECTORY SOURCE</code><br><strong>常用选项：</strong></p>
+<h3 id="命令使用实例-1"><a href="#命令使用实例-1" class="headerlink" title="命令使用实例"></a>命令使用实例</h3><p><strong>默认删除文件,会给出提示</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">ls</span></div><div class="line">123<span class="selector-class">.txt</span>  <span class="selector-tag">test1</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">rm</span> <span class="selector-tag">test1</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-tag">rm</span>: <span class="selector-tag">remove</span> <span class="selector-tag">regular</span> <span class="selector-tag">empty</span> <span class="selector-tag">file</span> ‘<span class="selector-tag">test1</span><span class="selector-class">.txt</span>’? <span class="selector-tag">y</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">ls</span></div><div class="line">123<span class="selector-class">.txt</span></div></pre></td></tr></table></figure></p>
+<p><strong>-f，无提示</strong><br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># ls</span></div><div class="line"><span class="number">123.</span>txt</div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># rm -f 123.txt</span></div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># ls</span></div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta">#</span></div></pre></td></tr></table></figure></p>
+<p><strong>-rf，无提示递归删除目录文件</strong><br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># find test/</span></div><div class="line">test/</div><div class="line">test/test.txt</div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># rm -rf test</span></div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># ls</span></div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta">#</span></div></pre></td></tr></table></figure></p>
+<h1 id="文件移动"><a href="#文件移动" class="headerlink" title="文件移动"></a>文件移动</h1><h2 id="mv命令"><a href="#mv命令" class="headerlink" title="mv命令"></a><a href="http://linux.die.net/man/1/mv" target="_blank" rel="external">mv</a>命令</h2><h3 id="命令介绍-2"><a href="#命令介绍-2" class="headerlink" title="命令介绍"></a>命令介绍</h3><p><strong>功能描述：</strong>重命名文件，或者移动文件<br><strong>使用方法：</strong><br><code>mv [OPTION]...[-T]SOURCE...DEST</code><br><code>mv [OPTION]...SOURCE...DIRECTORY</code><br><code>mv [OPTION]...-t DIRECTORY SOURCE</code><br><strong>常用选项：</strong></p>
 <table>
 <thead>
 <tr>
@@ -342,17 +156,17 @@
 </tr>
 </tbody>
 </table>
-<h3 id="命令使用实例-2">命令使用实例</h3><p><strong>[-T]，重命名，其中-T选项可以省略</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr_selector">[root@blog ~]</span># <span class="tag">ls</span></span><br><span class="line"><span class="tag">test</span><span class="class">.txt</span></span><br><span class="line"><span class="attr_selector">[root@blog ~]</span># <span class="tag">mv</span> <span class="tag">test</span><span class="class">.txt</span> <span class="tag">hello</span><span class="class">.txt</span></span><br><span class="line"><span class="attr_selector">[root@blog ~]</span># <span class="tag">ls</span></span><br><span class="line"><span class="tag">hello</span><span class="class">.txt</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>移动文件到指定目录，名称不变</strong><br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># ls</span></span><br><span class="line">hello.txt  test</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># mv hello.txt test/</span></span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># ls</span></span><br><span class="line">test</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># cd test/</span></span><br><span class="line">[root<span class="constant">@blog</span> test]<span class="preprocessor"># ls</span></span><br><span class="line">hello.txt</span><br><span class="line">[root<span class="constant">@blog</span> test]<span class="preprocessor">#</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>-t,移动全部源文件到指定目录</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@blog ~]<span class="preprocessor"># ls</span></span><br><span class="line"><span class="number">1.</span>txt  <span class="number">2.</span>txt  test</span><br><span class="line">[root@blog ~]<span class="preprocessor"># mv -t test/ <span class="number">1.</span>txt <span class="number">2.</span>txt</span></span><br><span class="line">[root@blog ~]<span class="preprocessor"># cd test/</span></span><br><span class="line">[root@blog test]<span class="preprocessor"># ls</span></span><br><span class="line"><span class="number">1.</span>txt  <span class="number">2.</span>txt  hello.txt</span><br><span class="line">[root@blog test]<span class="preprocessor">#</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="文件查找">文件查找</h1><p>在实际环境中，系统中的文件数量很多，我们可以根据文件类型、文件大小、修改时间等来迅速查找文件。<br>现有文件hello.txt,内容如下：</p>
-<pre><code><span class="title">aA</span>
+<h3 id="命令使用实例-2"><a href="#命令使用实例-2" class="headerlink" title="命令使用实例"></a>命令使用实例</h3><p><strong>[-T]，重命名，其中-T选项可以省略</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">ls</span></div><div class="line"><span class="selector-tag">test</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">mv</span> <span class="selector-tag">test</span><span class="selector-class">.txt</span> <span class="selector-tag">hello</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">ls</span></div><div class="line"><span class="selector-tag">hello</span><span class="selector-class">.txt</span></div></pre></td></tr></table></figure></p>
+<p><strong>移动文件到指定目录，名称不变</strong><br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># ls</span></div><div class="line">hello.txt  test</div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># mv hello.txt test/</span></div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># ls</span></div><div class="line">test</div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># cd test/</span></div><div class="line">[root<span class="symbol">@blog</span> test]<span class="meta"># ls</span></div><div class="line">hello.txt</div><div class="line">[root<span class="symbol">@blog</span> test]<span class="meta">#</span></div></pre></td></tr></table></figure></p>
+<p><strong>-t,移动全部源文件到指定目录</strong><br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># ls</span></div><div class="line"><span class="number">1.</span>txt  <span class="number">2.</span>txt  test</div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># mv -t test/ 1.txt 2.txt</span></div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># cd test/</span></div><div class="line">[root<span class="symbol">@blog</span> test]<span class="meta"># ls</span></div><div class="line"><span class="number">1.</span>txt  <span class="number">2.</span>txt  hello.txt</div><div class="line">[root<span class="symbol">@blog</span> test]<span class="meta">#</span></div></pre></td></tr></table></figure></p>
+<h1 id="文件查找"><a href="#文件查找" class="headerlink" title="文件查找"></a>文件查找</h1><p>在实际环境中，系统中的文件数量很多，我们可以根据文件类型、文件大小、修改时间等来迅速查找文件。<br>现有文件hello.txt,内容如下：</p>
+<pre><code>aA
 abB
 abcC
 abcdD
 abcdeE
 abcdefF
-</code></pre><h2 id="wc命令">wc命令</h2><h3 id="命令介绍-3">命令介绍</h3><p><strong>功能描述：</strong>输出文件的行数、字符数、字节数<br><strong>使用方法：</strong><br><code>wc [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
+</code></pre><h2 id="wc命令"><a href="#wc命令" class="headerlink" title="wc命令"></a>wc命令</h2><h3 id="命令介绍-3"><a href="#命令介绍-3" class="headerlink" title="命令介绍"></a>命令介绍</h3><p><strong>功能描述：</strong>输出文件的行数、字符数、字节数<br><strong>使用方法：</strong><br><code>wc [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
 <table>
 <thead>
 <tr>
@@ -379,8 +193,8 @@ abcdefF
 </tr>
 </tbody>
 </table>
-<h3 id="命令使用实例-3">命令使用实例</h3><p>以hello.txt为例：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr_selector">[root@blog ~]</span># <span class="tag">wc</span> <span class="tag">-c</span>  <span class="tag">hello</span><span class="class">.txt</span></span><br><span class="line">33 <span class="tag">hello</span><span class="class">.txt</span></span><br><span class="line"><span class="attr_selector">[root@blog ~]</span># <span class="tag">wc</span> <span class="tag">-m</span>  <span class="tag">hello</span><span class="class">.txt</span></span><br><span class="line">33 <span class="tag">hello</span><span class="class">.txt</span></span><br><span class="line"><span class="attr_selector">[root@blog ~]</span># <span class="tag">wc</span> <span class="tag">-l</span>  <span class="tag">hello</span><span class="class">.txt</span></span><br><span class="line">6 <span class="tag">hello</span><span class="class">.txt</span></span><br><span class="line"><span class="attr_selector">[root@blog ~]</span># <span class="tag">wc</span> <span class="tag">-w</span>  <span class="tag">hello</span><span class="class">.txt</span></span><br><span class="line">6 <span class="tag">hello</span><span class="class">.txt</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="grep命令">grep命令</h2><p><strong>功能描述：</strong>根据条件输出匹配结果<br><strong>使用方法：</strong><br><code>grep [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
+<h3 id="命令使用实例-3"><a href="#命令使用实例-3" class="headerlink" title="命令使用实例"></a>命令使用实例</h3><p>以hello.txt为例：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">wc</span> <span class="selector-tag">-c</span>  <span class="selector-tag">hello</span><span class="selector-class">.txt</span></div><div class="line">33 <span class="selector-tag">hello</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">wc</span> <span class="selector-tag">-m</span>  <span class="selector-tag">hello</span><span class="selector-class">.txt</span></div><div class="line">33 <span class="selector-tag">hello</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">wc</span> <span class="selector-tag">-l</span>  <span class="selector-tag">hello</span><span class="selector-class">.txt</span></div><div class="line">6 <span class="selector-tag">hello</span><span class="selector-class">.txt</span></div><div class="line"><span class="selector-attr">[root@blog ~]</span># <span class="selector-tag">wc</span> <span class="selector-tag">-w</span>  <span class="selector-tag">hello</span><span class="selector-class">.txt</span></div><div class="line">6 <span class="selector-tag">hello</span><span class="selector-class">.txt</span></div></pre></td></tr></table></figure></p>
+<h2 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h2><p><strong>功能描述：</strong>根据条件输出匹配结果<br><strong>使用方法：</strong><br><code>grep [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
 <table>
 <thead>
 <tr>
@@ -407,8 +221,8 @@ abcdefF
 </tr>
 </tbody>
 </table>
-<h3 id="命令使用实例-4">命令使用实例</h3><p>以hello.txt为例：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@blog</span> ~]<span class="comment"># grep -i a hello.txt</span></span><br><span class="line">aA</span><br><span class="line">abB</span><br><span class="line">abcC</span><br><span class="line">abcdD</span><br><span class="line">abcdeE</span><br><span class="line">abcdefF</span><br><span class="line">[root<span class="variable">@blog</span> ~]<span class="comment"># grep -v abcdD hello.txt</span></span><br><span class="line">aA</span><br><span class="line">abB</span><br><span class="line">abcC</span><br><span class="line">abcdeE</span><br><span class="line">abcdefF</span><br><span class="line">[root<span class="variable">@blog</span> ~]<span class="comment"># grep -c a hello.txt</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line">[root<span class="variable">@blog</span> ~]<span class="comment"># grep -n abB hello.txt</span></span><br><span class="line"><span class="number">2</span><span class="symbol">:abB</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="sort命令">sort命令</h2><p><strong>功能描述：</strong>排序，默认升序<br><strong>使用方法：</strong><br><code>sort [OPTION]...FILE...</code><br><strong>常用选项：</strong><br>文件内容如下：</p>
+<h3 id="命令使用实例-4"><a href="#命令使用实例-4" class="headerlink" title="命令使用实例"></a>命令使用实例</h3><p>以hello.txt为例：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">[root<span class="variable">@blog</span> ~]<span class="comment"># grep -i a hello.txt</span></div><div class="line">aA</div><div class="line">abB</div><div class="line">abcC</div><div class="line">abcdD</div><div class="line">abcdeE</div><div class="line">abcdefF</div><div class="line">[root<span class="variable">@blog</span> ~]<span class="comment"># grep -v abcdD hello.txt</span></div><div class="line">aA</div><div class="line">abB</div><div class="line">abcC</div><div class="line">abcdeE</div><div class="line">abcdefF</div><div class="line">[root<span class="variable">@blog</span> ~]<span class="comment"># grep -c a hello.txt</span></div><div class="line"><span class="number">6</span></div><div class="line">[root<span class="variable">@blog</span> ~]<span class="comment"># grep -n abB hello.txt</span></div><div class="line"><span class="number">2</span><span class="symbol">:abB</span></div></pre></td></tr></table></figure></p>
+<h2 id="sort命令"><a href="#sort命令" class="headerlink" title="sort命令"></a>sort命令</h2><p><strong>功能描述：</strong>排序，默认升序<br><strong>使用方法：</strong><br><code>sort [OPTION]...FILE...</code><br><strong>常用选项：</strong><br>文件内容如下：</p>
 <table>
 <thead>
 <tr>
@@ -423,8 +237,8 @@ abcdefF
 </tr>
 </tbody>
 </table>
-<h3 id="命令使用实例-5">命令使用实例</h3><p>以hello.txt为例：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># sort hello.txt</span></span><br><span class="line">aA</span><br><span class="line">abB</span><br><span class="line">abcC</span><br><span class="line">abcdD</span><br><span class="line">abcdeE</span><br><span class="line">abcdefF</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># sort -r hello.txt</span></span><br><span class="line">abcdefF</span><br><span class="line">abcdeE</span><br><span class="line">abcdD</span><br><span class="line">abcC</span><br><span class="line">abB</span><br><span class="line">aA</span><br></pre></td></tr></table></figure></p>
-<h2 id="tail命令">tail命令</h2><p><strong>功能描述：</strong>默认输出文件后10行<br><strong>使用方法：</strong><br><code>tail [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
+<h3 id="命令使用实例-5"><a href="#命令使用实例-5" class="headerlink" title="命令使用实例"></a>命令使用实例</h3><p>以hello.txt为例：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># sort hello.txt</span></div><div class="line">aA</div><div class="line">abB</div><div class="line">abcC</div><div class="line">abcdD</div><div class="line">abcdeE</div><div class="line">abcdefF</div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># sort -r hello.txt</span></div><div class="line">abcdefF</div><div class="line">abcdeE</div><div class="line">abcdD</div><div class="line">abcC</div><div class="line">abB</div><div class="line">aA</div></pre></td></tr></table></figure></p>
+<h2 id="tail命令"><a href="#tail命令" class="headerlink" title="tail命令"></a>tail命令</h2><p><strong>功能描述：</strong>默认输出文件后10行<br><strong>使用方法：</strong><br><code>tail [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
 <table>
 <thead>
 <tr>
@@ -447,8 +261,8 @@ abcdefF
 </tr>
 </tbody>
 </table>
-<h3 id="命令使用实例-6">命令使用实例</h3><p>以hello.txt为例：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># tail hello.txt</span></span><br><span class="line">aA</span><br><span class="line">abB</span><br><span class="line">abcC</span><br><span class="line">abcdD</span><br><span class="line">abcdeE</span><br><span class="line">abcdefF</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># tail -c 5 hello.txt</span></span><br><span class="line">defF</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># tail -n 1 hello.txt</span></span><br><span class="line">abcdefF</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor">#</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="head命令">head命令</h2><p><strong>功能描述：</strong>默认输出文件前10行<br><strong>使用方法：</strong><br><code>head [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
+<h3 id="命令使用实例-6"><a href="#命令使用实例-6" class="headerlink" title="命令使用实例"></a>命令使用实例</h3><p>以hello.txt为例：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># tail hello.txt</span></div><div class="line">aA</div><div class="line">abB</div><div class="line">abcC</div><div class="line">abcdD</div><div class="line">abcdeE</div><div class="line">abcdefF</div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># tail -c 5 hello.txt</span></div><div class="line">defF</div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># tail -n 1 hello.txt</span></div><div class="line">abcdefF</div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta">#</span></div></pre></td></tr></table></figure></p>
+<h2 id="head命令"><a href="#head命令" class="headerlink" title="head命令"></a>head命令</h2><p><strong>功能描述：</strong>默认输出文件前10行<br><strong>使用方法：</strong><br><code>head [OPTION]...FILE...</code><br><strong>常用选项：</strong></p>
 <table>
 <thead>
 <tr>
@@ -467,8 +281,8 @@ abcdefF
 </tr>
 </tbody>
 </table>
-<h3 id="命令使用实例-7">命令使用实例</h3><p>以hello.txt为例：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># head hello.txt</span></span><br><span class="line">aA</span><br><span class="line">abB</span><br><span class="line">abcC</span><br><span class="line">abcdD</span><br><span class="line">abcdeE</span><br><span class="line">abcdefF</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># head -c 3 hello.txt</span></span><br><span class="line">aA</span><br><span class="line">[root<span class="constant">@blog</span> ~]<span class="preprocessor"># head -n 1 hello.txt</span></span><br><span class="line">aA</span><br></pre></td></tr></table></figure></p>
-<h2 id="find命令"><a href="http://man.he.net/man1/find" target="_blank" rel="external">find</a>命令</h2><p><strong>功能描述：</strong>输出文件的行数、字符数、字节数，默认输出当前目录以及子目录下的所有文件，包括隐藏文件。<br><strong>使用方法：</strong><br><code>find [PATH] [EXPRESSION] [FILENAME]</code><br><strong>常用选项：</strong></p>
+<h3 id="命令使用实例-7"><a href="#命令使用实例-7" class="headerlink" title="命令使用实例"></a>命令使用实例</h3><p>以hello.txt为例：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># head hello.txt</span></div><div class="line">aA</div><div class="line">abB</div><div class="line">abcC</div><div class="line">abcdD</div><div class="line">abcdeE</div><div class="line">abcdefF</div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># head -c 3 hello.txt</span></div><div class="line">aA</div><div class="line">[root<span class="symbol">@blog</span> ~]<span class="meta"># head -n 1 hello.txt</span></div><div class="line">aA</div></pre></td></tr></table></figure></p>
+<h2 id="find命令"><a href="#find命令" class="headerlink" title="find命令"></a><a href="http://man.he.net/man1/find" target="_blank" rel="external">find</a>命令</h2><p><strong>功能描述：</strong>输出文件的行数、字符数、字节数，默认输出当前目录以及子目录下的所有文件，包括隐藏文件。<br><strong>使用方法：</strong><br><code>find [PATH] [EXPRESSION] [FILENAME]</code><br><strong>常用选项：</strong></p>
 <table>
 <thead>
 <tr>
@@ -519,9 +333,9 @@ abcdefF
 </tr>
 </tbody>
 </table>
-<h3 id="命令使用实例-8">命令使用实例</h3><p><strong>统计普通文档的个数</strong></p>
-<pre><code>[root<span class="annotation">@blog</span> ~]# find -<span class="class"><span class="keyword">type</span> <span class="title">f</span> <span class="title">|wc</span> <span class="title">-l</span>
-</span><span class="number">14</span>
+<h3 id="命令使用实例-8"><a href="#命令使用实例-8" class="headerlink" title="命令使用实例"></a>命令使用实例</h3><p><strong>统计普通文档的个数</strong></p>
+<pre><code>[root@blog ~]# find -type f |wc -l
+14
 </code></pre><p>其中-type 文件类型 包括以下几种：</p>
 <ul>
 <li>b 块设备 </li>
@@ -554,49 +368,38 @@ abcdefF
 </tr>
 </tbody>
 </table>
-<p>%Tk，通过k形式的文件最后更改时间，k值和%Ak一样。<br>%t，以Ctime函数的形式返回文件最后更改时间<br>%p，带路径的文件名<br>%s，文件大小<br>根据最后更改时间排序：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@blog ~]# find -type f -printf '%T+ %p\n'|sort |head -n 5</span><br><span class="line"><span class="number">2013-12-29</span>+<span class="number">10:26:31.00</span><span class="number">00000000</span> ./.bash_logout</span><br><span class="line"><span class="number">2013-12-29</span>+<span class="number">10:26:31.00</span><span class="number">00000000</span> ./.bash_profile</span><br><span class="line"><span class="number">2013-12-29</span>+<span class="number">10:26:31.00</span><span class="number">00000000</span> ./.bashrc</span><br><span class="line"><span class="number">2013-12-29</span>+<span class="number">10:26:31.00</span><span class="number">00000000</span> ./.cshrc</span><br><span class="line"><span class="number">2013-12-29</span>+<span class="number">10:26:31.00</span><span class="number">00000000</span> ./.tcshrc</span><br></pre></td></tr></table></figure></p>
-<p>根据最后访问时间排序：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@blog ~]# find -type f -printf '%<span class="keyword">A</span>+ %p\n'|sort |head -n 5</span><br><span class="line"><span class="number">2013-12-29</span>+<span class="number">10:26:31.00</span><span class="number">00000000</span> ./.cshrc</span><br><span class="line"><span class="number">2013-12-29</span>+<span class="number">10:26:31.00</span><span class="number">00000000</span> ./.tcshrc</span><br><span class="line"><span class="number">2015-08-05</span>+<span class="number">11:53:46.62</span><span class="number">50000000</span> ./.cache/pip/http/f/e/d/0/e/fed0ed<span class="number">508030b76</span><span class="number">6d5b0c27</span><span class="number">92132c8</span>bf<span class="number">197804464765</span>b<span class="number">46b361f93</span>a4</span><br><span class="line"><span class="number">2015-08-05</span>+<span class="number">11:53:46.63</span><span class="number">60000000</span> ./.cache/pip/selfcheck.json</span><br><span class="line"><span class="number">2015-08-05</span>+<span class="number">11:53:46.94</span><span class="number">60000000</span> ./.cache/pip/http/a/2/2/9/b/a<span class="number">229b0c591</span>a4dcdfd<span class="number">85b2c9b34</span>cc<span class="number">4d6d2d60</span>cb30cca<span class="number">928b18f66</span>99df</span><br></pre></td></tr></table></figure></p>
-<p>获取/usr目录下后缀名为txt的前两个文件：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@blog ~]<span class="preprocessor"># find /usr/  -name <span class="string">"*.txt"</span> |head -n <span class="number">2</span></span></span><br><span class="line">/usr/share/doc/git-<span class="number">1.8</span><span class="number">.3</span><span class="number">.1</span>/RelNotes/<span class="number">1.6</span><span class="number">.1</span><span class="number">.4</span>.txt</span><br><span class="line">/usr/share/doc/git-<span class="number">1.8</span><span class="number">.3</span><span class="number">.1</span>/RelNotes/<span class="number">1.7</span><span class="number">.0</span><span class="number">.7</span>.txt</span><br></pre></td></tr></table></figure></p>
-<p>获取最近访问的5个文件：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@blog ~]# find -type f -printf '%<span class="keyword">A</span>@ %Aa %t\n'|sort |tail -n 5</span><br><span class="line"><span class="number">1439296501</span>.<span class="number">2970000000</span> Tue Sun Dec <span class="number">29 10:26:31</span>.<span class="number">0000000000</span> 2013</span><br><span class="line"><span class="number">1439382712</span>.<span class="number">9140000000</span> Wed Wed Aug <span class="number">12 20:19:18</span>.<span class="number">0937000000</span> 2015</span><br><span class="line"><span class="number">1439383521</span>.<span class="number">5720000000</span> Wed Wed Aug <span class="number">12 20:45:21</span>.<span class="number">0572000000</span> 2015</span><br><span class="line"><span class="number">1439384494</span>.<span class="number">4100000000</span> Wed Wed Aug <span class="number">12 21:01:34</span>.<span class="number">0410000000</span> 2015</span><br><span class="line"><span class="number">1439384501</span>.<span class="number">0380000000</span> Wed Wed Aug <span class="number">12 21:01:41</span>.<span class="number">0038000000</span> 2015</span><br></pre></td></tr></table></figure></p>
-<h2 id="du命令"><a href="http://linux.die.net/man/1/du" target="_blank" rel="external">du命令</a></h2><p>估计某个特定目录或文件在文件系统上磁盘的使用情况<br>最后，当掌握了上述命令的基本使用方法，就可以根据的需求进行文件查找，当然文件查找的命令也不是唯一的，要灵活是运用，多看手册。</p>
+<p>%Tk，通过k形式的文件最后更改时间，k值和%Ak一样。<br>%t，以Ctime函数的形式返回文件最后更改时间<br>%p，带路径的文件名<br>%s，文件大小<br>根据最后更改时间排序：<br><figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@blog ~]# find -type f -printf '%T+ %p\n'|sort |head -n 5</div><div class="line">2013<span class="string">-12</span><span class="string">-29</span><span class="string">+10</span>:26:31.0000000000 ./.bash_logout</div><div class="line">2013<span class="string">-12</span><span class="string">-29</span><span class="string">+10</span>:26:31.0000000000 ./.bash_profile</div><div class="line">2013<span class="string">-12</span><span class="string">-29</span><span class="string">+10</span>:26:31.0000000000 ./.bashrc</div><div class="line">2013<span class="string">-12</span><span class="string">-29</span><span class="string">+10</span>:26:31.0000000000 ./.cshrc</div><div class="line">2013<span class="string">-12</span><span class="string">-29</span><span class="string">+10</span>:26:31.0000000000 ./.tcshrc</div></pre></td></tr></table></figure></p>
+<p>根据最后访问时间排序：<br><figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@blog ~]# find -type f -printf '%A+ %p\n'|sort |head -n 5</div><div class="line">2013<span class="string">-12</span><span class="string">-29</span><span class="string">+10</span>:26:31.0000000000 ./.cshrc</div><div class="line">2013<span class="string">-12</span><span class="string">-29</span><span class="string">+10</span>:26:31.0000000000 ./.tcshrc</div><div class="line">2015<span class="string">-08</span><span class="string">-05</span><span class="string">+11</span>:53:46.6250000000 ./.cache/pip/http/f/e/d/0/e/fed0ed508030b766d5b0c2792132c8bf197804464765b46b361f93a4</div><div class="line">2015<span class="string">-08</span><span class="string">-05</span><span class="string">+11</span>:53:46.6360000000 ./.cache/pip/selfcheck.json</div><div class="line">2015<span class="string">-08</span><span class="string">-05</span><span class="string">+11</span>:53:46.9460000000 ./.cache/pip/http/a/2/2/9/b/a229b0c591a4dcdfd85b2c9b34cc4d6d2d60cb30cca928b18f6699df</div></pre></td></tr></table></figure></p>
+<p>获取/usr目录下后缀名为txt的前两个文件：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@blog ~]# find /usr/  -name <span class="string">"*.txt"</span> |head -n <span class="number">2</span></div><div class="line">/usr/share/doc/git<span class="number">-1.8</span><span class="number">.3</span><span class="number">.1</span>/RelNotes/<span class="number">1.6</span><span class="number">.1</span><span class="number">.4</span>.txt</div><div class="line">/usr/share/doc/git<span class="number">-1.8</span><span class="number">.3</span><span class="number">.1</span>/RelNotes/<span class="number">1.7</span><span class="number">.0</span><span class="number">.7</span>.txt</div></pre></td></tr></table></figure></p>
+<p>获取最近访问的5个文件：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@blog ~]# find -type f -printf '%<span class="keyword">A</span>@ %Aa %t\n'|sort |tail -n <span class="number">5</span></div><div class="line"><span class="number">1439296501</span>.<span class="number">2970000000</span> Tue Sun Dec <span class="number">29 10:26:31</span>.<span class="number">0000000000</span> <span class="number">2013</span></div><div class="line"><span class="number">1439382712</span>.<span class="number">9140000000</span> Wed Wed Aug <span class="number">12 20:19:18</span>.<span class="number">0937000000</span> <span class="number">2015</span></div><div class="line"><span class="number">1439383521</span>.<span class="number">5720000000</span> Wed Wed Aug <span class="number">12 20:45:21</span>.<span class="number">0572000000</span> <span class="number">2015</span></div><div class="line"><span class="number">1439384494</span>.<span class="number">4100000000</span> Wed Wed Aug <span class="number">12 21:01:34</span>.<span class="number">0410000000</span> <span class="number">2015</span></div><div class="line"><span class="number">1439384501</span>.<span class="number">0380000000</span> Wed Wed Aug <span class="number">12 21:01:41</span>.<span class="number">0038000000</span> <span class="number">2015</span></div></pre></td></tr></table></figure></p>
+<h2 id="du命令"><a href="#du命令" class="headerlink" title="du命令"></a><a href="http://linux.die.net/man/1/du" target="_blank" rel="external">du命令</a></h2><p>估计某个特定目录或文件在文件系统上磁盘的使用情况<br>最后，当掌握了上述命令的基本使用方法，就可以根据的需求进行文件查找，当然文件查找的命令也不是唯一的，要灵活是运用，多看手册。</p>
 </span>
-      
+
+<footer class="post-footer">
+
+<a class="post-tag-link" href="/tags/Linux/">#Linux</a>
+
+<a class="post-tag-link" href="/tags/Linux命令/">#Linux命令</a>
+
+<a class="post-tag-link" href="/tags/文件操作/">#文件操作</a>
+
+
+
+<div class="post-nav">
+	<div class="post-nav-prev post-nav-item">
+	
+		<a rel="prev" href="/2015/08/21/Python实现程序并行/">Python实现程序并行</a>
+	
     </div>
+    <div class="post-nav-next post-nav-item">
+    
+    	<a rel="next" href="/2015/08/10/Shadowsocks配置/">Shadowsocks配置</a>
+    
+    </div>
+</div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag">#Linux</a>
-          
-            <a href="/tags/Linux命令/" rel="tag">#Linux命令</a>
-          
-            <a href="/tags/文件操作/" rel="tag">#文件操作</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/08/21/Python实现程序并行/" rel="prev">Python实现程序并行</a>
-            
-          </div>
-
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/08/10/Shadowsocks配置/" rel="next">Shadowsocks配置</a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
+</footer>
+</article>
 
 
     <div class="post-spread">
@@ -604,401 +407,16 @@ abcdefF
     </div>
   </div>
 
- </div>
-
-        
-
-        
-          <div class="comments" id="comments">
-            
-              <div class="ds-thread" data-thread-key="2015/08/12/Linux文件操作命令/"
-                   data-title="Linux文件操作命令" data-url="http://yoursite.com/2015/08/12/Linux文件操作命令/">
-              </div>
-            
-          </div>
-        
-      </div>
-
-      
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="http://7xjwd1.com1.z0.glb.clouddn.com/photo.jpeg" alt="F.G.P" itemprop="image"/>
-          <p class="site-author-name" itemprop="name">F.G.P</p>
-        </div>
-        <p class="site-description motion-element" itemprop="description">天道酬勤</p>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">20</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">15</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">33</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2608621505" target="_blank">Weibo</a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-            <p class="site-author-name">友情链接</p>
-            
-              <span class="links-of-author-item">
-              <a href="http://dropsec.xyz" target="_blank">Drops</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://blog.dropsec.xyz" target="_blank">Drops Blog</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://bbs.dropsec.xyz" target="_blank">Drops BBS</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://blog.neargle.com" target="_blank">Neargle</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://www.mtfly.net" target="_blank">Mtfly</a>
-              </span>
-            
-              <span class="links-of-author-item">
-              <a href="http://wkh.dropsec.xyz" target="_blank">Wkh</a>
-              </span>
-            
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
-          <div class="post-toc">
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件新建"><span class="nav-number">1.</span> <span class="nav-text">文件新建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#touch命令"><span class="nav-number">1.1.</span> <span class="nav-text">touch命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令介绍"><span class="nav-number">1.1.1.</span> <span class="nav-text">命令介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令使用实例"><span class="nav-number">1.1.2.</span> <span class="nav-text">命令使用实例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件删除"><span class="nav-number">2.</span> <span class="nav-text">文件删除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rm命令"><span class="nav-number">2.1.</span> <span class="nav-text">rm命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令介绍-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">命令介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令使用实例-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">命令使用实例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件移动"><span class="nav-number">3.</span> <span class="nav-text">文件移动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mv命令"><span class="nav-number">3.1.</span> <span class="nav-text">mv命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令介绍-2"><span class="nav-number">3.1.1.</span> <span class="nav-text">命令介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令使用实例-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">命令使用实例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件查找"><span class="nav-number">4.</span> <span class="nav-text">文件查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wc命令"><span class="nav-number">4.1.</span> <span class="nav-text">wc命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令介绍-3"><span class="nav-number">4.1.1.</span> <span class="nav-text">命令介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令使用实例-3"><span class="nav-number">4.1.2.</span> <span class="nav-text">命令使用实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grep命令"><span class="nav-number">4.2.</span> <span class="nav-text">grep命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令使用实例-4"><span class="nav-number">4.2.1.</span> <span class="nav-text">命令使用实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort命令"><span class="nav-number">4.3.</span> <span class="nav-text">sort命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令使用实例-5"><span class="nav-number">4.3.1.</span> <span class="nav-text">命令使用实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tail命令"><span class="nav-number">4.4.</span> <span class="nav-text">tail命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令使用实例-6"><span class="nav-number">4.4.1.</span> <span class="nav-text">命令使用实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#head命令"><span class="nav-number">4.5.</span> <span class="nav-text">head命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令使用实例-7"><span class="nav-number">4.5.1.</span> <span class="nav-text">命令使用实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find命令"><span class="nav-number">4.6.</span> <span class="nav-text">find命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令使用实例-8"><span class="nav-number">4.6.1.</span> <span class="nav-text">命令使用实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#du命令"><span class="nav-number">4.7.</span> <span class="nav-text">du命令</span></a></li></ol></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </section>
-      
-
-    </div>
-  </aside>
-
-
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
-  
-  &copy; &nbsp;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="icon-next-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">F.G.P</span>
+</section>
+</main>
+<footer class="footer" id="footer">
+<div class="copyright">
+<i class="fa fa-copyright">2015-2017</i>
 </div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
+</footer>
 </div>
 
 
- </div>
-    </footer>
 
-    <div class="back-to-top"></div>
-  </div>
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  
-  
-    
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"in4secblog"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
-  	<script src="/js/ua-parser.min.js"></script>
-  	<script src="/js/hook-duoshuo.js"></script>
-  
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
-
-
-
-  <script type="text/javascript" src="/js/nav-toggle.js"></script>
-
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
-      }
-    }
-  });
-</script>
-
-
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-    });
-  </script>
-
-  
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
 </body>
 </html>
