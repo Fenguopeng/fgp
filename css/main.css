@@ -386,6 +386,20 @@ strong {
 .copyright {
   padding-top: 20px;
 }
+.posts-collapse .post-time {
+  font-size: 0.9em;
+  color: #666;
+}
+.posts-collapse .post-title a {
+  font-size: 0.8em;
+  color: #000;
+  text-decoration: none;
+  margin-left: 15px;
+}
+.posts-collapse .post-title a:hover {
+  border-bottom: 3px solid #f30;
+  color: #f30;
+}
 body {
   background: #303538 url("https://bing.ioliu.cn/v1/rand?w=1920&h=1080") no-repeat fixed center center;
   padding: 0;
